@@ -1,0 +1,14 @@
+{
+    "imageURL": "./img/charachters.png",
+    "tileSize": 0,
+
+    "images": [
+        {
+            "name": "player",
+            "pos": [0, 0],
+            "width": 16,
+            "height": 16,
+            "alpha": true
+        }
+    ]
+}
