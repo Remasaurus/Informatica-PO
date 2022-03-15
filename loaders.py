@@ -73,6 +73,7 @@ def load_menu_keyboard(event_handler, buttons):
 
 
 def load_keyboard(event_handler, player):
+    """Adds all keypress functionaly to given player"""
     def left(keystate):
         if keystate:
             player.components["Move"].dir -= 1
