@@ -1,0 +1,19 @@
+{
+    "imageURL": "./img/tiles.png",
+    "tileSize": 16,
+
+    "tiles": [
+        {
+            "name": "red",
+            "pos": [0, 0]
+        },
+        {
+            "name": "black",
+            "pos": [3, 0]
+        },
+        {
+            "name": "blue",
+            "pos": [1, 0]
+        }
+    ]
+}

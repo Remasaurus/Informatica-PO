@@ -1,0 +1,86 @@
+{
+    "gravity": 1500,
+    "tileSheet": "./tiles.json",
+    "charachterSheet": "./charachters.json",
+
+    "spawnpoint": [2, 60],
+
+    "ambient": [255, 255, 255],
+
+    "layers": [
+        {
+            "tiles": [
+                {
+                    "name": "blue",
+                    "type": "air",
+                    "range": [
+                        [0, 0],
+                        [64, 64]
+                    ]
+                },
+                {
+                    "name": "black",
+                    "type": "solid",
+                    "range": [
+                        [0, 62],
+                        [64, 64]
+                    ]
+                },
+                {
+                    "name": "black",
+                    "type": "solid",
+                    "range": [
+                        [64, 0],
+                        [65, 64]
+                    ]
+                },
+                {
+                    "name": "black",
+                    "type": "solid",
+                    "range": [
+                        [5, 50],
+                        [10, 52]
+                    ]
+                },
+                {
+                    "name": "black",
+                    "type": "solid",
+                    "range": [
+                        [2, 40],
+                        [5, 42]
+                    ]
+                },
+                {
+                    "name": "black",
+                    "type": "solid",
+                    "range": [
+                        [12, 55],
+                        [15, 57]
+                    ]
+                },
+                {
+                    "name": "black",
+                    "type": "solid",
+                    "range": [
+                        [3, 58],
+                        [7, 60]
+                    ]
+                }
+            ]
+        }
+    ],
+
+    "lights": [
+        {
+            "color": [255,255,255],
+            "pos": [30, 53],
+            "size": 500
+        },
+        {
+            "color": [0, 255, 255],
+            "pos": [40, 53],
+            "size": 1000
+        }
+    ]
+
+}
