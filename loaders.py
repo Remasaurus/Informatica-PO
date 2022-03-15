@@ -117,6 +117,6 @@ def load_spritesheet(name: str) -> Spritesheet:
         if "anims" in data:
             for anim in data["anims"]:
                 s.define_anim(anim["name"], create_anim(
-                    anim["pos"], anim["frameLen"]))
+                    anim["frames"], anim["frameLen"]))
 
         return s
