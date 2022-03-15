@@ -1,3 +1,4 @@
+from platformdirs import sys
 import pygame
 import json
 from Grid import Grid
@@ -93,10 +94,15 @@ def load_keyboard(event_handler, player):
     def run(keystate):
         player.components["Move"].run = keystate
 
+    def quit(keystate):
+        sys.exit()
+
     event_handler.append_key(pygame.K_a, left)
     event_handler.append_key(pygame.K_d, right)
     event_handler.append_key(pygame.K_SPACE, jump)
     event_handler.append_key(pygame.K_LSHIFT, run)
+    event_handler.append_key(pygame.K_ESCAPE, quit)
+
 
 
 def load_spritesheet(name: str) -> Spritesheet:
