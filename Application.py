@@ -3,7 +3,6 @@ from Button import Button
 from loaders import load_level, load_menu_keyboard
 from Level import Level
 from EventHandler import EventHandler
-from Camera import Camera
 import json
 import pygame
 
@@ -14,10 +13,8 @@ class Application():
     """Application entrypoint."""
 
     def __init__(self) -> None:
-        self.window = create_window()
-        self.camera = Camera()
+        self.screen = create_window()
         self.clock = pygame.time.Clock()
-        self.level = Level()
         self.event_handler = EventHandler()
 
     def main_menu(self):
@@ -26,8 +23,8 @@ class Application():
     def game(self, level):
         self.event_handler.clear()
 
-        self.level = load_level(level, self.event_handler)
-        self.level.particle_system.emitters.append(FireEmitter((50, 50), 50))
+        level = load_level(level, self.event_handler)
+        level.particle_system.emitters.append(FireEmitter((50, 50), 50))
 
         while True:
             delta_time = self.clock.tick()/1000
@@ -38,13 +35,8 @@ class Application():
 
             self.event_handler.poll()
 
-            if self.level.entities[0].pos.x > 100:
-                self.camera.pos.x = self.level.entities[0].pos.x - 100
-
-            self.camera.pos.y = self.level.entities[0].pos.y - 200
-
-            self.level.update(delta_time)
-            self.level.draw(self.window, self.camera)
+            level.update(delta_time)
+            level.draw(self.screen)
 
             pygame.display.flip()
 
@@ -65,10 +57,10 @@ class Application():
         load_menu_keyboard(self.event_handler, buttons)
 
         while True:
-            self.window.fill((200, 50, 10))
+            self.screen.fill((200, 50, 10))
 
             for i, button in enumerate(buttons):
-                button.draw(self.window)
+                button.draw(self.screen)
 
                 if button.pressed:
                     if i == 0:

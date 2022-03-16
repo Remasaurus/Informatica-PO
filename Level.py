@@ -2,6 +2,7 @@ import pygame
 from Collider import Collider
 from Compositor import Compositor
 from ParticleSystem import ParticleSystem
+from Camera import Camera
 
 
 class Level():
@@ -12,6 +13,7 @@ class Level():
         self.compositor = Compositor()
         self.gravity = 10
         self.particle_system = ParticleSystem()
+        self.camera = Camera()
 
     def update(self, delta_time):
         """Update all tiles and entities in the level."""
@@ -19,8 +21,10 @@ class Level():
             entity.update(delta_time, self)
 
         self.particle_system.update(delta_time)
+        
+        self.camera.focus(self.entities[0])
 
-    def draw(self, surface, camera):
+    def draw(self, surface):
         """Draw all tiles and entities in the level."""
-        self.compositor.draw(surface, camera)
-        self.particle_system.draw(surface, camera)
+        self.compositor.draw(surface, self.camera)
+        self.particle_system.draw(surface, self.camera)

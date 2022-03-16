@@ -3,7 +3,7 @@ pygame.init()
 
 FONT = pygame.font.SysFont(None, 48)
 
-
+# TODO: Fix this class in general
 class Button():
     def __init__(self, pos, size, rect_color, text_color, text) -> None:
         self.rect = pygame.Rect(pos[0], pos[1], size[0], size[1])
