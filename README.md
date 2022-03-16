@@ -8,3 +8,18 @@ Moos Teunisse
 Floris Walet
 
 Really cool
+
+# TO DO
+- Documentation
+- Art
+- Dash component
+- Wall jump component
+- Give level parallax
+- Level design
+- Coins (Doge coin)
+- NFT
+- Helper that explains the game and follows the player
+- Main menu
+- Settings (escape)
+- Design how text is going to be displayed 
+- Cutscenes
