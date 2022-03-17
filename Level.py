@@ -6,6 +6,7 @@ from Camera import Camera
 
 
 class Level():
+    """Contains all objects that are needed in a level."""
     def __init__(self):
         self.entities = []
         self.collider = Collider(0)

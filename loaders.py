@@ -13,6 +13,7 @@ from layers import BackgroundLayer, EntityLayer, LightingLayer
 
 
 def load_level(name: str, event_handler) -> Level:
+    """Creates level and intializes it with given the json that matches the name."""
     with open(f"./levels/{name}.json", "r") as f:
         data = json.load(f)
         level = Level()
@@ -53,6 +54,7 @@ def load_level(name: str, event_handler) -> Level:
 
 
 def load_player():
+    """Creates player and adds all necessary components."""
     player = Player()
     player.add_component(Physics())
     player.add_component(Move())
@@ -62,7 +64,9 @@ def load_player():
     return player
 
 
+# FIXME: Disgusting 
 def load_menu_keyboard(event_handler, buttons):
+    """Loads keyboard that is needed for the menu."""
     def callback(state):
         mouse = pygame.mouse.get_pos()
         for button in buttons:
@@ -107,6 +111,7 @@ def load_keyboard(event_handler, player):
 
 
 def load_spritesheet(name: str) -> Spritesheet:
+    """Create spritesheets and prerenders all sprites in the json."""
     with open(name, "r") as f:
         data = json.load(f)
         im = pygame.image.load(data["imageURL"])

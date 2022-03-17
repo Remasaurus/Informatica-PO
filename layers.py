@@ -28,8 +28,13 @@ class LightingLayer(Layer):
                             0.5 - size * 0.5, y * self.spritesheet.tile_size + self.spritesheet.tile_size * 0.5 - size * 0.5, buffer])
 
     def draw(self, surface, camera):
+        """Draws all lighting on the given surface."""
         self.buffer.fill(self.ambient)
 
+
+        # OpenGL way, looks trash when background is a solid color
+        # Final pick will be decided when we have pixel art.
+        # TODO: Pick solution.
         for light in self.lights:
 
             self.buffer.blit(
@@ -37,6 +42,8 @@ class LightingLayer(Layer):
 
         surface.blit(self.buffer, (0, 0), special_flags=pygame.BLEND_RGB_MULT)
 
+        # Lazy way but looks way better. 
+        
         # self.buffer.fill(self.ambient)
         # surface.blit(self.buffer, (0, 0), special_flags=pygame.BLEND_RGB_MULT)
 
@@ -47,7 +54,7 @@ class LightingLayer(Layer):
 
 
 class EntityLayer(Layer):
-    """Layer class that contains all entities"""
+    """Layer class that contains all entities."""
 
     def __init__(self, spritesheet: Spritesheet, entities: list) -> None:
         self.spritesheet = spritesheet
@@ -82,6 +89,7 @@ class BackgroundLayer(Layer):
         self.prev_startY = -1
 
     def redraw(self, camera):
+        """Redraws background if necessary."""
         startX = self.grid.to_index(camera.pos.x)
         startY = self.grid.to_index(camera.pos.y)
 

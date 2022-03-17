@@ -3,11 +3,12 @@ from Grid import Grid
 
 
 class Collider():
-
+    """Contains all tiles in the level and handles interactions."""
     def __init__(self, tile_size) -> None:
         self.grid = Grid(tile_size)
 
     def checkX(self, entity):
+        """Checks if entity had collided when any tiles on the x-axis."""
         if entity.vel.x > 0:
             x = entity.pos.x + entity.size.x
         elif entity.vel.x < 0:
@@ -32,6 +33,7 @@ class Collider():
                     entity.obstruct(Sides.LEFT)
 
     def checkY(self, entity):
+        """Checks if entity had collided when any tiles on the y-axis."""
         if entity.vel.y > 0:
             y = entity.pos.y + entity.size.y
         elif entity.vel.y < 0:

@@ -2,23 +2,28 @@ import pygame
 import sys
 
 
+# FIXME: Fix this class in general
 class EventHandler():
-    """ """
+    """Hides the pygame eventhandler."""
     def __init__(self):
         self.key_callback = dict()
         self.mouse_callback = None
 
     def append_key(self, key, key_callback):
+        """Add key to eventlistener, calls callback on keyevent."""
         self.key_callback[key] = key_callback
 
     def append_mouse(self, callback):
+        """Add mouseevent, calls callback on mouseevent."""
         self.mouse_callback = callback
 
     def clear(self):
+        """Removes all events from handler."""
         self.key_callback.clear()
         self.mouse_callback = None
 
     def poll(self):
+        """Calls all callbacks if event happened."""
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()

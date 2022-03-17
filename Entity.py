@@ -17,17 +17,21 @@ class Entity():
         pass
 
     def add_component(self, component):
+        """Adds component to entity with classname as key."""
         self.components[type(component).__name__] = component
 
     def obstruct(self, side):
+        """Tell components a collision event happened."""
         for component in self.components.values():
             component.obstruct(self, side)
 
     def draw(self, surface, camera, spritesheet):
+        """Draw square on the surface at positon."""
         pygame.draw.rect(surface, pygame.Color(255, 105, 180), pygame.Rect(
             self.pos.x - camera.pos.x, self.pos.y - camera.pos.y, self.size.x, self.size.y))
 
     def update(self, delta_time, level):
+        """Calls updates on all the components."""
         for component in self.components.values():
             component.update(self, delta_time, level)
 

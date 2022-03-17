@@ -1,7 +1,8 @@
 import math
 import pygame
 
-
+# Holds all the base classes.
+# Not really happy with current solution
 class ParticleEmitter():
     def __init__(self, pos, intensity, duration=math.inf):
         self.particles = []

@@ -3,7 +3,7 @@ import random
 from particles.Particle import ParticleEmitter, Particle
 import pygame
 
-
+# Might change this up later
 class FireEmitter(ParticleEmitter):
     def __init__(self, pos, intensity):
         super().__init__(pos, intensity)

@@ -2,6 +2,7 @@ from enum import Enum, auto
 
 
 class Sides(Enum):
+    """All sides the entity can possible collide with."""
     LEFT = auto()
     RIGHT = auto()
     TOP = auto()
@@ -9,6 +10,7 @@ class Sides(Enum):
 
 
 class Component():
+    """Baseclass for all components."""
     def __init__(self):
         pass
 

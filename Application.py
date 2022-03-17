@@ -1,7 +1,6 @@
 import time
 from Button import Button
 from loaders import load_level, load_menu_keyboard
-from Level import Level
 from EventHandler import EventHandler
 import json
 import pygame
@@ -19,8 +18,10 @@ class Application():
 
     def main_menu(self):
         pass
-
+    
+    # TODO: Better name
     def game(self, level):
+        """Loads level and enters game loop."""
         self.event_handler.clear()
 
         level = load_level(level, self.event_handler)

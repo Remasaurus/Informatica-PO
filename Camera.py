@@ -3,12 +3,12 @@ import random
 import pygame
 
 def clamp(minimum, maximum, val):
+    """Return the value clamped between minimum and maximum."""
     return max(minimum, min(maximum, val))
 
 
 class Camera():
     """Container for the screensize and pos."""
-
     def __init__(self) -> None:
         self.size = pygame.Vector2(pygame.display.get_surface().get_size())
         self.pos = pygame.Vector2(0, 0)
@@ -17,11 +17,13 @@ class Camera():
         self.clock = pygame.time.Clock()
         
     def shake(self, duration: float, intensity: int):
+        """Shakes the camera for a given duration."""
         self.shake_time = duration
         self.shake_intensity = intensity
         self.clock.tick()
         
     def focus(self, entity):
+        """Positions camera at the entities location."""
         offset = [0, 0]
         if self.shake_time > 0:
             self.shake_time -= self.clock.tick()/1000
