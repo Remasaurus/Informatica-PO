@@ -25,7 +25,7 @@ class Application():
         self.event_handler.clear()
 
         level = load_level(level, self.event_handler)
-        level.particle_system.emitters.append(FireEmitter((50, 50), 50))
+        # level.particle_system.emitters.append(FireEmitter((50, 50), 50))
 
         while True:
             delta_time = self.clock.tick()/1000
