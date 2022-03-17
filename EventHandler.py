@@ -3,6 +3,7 @@ import sys
 
 
 class EventHandler():
+    """ """
     def __init__(self):
         self.key_callback = dict()
         self.mouse_callback = None
