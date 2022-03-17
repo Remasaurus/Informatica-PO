@@ -7,7 +7,7 @@ Daniel de Haas
 Moos Teunisse
 Floris Walet
 
-Really cool
+Really, really cool
 
 # TO DO
 - Documentation
