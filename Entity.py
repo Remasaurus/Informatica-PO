@@ -10,6 +10,11 @@ class Entity():
         self.size = pygame.Vector2(16, 16)
         self.life_time = 0
         self.components = dict()
+        self.scale = [1, 1]
+        
+    @property
+    def img(self):
+        pass
 
     def add_component(self, component):
         self.components[type(component).__name__] = component

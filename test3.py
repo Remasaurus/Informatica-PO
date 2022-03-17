@@ -4,6 +4,9 @@ from typing import Iterator
 import pygame
 from Application import create_window
 
+
+# Idea for letter by letter text
+
 letter_dict = dict()
 letters = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 font = pygame.font.SysFont(None, 48)

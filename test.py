@@ -2,6 +2,9 @@ import pygame
 from Application import create_window
 
 
+# Idea from lighting
+# How I would do it in openGL
+
 AMBIENT = pygame.Color(128, 128, 128)
 
 DIFFUSE = pygame.Color(255, 255, 0)

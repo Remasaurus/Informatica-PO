@@ -6,6 +6,9 @@
     "spawnpoint": [2, 60],
 
     "ambient": [255, 255, 255],
+    "backgroundImages": [
+        ["./img/E6Coa.png", 0]
+    ],
 
     "layers": [
         {
