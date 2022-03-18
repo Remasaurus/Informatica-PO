@@ -1,17 +1,16 @@
-import pygame
-from Collider import Collider
-from Compositor import Compositor
 from ParticleSystem import ParticleSystem
 from Camera import Camera
+from Compositor import Compositor
+from Collider import Collider
 
 
 class Level():
     """Contains all objects that are needed in a level."""
     def __init__(self):
         self.entities = []
+        self.compositor = Compositor()
         self.collider = Collider(0)
         self.total_time = 0
-        self.compositor = Compositor()
         self.gravity = 10
         self.particle_system = ParticleSystem()
         self.camera = Camera()

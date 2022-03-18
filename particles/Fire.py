@@ -11,7 +11,9 @@ class FireEmitter(ParticleEmitter):
             self.particles.append(FireParticle(self.pos.x, self.pos.y))
 
     def update(self, delta_time):
+        # For testing purposes
         self.pos = pygame.Vector2(pygame.mouse.get_pos())
+        # ---------------------
         for i, particle in sorted(enumerate(self.particles)):
             particle.update(delta_time)
 
@@ -50,15 +52,15 @@ class FireParticle(Particle):
             self.r = 1
 
     def draw(self, surface, camera):
+        # TODO: Draw relatice to camera
         size = 2 * self.r * self.layers * self.layers * self.glow
         self.buffer = pygame.Surface(
             (size, size), pygame.SRCALPHA)
         for i in range(self.layers, -1, -1):
-            alpha = 255 - i * (255 // self.layers - 5)
-            if alpha < 0:
-                alpha = 0
+            alpha = max(255 - i * (255 // self.layers - 5), 0)
+            
 
-            radius = self.r * i * i * self.glow
+            radius = self.r * i ** 2 * self.glow
 
             if self.r == 4 or self.r == 3:
                 r, g, b = (255, 0, 0)
