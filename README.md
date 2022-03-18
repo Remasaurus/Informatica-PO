@@ -11,11 +11,13 @@ Really, really cool
 
 # TO DO
 - Documentation
+- Squish
 - Art
 - Dash component
 - Wall jump component
 - Give level parallax
 - Level design
+- Boss battle
 - Coins (Doge coin)
 - NFT
 - Helper that explains the game and follows the player
