@@ -67,7 +67,7 @@ def load_player():
 # FIXME: Disgusting 
 def load_menu_keyboard(event_handler, buttons):
     """Loads keyboard that is needed for the menu."""
-    def callback(state):
+    def callback(state, button):
         mouse = pygame.mouse.get_pos()
         for button in buttons:
             if button.rect.collidepoint(mouse):

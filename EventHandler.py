@@ -37,8 +37,8 @@ class EventHandler():
 
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if self.mouse_callback:
-                    self.mouse_callback(1)
+                    self.mouse_callback(1, event.button)
 
             elif event.type == pygame.MOUSEBUTTONUP:
                 if self.mouse_callback:
-                    self.mouse_callback(0)
+                    self.mouse_callback(0, event.button)
