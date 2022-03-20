@@ -96,8 +96,8 @@ class BackgroundLayer(Layer):
         startX = self.grid.to_index(camera.pos.x)
         startY = self.grid.to_index(camera.pos.y)
 
-        endX = startX + self.grid.to_index(camera.size.x)
-        endY = startY + self.grid.to_index(camera.size.y)
+        endX = self.grid.to_index(camera.size.x + camera.pos.x)
+        endY = self.grid.to_index(camera.size.y + camera.pos.y)
 
         if startX == self.prev_startX and startY == self.prev_startY and endX == self.prev_endX and endY == self.prev_endY:
             return
@@ -119,7 +119,6 @@ class BackgroundLayer(Layer):
 
 
         # + 1, because the surface has to draw the end too, but range ends one beforehand 
-        # + 1, because when the camera size isnt divisible by 16 and little extra will be shown, which also has be drawn.
         for x in range(startX, endX + 2):
             for y in range(startY, endY + 2):
                 name = self.grid.get(x, y)
