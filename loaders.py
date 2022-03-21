@@ -1,4 +1,3 @@
-from platformdirs import sys
 import pygame
 import json
 from Grid import Grid
@@ -64,7 +63,7 @@ def load_player():
     return player
 
 
-# FIXME: Disgusting 
+# FIXME: Disgusting
 def load_menu_keyboard(event_handler, buttons):
     """Loads keyboard that is needed for the menu."""
     def callback(state):
@@ -107,7 +106,6 @@ def load_keyboard(event_handler, player):
     event_handler.append_key(pygame.K_SPACE, jump)
     event_handler.append_key(pygame.K_LSHIFT, run)
     event_handler.append_key(pygame.K_ESCAPE, quit)
-
 
 
 def load_spritesheet(name: str) -> Spritesheet:
