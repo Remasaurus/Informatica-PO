@@ -1,4 +1,3 @@
-from platformdirs import sys
 import pygame
 import json
 from Grid import Grid
