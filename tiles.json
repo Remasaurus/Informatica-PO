@@ -4,7 +4,7 @@
 
     "tiles": [
         {
-            "name": "BrickOnelight",
+            "name": "BrickOneLight",
             "pos": [0, 0]
         },
         {
@@ -36,7 +36,7 @@
             "pos": [1, 2]
         },
         {
-            "name": "Test"
+            "name": "Test",
             "pos": [2, 2]
         }
     ]
