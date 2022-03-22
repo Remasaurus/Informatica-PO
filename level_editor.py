@@ -219,7 +219,8 @@ def main():
                                 changed.clear()
 
                         else:
-                            changed.pop(-1)
+                            if changed:
+                                changed.pop(-1)
 
                         return
 
