@@ -1,6 +1,5 @@
 from components.Component import Component
 import pygame
-from components.Dash import lerp
 
 class Follower(Component):
     def __init__(self):
