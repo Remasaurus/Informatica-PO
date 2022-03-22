@@ -46,12 +46,12 @@ class TileButton(Button):
 
 class TextBox(Button):
     def __init__(self, pos, size) -> None:
-        super().__init__(pos, size, (0, 0, 0), (255, 255, 255), "")
+        super().__init__(pos, size, (255, 222, 173), (0, 0, 0), "")
         self.typing = False
     
 class Box(Button):
     def __init__(self, pos, size):
-        super().__init__(pos, size, (0, 0, 0), (255, 255, 255), "")
+        super().__init__(pos, size, (255, 222, 173), (0, 0, 0), "")
 
 
 class Selection():
@@ -136,8 +136,8 @@ def main():
     ]
 
     actionButtons = [
-        Button((0, 0), (30, 50), (0, 0, 0), (255, 255, 255), "Save"),
-        Button((0, 0), (30, 50), (0, 0, 0), (255, 255, 255), "Undo")
+        Button((0, 0), (30, 50), (255, 222, 173), (0, 0, 0), "Save"),
+        Button((0, 0), (30, 50), (255, 222, 173), (0, 0, 0), "Undo")
 
     ]
 
@@ -297,7 +297,7 @@ def main():
 
         pygame.transform.scale(draw_surface, screen.get_size(), screen)
 
-        pygame.draw.rect(screen, (0, 0, 0), pygame.Rect(
+        pygame.draw.rect(screen, (255, 222, 173), pygame.Rect(
             0, 0, screen_size[0] * 0.1, screen_size[1]))
         
         

@@ -38,6 +38,11 @@
         {
             "name": "Test",
             "pos": [2, 2]
+        },
+        {
+            "name": "RockBackground",
+            "pos": [0, 3]
+            
         }
     ]
 }
