@@ -8,10 +8,14 @@ class EventHandler():
     def __init__(self):
         self.key_callback = dict()
         self.mouse_callback = None
+        self.hook = None
 
     def append_key(self, key, key_callback):
         """Add key to eventlistener, calls callback on keyevent."""
         self.key_callback[key] = key_callback
+
+    def append_hook(self, callback):
+        self.hook = callback
 
     def append_mouse(self, callback):
         """Add mouseevent, calls callback on mouseevent."""
@@ -25,6 +29,9 @@ class EventHandler():
     def poll(self):
         """Calls all callbacks if event happened."""
         for event in pygame.event.get():
+            if self.hook:
+                self.hook(event)
+                
             if event.type == pygame.QUIT:
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
@@ -37,8 +44,8 @@ class EventHandler():
 
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if self.mouse_callback:
-                    self.mouse_callback(1)
+                    self.mouse_callback(1, event.button)
 
             elif event.type == pygame.MOUSEBUTTONUP:
                 if self.mouse_callback:
-                    self.mouse_callback(0)
+                    self.mouse_callback(0, event.button)

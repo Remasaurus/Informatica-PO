@@ -1,5 +1,6 @@
 import pygame
 import json
+import sys
 from Grid import Grid
 from Level import Level
 from Spritesheet import Spritesheet, create_anim
@@ -35,8 +36,7 @@ def load_level(name: str, event_handler) -> Level:
                 [start, end] = tile["range"]
                 for x in range(start[0], end[0]):
                     for y in range(start[1], end[1]):
-                        if tile["type"] == "solid":
-                            collider_grid.set(x, y, "solid")
+                        collider_grid.set(x, y, tile["type"])
 
         level.collider.grid = collider_grid
 
@@ -66,7 +66,7 @@ def load_player():
 # FIXME: Disgusting
 def load_menu_keyboard(event_handler, buttons):
     """Loads keyboard that is needed for the menu."""
-    def callback(state):
+    def callback(state, button):
         mouse = pygame.mouse.get_pos()
         for button in buttons:
             if button.rect.collidepoint(mouse):
@@ -106,7 +106,10 @@ def load_keyboard(event_handler, player):
     event_handler.append_key(pygame.K_SPACE, jump)
     event_handler.append_key(pygame.K_LSHIFT, run)
     event_handler.append_key(pygame.K_ESCAPE, quit)
-
+    event_handler.append_key(pygame.K_LEFT, left)
+    event_handler.append_key(pygame.K_RIGHT, right)
+    event_handler.append_key(pygame.K_UP, jump)
+    event_handler.append_key(pygame.K_RSHIFT, run)
 
 def load_spritesheet(name: str) -> Spritesheet:
     """Create spritesheets and prerenders all sprites in the json."""

@@ -82,7 +82,7 @@ def create_window() -> pygame.Surface:
         data2 = json.load(f2)
 
         screen = pygame.display.set_mode(
-            (data["window"]["width"] * data2["tileSize"], data["window"]["height"] * data2["tileSize"]),  pygame.SCALED | pygame.RESIZABLE)
+            (data["window"]["width"] * data2["tileSize"], data["window"]["height"] * data2["tileSize"]), pygame.RESIZABLE)
         pygame.display.set_caption(
             data["window"]["caption"])
 

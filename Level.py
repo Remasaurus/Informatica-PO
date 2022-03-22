@@ -1,3 +1,4 @@
+import pygame
 from ParticleSystem import ParticleSystem
 from Camera import Camera
 from Compositor import Compositor
@@ -26,5 +27,9 @@ class Level():
 
     def draw(self, surface):
         """Draw all tiles and entities in the level."""
-        self.compositor.draw(surface, self.camera)
-        self.particle_system.draw(surface, self.camera)
+        draw_surface = pygame.Surface(self.camera.size)
+        
+        self.compositor.draw(draw_surface, self.camera)
+        self.particle_system.draw(draw_surface, self.camera)
+        
+        pygame.transform.scale(draw_surface, surface.get_size(), surface)

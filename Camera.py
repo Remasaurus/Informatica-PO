@@ -22,6 +22,11 @@ class Camera():
         self.shake_intensity = intensity
         self.clock.tick()
         
+        
+    @property
+    def aspect_ratio(self):
+        return self.size.x/self.size.y
+        
     def focus(self, entity):
         """Positions camera at the entities location."""
         offset = [0, 0]

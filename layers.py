@@ -1,3 +1,4 @@
+from math import ceil
 import pygame
 from Camera import Camera
 from Grid import Grid
@@ -87,21 +88,28 @@ class BackgroundLayer(Layer):
         self.buffer = pygame.Surface(window_size)
         self.prev_startX = -1
         self.prev_startY = -1
+        self.prev_endX = -1
+        self.prev_endY = -1
 
     def redraw(self, camera):
         """Redraws background if necessary."""
         startX = self.grid.to_index(camera.pos.x)
         startY = self.grid.to_index(camera.pos.y)
 
-        if startX == self.prev_startX and startY == self.prev_startY:
+        endX = self.grid.to_index(camera.size.x + camera.pos.x)
+        endY = self.grid.to_index(camera.size.y + camera.pos.y)
+
+        if startX == self.prev_startX and startY == self.prev_startY and endX == self.prev_endX and endY == self.prev_endY:
             return
+
+        size = camera.size + (self.spritesheet.tile_size * 30, self.spritesheet.tile_size * 30)
+        self.buffer = pygame.Surface(size)
 
         self.prev_startX = startX
         self.prev_startY = startY
-
-        endX = startX + self.grid.to_index(camera.size.x)
-        endY = startY + self.grid.to_index(camera.size.y)
-
+        self.prev_endX = endX
+        self.prev_endY = endY
+        
         # for x in range(startX, endX + 1):
         #     col = self.grid.get_col(x)
         #     for y, name in enumerate(col):
@@ -109,8 +117,10 @@ class BackgroundLayer(Layer):
         #             self.spritesheet.draw_tile(
         #                 name, self.buffer, x - startX, y)
 
-        for x in range(startX, endX + 1):
-            for y in range(startY, endY + 1):
+
+        # + 1, because the surface has to draw the end too, but range ends one beforehand 
+        for x in range(startX, endX + 2):
+            for y in range(startY, endY + 2):
                 name = self.grid.get(x, y)
                 if name:
                     self.spritesheet.draw_tile(
