@@ -1,19 +1,48 @@
 {
-    "imageURL": "./img/tiles.png",
+    "imageURL": "./img/BrickSpriteSheet.png",
     "tileSize": 16,
 
     "tiles": [
         {
-            "name": "red",
+            "name": "BrickOneLight",
             "pos": [0, 0]
         },
         {
-            "name": "black",
-            "pos": [3, 0]
+            "name": "BrickOne",
+            "pos": [1, 0]
         },
         {
-            "name": "blue",
-            "pos": [1, 0]
+            "name": "Brick",
+            "pos": [2, 0]
+        },
+        {
+            "name": "BrickMoldy",
+            "pos": [0, 1]
+        },
+        {
+            "name": "BrickLight",
+            "pos": [1, 1]
+        },
+        {
+            "name": "BrickLightMoldy",
+            "pos": [2, 1]
+        },
+        {
+            "name": "BrickCracked",
+            "pos": [0, 2]
+        },
+        {
+            "name": "BrickCrackedMoldy",
+            "pos": [1, 2]
+        },
+        {
+            "name": "Test",
+            "pos": [2, 2]
+        },
+        {
+            "name": "RockBackground",
+            "pos": [0, 3]
+            
         }
     ]
 }
