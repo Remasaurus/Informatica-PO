@@ -35,8 +35,7 @@ def load_level(name: str, event_handler) -> Level:
                 [start, end] = tile["range"]
                 for x in range(start[0], end[0]):
                     for y in range(start[1], end[1]):
-                        if tile["type"] == "solid":
-                            collider_grid.set(x, y, "solid")
+                        collider_grid.set(x, y, tile["type"])
 
         level.collider.grid = collider_grid
 
