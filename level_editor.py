@@ -1,5 +1,4 @@
 import json
-import select
 import pygame
 from Camera import Camera
 from Grid import Grid
