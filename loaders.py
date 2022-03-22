@@ -4,6 +4,7 @@ import sys
 from Grid import Grid
 from Level import Level
 from Spritesheet import Spritesheet, create_anim
+from components.Dash import Dash
 from components.jump import Jump
 from components.move import Move
 from components.physics import Physics
@@ -59,6 +60,7 @@ def load_player():
     player.add_component(Move())
     player.add_component(Jump())
     player.add_component(WallSlide())
+    player.add_component(Dash())
 
     return player
 
@@ -95,6 +97,10 @@ def load_keyboard(event_handler, player):
         else:
             player.components["Jump"].cancel()
 
+    def dash(keystate):
+        if keystate:
+            player.components["Dash"].start(player)
+
     def run(keystate):
         player.components["Move"].run = keystate
 
@@ -110,6 +116,7 @@ def load_keyboard(event_handler, player):
     event_handler.append_key(pygame.K_RIGHT, right)
     event_handler.append_key(pygame.K_UP, jump)
     event_handler.append_key(pygame.K_RSHIFT, run)
+    event_handler.append_key(pygame.K_LCTRL, dash)
 
 def load_spritesheet(name: str) -> Spritesheet:
     """Create spritesheets and prerenders all sprites in the json."""
