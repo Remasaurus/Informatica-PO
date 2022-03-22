@@ -1,15 +1,17 @@
 import pygame
 import json
 import sys
-from Grid import Grid
 from Level import Level
+from Grid import Grid
 from Spritesheet import Spritesheet, create_anim
 from components.Dash import Dash
 from components.jump import Jump
 from components.move import Move
 from components.physics import Physics
 from components.wallSlide import WallSlide
+from components.Follower import Follower
 from entities.Player import Player
+from entities.Helper import Helper
 from layers import BackgroundLayer, EntityLayer, LightingLayer
 
 
@@ -23,10 +25,15 @@ def load_level(name: str, event_handler) -> Level:
         charachter_spritesheet = load_spritesheet(data["charachterSheet"])
         collider_grid = Grid(tile_spritesheet.tile_size)
         player = load_player()
+        helper = load_helper()
+        helper.follow(player)
+        
         player.pos.x = data["spawnpoint"][0] * tile_spritesheet.tile_size
         player.pos.y = data["spawnpoint"][1] * tile_spritesheet.tile_size
 
         level.entities.append(player)
+        level.entities.append(helper)
+        
         load_keyboard(event_handler, player)
 
         for layer in data["layers"]:
@@ -63,6 +70,15 @@ def load_player():
     player.add_component(Physics())
 
     return player
+
+
+def load_helper():
+    helper = Helper()
+    helper.add_component(Physics())
+    helper.add_component(Follower())
+    
+    return helper
+    
 
 
 # FIXME: Disgusting
