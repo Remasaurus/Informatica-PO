@@ -8,7 +8,7 @@ from Application import create_window
 from Button import Button
 
 
-LAYER = 0
+layer = 0
 SCALE = (0, 0)
 
 
@@ -44,12 +44,24 @@ class TileButton(Button):
         spritesheet.draw(self.img, surface, 0, 0)
 
 
+class TextBox(Button):
+    def __init__(self, pos, size) -> None:
+        super().__init__(pos, size, (0, 0, 0), (255, 255, 255), "")
+        self.typing = False
+    
+class Box(Button):
+    def __init__(self, pos, size):
+        super().__init__(pos, size, (0, 0, 0), (255, 255, 255), "")
+
+
 class Selection():
     def __init__(self):
         self.selected = []
         self.start = 0
         self.selecting = 0
         self.size = 0
+        
+        self.rect = pygame.Rect(0, 0, 5, 5)
 
     def update(self, grid: Grid, camera):
         if self.selecting:
@@ -59,22 +71,29 @@ class Selection():
 
             self.size = (mouse + camera.pos) - self.start
             if self.size[0] < 0 or self.size[1] < 0:
-                self.size = (0, 0)
-
-            x = self.start[0]
-            y = self.start[1]
+                self.rect.x = self.start[0] + self.size[0]
+                self.rect.y = self.start[1] + self.size[1]
+                
+                
+    
+            self.rect.x = min(self.start[0], self.start[0] + self.size[0])
+            self.rect.y = min(self.start[1], self.start[1] + self.size[1])
+        
+                
+            self.rect.width = abs(self.size[0])
+            self.rect.height = abs(self.size[1])
 
             self.selected = grid.get_by_range(
-                x, x + self.size[0], y, y + self.size[1])
+                self.rect.left, self.rect.right, self.rect.top, self.rect.bottom)
 
     def draw(self, surface, camera):
         if self.selecting:
-            buffer = pygame.Surface(self.size)
+            buffer = pygame.Surface(self.rect.size)
             buffer.fill((255, 255, 255))
 
             buffer.set_alpha(150)
 
-            surface.blit(buffer, self.start - camera.pos)
+            surface.blit(buffer, self.rect.topleft - camera.pos)
 
 
 def check_overlap(tiles):
@@ -123,15 +142,44 @@ def main():
     ]
 
     scroll = [0]
+    
+    typeBox = TextBox((0, 0), (100, 40))
+    layerBox = Box((0, 0), (40, 40))
+    layerBox.text = f"{layer}"
+    
+    def hook(event):
+        if event.type == pygame.KEYDOWN:
+            if typeBox.typing:
+                if event.key == pygame.K_BACKSPACE:
+                    typeBox.text = typeBox.text[:-1]
+                else:
+                    typeBox.text += event.unicode
+        
 
     def route(keystate, button):
+        global layer
         if button == pygame.BUTTON_LEFT:
+            if typeBox.rect.collidepoint(pygame.mouse.get_pos()):
+                typeBox.typing = True
+                return
+
+            typeBox.typing = False
+            
             if keystate:
+                if layerBox.rect.collidepoint(pygame.mouse.get_pos()):
+                    layer += 1
+                    layerBox.text = f"{layer}"
+                    return
+                
                 for i, button in enumerate(actionButtons):
                     if button.rect.collidepoint(pygame.mouse.get_pos()):
                         if i == 0:
                             with open(f"./levels/{name}.json", "r+") as f:
                                 data = json.load(f)
+                                if len(data["layers"]) <= layer:
+                                    for i in range(layer - len(data["layers"] + 1)):
+                                        data.append([])
+                                    
                                 for changes in changed:
                                     for tile in changes[0]:
                                         x = level.collider.grid.to_index(
@@ -139,7 +187,7 @@ def main():
                                         y = level.collider.grid.to_index(
                                             tile.y1)
 
-                                        level.compositor.layers[LAYER].grid.set(
+                                        level.compositor.layers[layer].grid.set(
                                             x, y, changes[1])
 
                                     startX = level.collider.grid.to_index(
@@ -152,10 +200,10 @@ def main():
                                     endY = level.collider.grid.to_index(
                                         changes[3][1] + changes[2][1])
 
-                                    data["layers"][LAYER]["tiles"].append(
+                                    data["layers"][layer]["tiles"].append(
                                         {
                                             "name": changes[1],
-                                            "type": "solid",
+                                            "type": changes[4],
                                             "range": [
                                                 [startX, startY],
                                                 [endX + 1, endY + 1]
@@ -163,7 +211,7 @@ def main():
                                         }
                                     )
 
-                                check_overlap(data["layers"][LAYER]["tiles"])
+                                check_overlap(data["layers"][layer]["tiles"])
 
                                 f.seek(0)
                                 f.truncate()
@@ -179,7 +227,7 @@ def main():
                     if button.rect.collidepoint(pygame.mouse.get_pos()):
                         changed.append(
                             [selection.selected, button.img,
-                                selection.start, selection.size]
+                                selection.start, selection.size, typeBox.text]
                         )
                         return
 
@@ -191,7 +239,14 @@ def main():
             selection.selecting = keystate
 
         elif button == pygame.BUTTON_RIGHT:
+            if keystate:            
+                if layerBox.rect.collidepoint(pygame.mouse.get_pos()):
+                    layer -= 1
+                    layerBox.text = f"{layer}"
+                    return
+                
             level.camera.drag(keystate)
+            
         elif button == pygame.BUTTON_WHEELDOWN:
             if pygame.Rect(0, 0, screen_size[0] * 0.1, screen_size[1]).collidepoint(pygame.mouse.get_pos()):
                 scroll[0] += 3
@@ -208,6 +263,8 @@ def main():
 
     event_handler.append_mouse(route)
     event_handler.append_key(pygame.K_ESCAPE, clear)
+    event_handler.append_hook(hook)
+    
 
     while True:
         draw_surface = pygame.Surface(level.camera.size)
@@ -242,6 +299,21 @@ def main():
 
         pygame.draw.rect(screen, (0, 0, 0), pygame.Rect(
             0, 0, screen_size[0] * 0.1, screen_size[1]))
+        
+        
+        typeBox.rect.x = screen_size[0] * 0.15
+        typeBox.rect.y = 10
+        typeBox.rect.width = screen_size[0] * 0.35
+        
+        
+        typeBox.draw(screen)
+        
+        layerBox.rect.x = screen_size[0] - 60
+        layerBox.rect.y = 60
+        
+        layerBox.draw(screen)
+        
+        
         for i, b in enumerate(actionButtons, 1):
             b.rect = pygame.Rect(screen_size[0] - 120 * i, 10, 100, 40)
             b.draw(screen)

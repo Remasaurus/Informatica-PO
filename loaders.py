@@ -1,5 +1,6 @@
 import pygame
 import json
+import sys
 from Grid import Grid
 from Level import Level
 from Spritesheet import Spritesheet, create_anim
@@ -105,6 +106,10 @@ def load_keyboard(event_handler, player):
     event_handler.append_key(pygame.K_SPACE, jump)
     event_handler.append_key(pygame.K_LSHIFT, run)
     event_handler.append_key(pygame.K_ESCAPE, quit)
+    event_handler.append_key(pygame.K_LEFT, left)
+    event_handler.append_key(pygame.K_RIGHT, right)
+    event_handler.append_key(pygame.K_UP, jump)
+    event_handler.append_key(pygame.K_RSHIFT, run)
 
 
 def load_spritesheet(name: str) -> Spritesheet:
