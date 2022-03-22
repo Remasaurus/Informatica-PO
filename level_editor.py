@@ -78,15 +78,22 @@ class Selection():
 
 
 def check_overlap(tiles):
-    # for tile in tiles:
-    #     ranges = [[]]
-    #     for other in tiles - tile:
-    #         if overlap(tile, other):
-    #             pop()
+    for i, tile in reversed(list(enumerate(tiles[:-1]))):
+        ranges = set()
+        for x in range(tile["range"][0][0], tile["range"][1][0]):
+            for y in range(tile["range"][0][1], tile["range"][1][1]):
+                ranges.add((x, y))
+        
+        for other in tiles[i + 1:]:
+            for x in range(other["range"][0][0], other["range"][1][0]):
+                for y in range(other["range"][0][1], other["range"][1][1]):
+                    ranges.discard((x, y))
+            
 
-    #     if not ranges:
-    #         pop
-    pass
+        if not ranges:
+            tiles.pop(i)
+                        
+            
 
 
 def main():
