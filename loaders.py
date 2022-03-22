@@ -56,11 +56,11 @@ def load_level(name: str, event_handler) -> Level:
 def load_player():
     """Creates player and adds all necessary components."""
     player = Player()
-    player.add_component(Physics())
     player.add_component(Move())
     player.add_component(Jump())
     player.add_component(WallSlide())
     player.add_component(Dash())
+    player.add_component(Physics())
 
     return player
 
@@ -82,14 +82,32 @@ def load_keyboard(event_handler, player):
     def left(keystate):
         if keystate:
             player.components["Move"].dir -= 1
+            player.components["Dash"].dir.x -= 1
         else:
             player.components["Move"].dir += 1
+            player.components["Dash"].dir.x += 1
+            
 
     def right(keystate):
         if keystate:
             player.components["Move"].dir += 1
+            player.components["Dash"].dir.x += 1
         else:
             player.components["Move"].dir -= 1
+            player.components["Dash"].dir.x -= 1
+            
+    def up(keystate):
+        if keystate:
+            player.components["Dash"].dir.y -= 1
+        else:
+            player.components["Dash"].dir.y += 1
+            
+
+    def down(keystate):
+        if keystate:
+            player.components["Dash"].dir.y += 1
+        else:
+            player.components["Dash"].dir.y -= 1
 
     def jump(keystate):
         if keystate:
@@ -99,7 +117,7 @@ def load_keyboard(event_handler, player):
 
     def dash(keystate):
         if keystate:
-            player.components["Dash"].start(player)
+            player.components["Dash"].start()
 
     def run(keystate):
         player.components["Move"].run = keystate
@@ -109,14 +127,22 @@ def load_keyboard(event_handler, player):
 
     event_handler.append_key(pygame.K_a, left)
     event_handler.append_key(pygame.K_d, right)
-    event_handler.append_key(pygame.K_SPACE, jump)
-    event_handler.append_key(pygame.K_LSHIFT, run)
-    event_handler.append_key(pygame.K_ESCAPE, quit)
+    event_handler.append_key(pygame.K_w, up)
+    event_handler.append_key(pygame.K_s, down)
+    
     event_handler.append_key(pygame.K_LEFT, left)
     event_handler.append_key(pygame.K_RIGHT, right)
-    event_handler.append_key(pygame.K_UP, jump)
+    event_handler.append_key(pygame.K_UP, up)
+    event_handler.append_key(pygame.K_DOWN, down)
+    
+    event_handler.append_key(pygame.K_LSHIFT, run)
     event_handler.append_key(pygame.K_RSHIFT, run)
-    event_handler.append_key(pygame.K_LCTRL, dash)
+    
+    event_handler.append_key(pygame.K_ESCAPE, quit)
+    
+    event_handler.append_key(pygame.K_j, dash)
+    event_handler.append_key(pygame.K_SPACE, jump)
+
 
 def load_spritesheet(name: str) -> Spritesheet:
     """Create spritesheets and prerenders all sprites in the json."""
