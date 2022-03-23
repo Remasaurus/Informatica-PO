@@ -3,7 +3,6 @@ import pygame
 
 class Entity():
     """Base class for all entities"""
-
     def __init__(self):
         self.pos = pygame.Vector2(0, 0)
         self.vel = pygame.Vector2(0, 0)
