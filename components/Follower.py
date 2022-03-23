@@ -21,8 +21,6 @@ class Follower(Component):
         
         entity.vel = vel.copy()
         
-        print(entity.pos, entity.following.pos)
-        
         
         
         
