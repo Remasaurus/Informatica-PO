@@ -35,20 +35,6 @@
 					]
 				},
 				{
-					"name": "Brick",
-					"type": "solid",
-					"range": [
-						[
-							64,
-							0
-						],
-						[
-							65,
-							64
-						]
-					]
-				},
-				{
 					"name": "RockBackground",
 					"type": "air",
 					"range": [
@@ -694,20 +680,6 @@
 				},
 				{
 					"name": "BrickCrackedMoldy",
-					"type": "air",
-					"range": [
-						[
-							59,
-							83
-						],
-						[
-							60,
-							84
-						]
-					]
-				},
-				{
-					"name": "BrickCrackedMoldy",
 					"type": "solid",
 					"range": [
 						[
@@ -1011,6 +983,48 @@
 						[
 							27,
 							96
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "air",
+					"range": [
+						[
+							59,
+							83
+						],
+						[
+							60,
+							84
+						]
+					]
+				},
+				{
+					"name": "Test",
+					"type": "air",
+					"range": [
+						[
+							100,
+							99
+						],
+						[
+							101,
+							100
+						]
+					]
+				},
+				{
+					"name": "Brick",
+					"type": "solid",
+					"range": [
+						[
+							63,
+							63
+						],
+						[
+							106,
+							64
 						]
 					]
 				}
