@@ -1,3 +1,4 @@
+import pygame
 from components.Component import Component, Sides
 
 
@@ -8,6 +9,14 @@ class Jump(Component):
 
         # How long the player can press the jump key for more height
         self.duration = 0.2
+        
+        
+        self.squish_duration = 0.3
+        self.squish_points = []
+        self.jump_squish_points = [(0.8, 1.2), (1, 1)]
+        self.land_squish_points = [(1.2, 0.8), (1, 1)]
+        
+        
 
         # How much the x velocity affects the jump
         self.boost = 0.02
@@ -19,6 +28,7 @@ class Jump(Component):
         self.coyote_duration = 0.1
 
         # helper variables
+        self.squish_time = 0
         self.request_time = 0
         self.engage_time = 0
         self.coyote_time = 0
@@ -33,6 +43,7 @@ class Jump(Component):
     def obstruct(self, entity, side):
         if side == Sides.BOTTOM:
             self.coyote_time = self.coyote_duration
+            
         elif side == Sides.TOP:
             self.cancel()
 
@@ -40,6 +51,8 @@ class Jump(Component):
         if self.request_time > 0:
             if self.coyote_time > 0:
                 self.engage_time = self.duration
+                self.squish_time = self.squish_duration - 0.000000000001
+                self.squish_points = self.jump_squish_points
                 self.request_time = 0
                 self.coyote_time = 0
 
@@ -48,5 +61,21 @@ class Jump(Component):
         if self.engage_time > 0:
             entity.vel.y = -(self.force + (abs(entity.vel.x) * self.boost))
             self.engage_time -= delta_time
+
+
+        if self.squish_time > 0:
+            t = 1 - self.squish_time/self.squish_duration
+        
+            frame = int(t * (len(self.squish_points) - 1) + 1)
+            prev = pygame.Vector2(self.squish_points[frame - 1])
+            time_per_frame = self.squish_duration/(len(self.squish_points) - 1)
+            t = 1 - (self.squish_time%time_per_frame)/time_per_frame
+            
+            entity.scale = prev.lerp(self.squish_points[frame], t)
+            
+            self.squish_time -= delta_time
+            
+            
+            
 
         self.coyote_time -= delta_time
