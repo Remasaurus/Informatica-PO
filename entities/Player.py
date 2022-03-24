@@ -19,3 +19,7 @@ class Player(Entity):
         rect = pygame.Rect(self.pos - camera.pos, self.size).inflate(inflate.x, inflate.y)
         
         surface.blit(pygame.transform.scale(buffer, rect.size), rect.topleft)
+
+    def draw(self, surface, camera, spritesheet):
+        spritesheet.draw(self.frame, surface, self.pos.x -
+                         camera.pos.x, self.pos.y - camera.pos.y)
