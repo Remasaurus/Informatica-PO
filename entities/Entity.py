@@ -9,11 +9,7 @@ class Entity():
         self.size = pygame.Vector2(16, 16)
         self.life_time = 0
         self.components = dict()
-        self.scale = [1, 1]
-        
-    @property
-    def img(self):
-        pass
+        self.scale = pygame.Vector2(1, 1)
 
     def add_component(self, component):
         """Adds component to entity with classname as key."""
@@ -26,8 +22,14 @@ class Entity():
 
     def draw(self, surface, camera, spritesheet):
         """Draw square on the surface at positon."""
-        pygame.draw.rect(surface, pygame.Color(255, 105, 180), pygame.Rect(
-            self.pos.x - camera.pos.x, self.pos.y - camera.pos.y, self.size.x, self.size.y))
+        inflate = self.scale - (1, 1)
+        inflate.x *= self.size.x
+        inflate.y *= self.size.y
+        
+        pygame.draw.rect(surface, pygame.Color(255, 105, 180),
+            pygame.Rect(self.pos - camera.pos, self.size)
+                         .inflate(inflate.x, inflate.y)
+        )
 
     def update(self, delta_time, level):
         """Calls updates on all the components."""
