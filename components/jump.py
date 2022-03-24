@@ -11,10 +11,10 @@ class Jump(Component):
         self.duration = 0.2
         
         
-        self.squish_duration = 0.3
+        self.squish_duration = 0.5
         self.squish_points = []
-        self.jump_squish_points = [(0.8, 1.2), (1, 1)]
-        self.land_squish_points = [(1.2, 0.8), (1, 1)]
+        self.jump_squish_points = [(0.85, 1.3), (1, 1)]
+        self.land_squish_points = [(1.15, 0.85), (1, 1)]
         
         
 
