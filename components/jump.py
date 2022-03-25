@@ -1,6 +1,6 @@
 import pygame
 from components.Component import Component, Sides
-
+from particles.DustParticle import DustParticle
 
 class Jump(Component):
     def __init__(self):
@@ -50,6 +50,27 @@ class Jump(Component):
     def update(self, entity, delta_time, level):
         if self.request_time > 0:
             if self.coyote_time > 0:
+                if entity.vel.x < 0:
+                    for x in range(int(entity.size.x * 0.5), int(entity.size.x + 1)):
+                        level.particle_system.particles.append(
+                            DustParticle(entity.pos + (x, entity.size.y)))
+                    for y in range(int(entity.size.y * 0.8), int(entity.size.y + 1)):
+                        level.particle_system.particles.append(
+                            DustParticle(entity.pos + (entity.size.x, y)))
+                        
+                elif entity.vel.x > 0:
+                    for x in range(0, int(entity.size.x * 0.5 + 1)):
+                        level.particle_system.particles.append(
+                            DustParticle(entity.pos + (x, entity.size.y)))
+                    for y in range(int(entity.size.y * 0.8), int(entity.size.y + 1)):
+
+                        level.particle_system.particles.append(
+                            DustParticle(entity.pos + (0, y)))
+                else:
+                    for x in range(0, int(entity.size.x + 1)):
+                        level.particle_system.particles.append(
+                            DustParticle(entity.pos + (x, entity.size.y)))
+                        
                 self.engage_time = self.duration
                 self.squish_time = self.squish_duration - 0.000000000001
                 self.squish_points = self.jump_squish_points
