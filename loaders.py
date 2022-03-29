@@ -4,12 +4,6 @@ import sys
 from Level import Level
 from Grid import Grid
 from Spritesheet import Spritesheet, create_anim
-from components.Dash import Dash
-from components.jump import Jump
-from components.move import Move
-from components.physics import Physics
-from components.wallSlide import WallSlide
-from components.Follower import Follower
 from entities.Player import Player
 from entities.Helper import Helper
 from layers import BackgroundLayer, EntityLayer, LightingLayer, ParallaxLayer
@@ -24,8 +18,8 @@ def load_level(name: str, event_handler) -> Level:
         tile_spritesheet = load_spritesheet(data["tileSheet"])
         charachter_spritesheet = load_spritesheet(data["charachterSheet"])
         collider_grid = Grid(tile_spritesheet.tile_size)
-        player = load_player()
-        helper = load_helper()
+        player = Player()
+        helper = Helper()
         helper.follow(player)
     
         
@@ -38,12 +32,12 @@ def load_level(name: str, event_handler) -> Level:
         load_keyboard(event_handler, player)
         
         for backgroundImg in data["backgroundImages"]:
-            level.compositor.layers.append(ParallaxLayer(backgroundImg[0], backgroundImg[1],
+            level.compositor.add_layer(ParallaxLayer(backgroundImg[0], backgroundImg[1],
                                                          pygame.Vector2(backgroundImg[2]) * tile_spritesheet.tile_size))
         
 
         for layer in data["layers"]:
-            level.compositor.layers.append(
+            level.compositor.add_layer(
                 BackgroundLayer(tile_spritesheet, layer))
 
             for tile in layer["tiles"]:
@@ -60,30 +54,10 @@ def load_level(name: str, event_handler) -> Level:
                 light["pos"][0], light["pos"][1], light["color"], light["size"])
 
         entity_layer = EntityLayer(charachter_spritesheet, level.entities)
-        level.compositor.layers.append(entity_layer)
-        level.compositor.layers.append(lighting_layer)
+        level.compositor.add_layer(entity_layer)
+        level.compositor.add_layer(lighting_layer)
 
         return level
-
-
-def load_player():
-    """Creates player and adds all necessary components."""
-    player = Player()
-    player.add_component(Move())
-    player.add_component(Jump())
-    player.add_component(WallSlide())
-    player.add_component(Dash())
-    player.add_component(Physics())
-
-    return player
-
-
-def load_helper():
-    helper = Helper()
-    helper.add_component(Physics())
-    helper.add_component(Follower())
-    
-    return helper
     
 
 
@@ -175,7 +149,7 @@ def load_spritesheet(name: str) -> Spritesheet:
 
         if "tiles" in data:
             for tile in data["tiles"]:
-                s.define_tile(tile["name"], tile["pos"][0], tile["pos"][1])
+                s.define_tile(tile["name"], tile["pos"][0], tile["pos"][1], (tile["alpha"] if "alpha" in tile else False))
 
         if "images" in data:
             for image in data["images"]:

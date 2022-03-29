@@ -10,7 +10,6 @@ from Button import Button
 
 
 layer = 0
-layers = []
 SCALE = (0, 0)
 
 
@@ -134,11 +133,8 @@ def main():
     level = load_level(name, event_handler)
     level.camera = DraggableCamera()
     buttons = []
-    for l in level.compositor.layers:
-        if type(l) == BackgroundLayer:
-            layers.append(l)
 
-    spritesheet = layers[0].spritesheet
+    spritesheet = level.compositor.layers["BackgroundLayer"].spritesheet
 
     buttons.append(DeleteButton((0, 0), (spritesheet.tile_size, spritesheet.tile_size)))
     for i, tile in enumerate(spritesheet.tiles.keys()):
@@ -205,10 +201,10 @@ def main():
                                             tile.y1)
 
                                         if changes[1] == "None":
-                                            layers[layer].grid.set(
+                                            level.compositor.layers["BackgroundLayer"].grid.set(
                                                 x, y, None)
                                         else:
-                                            layers[layer].grid.set(
+                                            level.compositor.layers["BackgroundLayer"].grid.set(
                                                 x, y, changes[1])
 
                                     startX = level.collider.grid.to_index(

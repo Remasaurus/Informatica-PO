@@ -43,6 +43,11 @@
             "name": "RockBackground",
             "pos": [0, 3]
             
+        },
+        {
+            "name": "coin",
+            "pos": [3, 0],
+            "alpha": true
         }
     ]
 }

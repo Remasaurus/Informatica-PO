@@ -103,26 +103,12 @@ class BackgroundLayer(Layer):
         self.prev_startY = -1
         self.prev_endX = -1
         self.prev_endY = -1
+        self.redraw = True
 
-    def redraw(self, camera):
+    def redraw_surface(self, camera):
         """Redraws background if necessary."""
-        startX = self.grid.to_index(camera.pos.x)
-        startY = self.grid.to_index(camera.pos.y)
-
-        endX = self.grid.to_index(camera.size.x + camera.pos.x)
-        endY = self.grid.to_index(camera.size.y + camera.pos.y)
-
-        if startX == self.prev_startX and startY == self.prev_startY and endX == self.prev_endX and endY == self.prev_endY:
-            return
-
         size = camera.size + (self.spritesheet.tile_size * 30, self.spritesheet.tile_size * 30)
         self.buffer = pygame.Surface(size, pygame.SRCALPHA)
-
-        self.prev_startX = startX
-        self.prev_startY = startY
-        self.prev_endX = endX
-        self.prev_endY = endY
-        
         # for x in range(startX, endX + 1):
         #     col = self.grid.get_col(x)
         #     for y, name in enumerate(col):
@@ -132,15 +118,34 @@ class BackgroundLayer(Layer):
 
 
         # + 1, because the surface has to draw the end too, but range ends one beforehand 
-        for x in range(startX, endX + 2):
-            for y in range(startY, endY + 2):
+        for x in range(self.prev_startX, self.prev_endX + 2):
+            for y in range(self.prev_startY, self.prev_endY + 2):
                 name = self.grid.get(x, y)
                 if name is not None:
                     self.spritesheet.draw_tile(
-                        name, self.buffer, x - startX, y - startY)
+                        name, self.buffer, x - self.prev_startX, y - self.prev_startY)
+    
+    def check_redraw(self, camera):
+        startX = self.grid.to_index(camera.pos.x)
+        startY = self.grid.to_index(camera.pos.y)
+
+        endX = self.grid.to_index(camera.size.x + camera.pos.x)
+        endY = self.grid.to_index(camera.size.y + camera.pos.y)
+
+        if startX == self.prev_startX and startY == self.prev_startY and endX == self.prev_endX and endY == self.prev_endY and not self.redraw:
+            return
+        
+        self.prev_startX = startX
+        self.prev_startY = startY
+        self.prev_endX = endX
+        self.prev_endY = endY
+        self.redraw = False
+        
+        self.redraw_surface(camera)
+        
 
     def draw(self, surface: pygame.Surface, camera: Camera) -> None:
         """Draws all tiles that fit in camera on the given surface."""
-        self.redraw(camera)
+        self.check_redraw(camera)
         surface.blit(self.buffer, (-(camera.pos.x %
                                      self.spritesheet.tile_size), -(camera.pos.y % self.spritesheet.tile_size)))

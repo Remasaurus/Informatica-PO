@@ -19,10 +19,10 @@ class Spritesheet():
         self.tiles = dict()
         self.anims = dict()
 
-    def define_tile(self, name, x, y):
+    def define_tile(self, name, x, y, alpha=False):
         """Prerender tile."""
         self.define(name, x * self.tile_size, y * self.tile_size,
-                    self.tile_size, self.tile_size)
+                    self.tile_size, self.tile_size, alpha)
 
     def define_anim(self, name, animation):
         """Load animes. Must define images used first!"""

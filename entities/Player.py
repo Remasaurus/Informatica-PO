@@ -1,9 +1,22 @@
 import pygame
 from entities.Entity import Entity
-
+from components.Dash import Dash
+from components.jump import Jump
+from components.move import Move
+from components.physics import Physics
+from components.wallSlide import WallSlide
+from components.CoinCollector import CoinCollector
 
 class Player(Entity):
     """Player class that overwrites the draw function."""
+    def __init__(self):
+        super().__init__()
+        self.add_component(Move())
+        self.add_component(Jump())
+        self.add_component(WallSlide())
+        self.add_component(Dash())
+        self.add_component(Physics())
+        self.add_component(CoinCollector())
     
     @property
     def frame(self):
