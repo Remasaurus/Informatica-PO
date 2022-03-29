@@ -25,3 +25,4 @@ Really, really cool
 - Settings (escape)
 - Design how text is going to be displayed 
 - Cutscenes
+- More Waifu
