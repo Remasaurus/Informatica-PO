@@ -4,6 +4,7 @@ import sys
 from Level import Level
 from Grid import Grid
 from Spritesheet import Spritesheet, create_anim
+from entities.Boss import Boss
 from entities.Player import Player
 from entities.Helper import Helper
 from layers import BackgroundLayer, EntityLayer, LightingLayer, ParallaxLayer
@@ -20,6 +21,8 @@ def load_level(name: str, event_handler) -> Level:
         collider_grid = Grid(tile_spritesheet.tile_size)
         player = Player()
         helper = Helper()
+        boss = Boss()
+        boss.pos.update(data["boss"][0] * tile_spritesheet.tile_size, data["boss"][0] * tile_spritesheet.tile_size)
         helper.follow(player)
     
         
@@ -28,6 +31,7 @@ def load_level(name: str, event_handler) -> Level:
 
         level.entities.append(player)
         level.entities.append(helper)
+        # level.entities.append(boss)
         
         load_keyboard(event_handler, player)
         
