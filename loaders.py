@@ -22,16 +22,18 @@ def load_level(name: str, event_handler) -> Level:
         player = Player()
         helper = Helper()
         boss = Boss()
-        boss.pos.update(data["boss"][0] * tile_spritesheet.tile_size, data["boss"][0] * tile_spritesheet.tile_size)
         helper.follow(player)
     
         
         player.pos.x = data["spawnpoint"][0] * tile_spritesheet.tile_size
         player.pos.y = data["spawnpoint"][1] * tile_spritesheet.tile_size
+        boss.pos.x = data["boss"][0] * tile_spritesheet.tile_size
+        boss.pos.y = data["boss"][1] * tile_spritesheet.tile_size
+        
 
         level.entities.append(player)
         level.entities.append(helper)
-        # level.entities.append(boss)
+        level.entities.append(boss)
         
         load_keyboard(event_handler, player)
         

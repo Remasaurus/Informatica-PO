@@ -1,7 +1,7 @@
 import pygame
 from entities.Entity import Entity
 from components.Physics import Physics
-from components.Boss import Boss
+from components.Boss import BossAI
 
 class Boss(Entity):
     def __init__(self):
@@ -9,5 +9,5 @@ class Boss(Entity):
         self.vonerable = False
         self.gem_rect = pygame.Rect(0, 0, 10, 10)
         self.size = pygame.Vector2(64, 64)
+        self.add_component(BossAI())
         self.add_component(Physics())
-        self.add_component(Boss)
