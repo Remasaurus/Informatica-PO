@@ -108,8 +108,11 @@ def load_keyboard(event_handler, player):
     def jump(keystate):
         if keystate:
             player.components["Jump"].start()
+            player.components["WallJump"].start()
         else:
             player.components["Jump"].cancel()
+            player.components["WallJump"].cancel()
+
 
     def dash(keystate):
         if keystate:
@@ -138,6 +141,7 @@ def load_keyboard(event_handler, player):
     
     event_handler.append_key(pygame.K_j, dash)
     event_handler.append_key(pygame.K_SPACE, jump)
+    
 
 
 def load_spritesheet(name: str) -> Spritesheet:
