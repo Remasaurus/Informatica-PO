@@ -12,6 +12,16 @@ class Layer():
         pass
 
 
+class ParallaxLayer(Layer):
+    def __init__(self, url, drag, pos) -> None:
+        self.img = pygame.image.load(url).convert_alpha()
+        self.drag = drag
+        self.pos = pos
+    
+    def draw(self, surface: pygame.Surface, camera: Camera) -> None:
+        surface.blit(self.img, (-camera.pos + self.pos)/self.drag)
+
+
 class LightingLayer(Layer):
     def __init__(self, spritesheet, ambient):
         self.spritesheet = spritesheet
@@ -79,13 +89,16 @@ class BackgroundLayer(Layer):
             [start, end] = tile["range"]
             for x in range(start[0], end[0]):
                 for y in range(start[1], end[1]):
-                    self.grid.set(x, y, tile["name"])
+                    if tile["name"] == "None":
+                        self.grid.set(x, y, None)
+                    else:
+                        self.grid.set(x, y, tile["name"])
 
         window_size = list(pygame.display.get_surface().get_size())
         window_size[0] += self.spritesheet.tile_size
         window_size[1] += self.spritesheet.tile_size
 
-        self.buffer = pygame.Surface(window_size)
+        self.buffer = pygame.Surface(window_size, pygame.SRCALPHA)
         self.prev_startX = -1
         self.prev_startY = -1
         self.prev_endX = -1
@@ -103,7 +116,7 @@ class BackgroundLayer(Layer):
             return
 
         size = camera.size + (self.spritesheet.tile_size * 30, self.spritesheet.tile_size * 30)
-        self.buffer = pygame.Surface(size)
+        self.buffer = pygame.Surface(size, pygame.SRCALPHA)
 
         self.prev_startX = startX
         self.prev_startY = startY
@@ -122,7 +135,7 @@ class BackgroundLayer(Layer):
         for x in range(startX, endX + 2):
             for y in range(startY, endY + 2):
                 name = self.grid.get(x, y)
-                if name:
+                if name is not None:
                     self.spritesheet.draw_tile(
                         name, self.buffer, x - startX, y - startY)
 
