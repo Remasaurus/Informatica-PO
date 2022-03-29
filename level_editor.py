@@ -2,6 +2,7 @@ import json
 import pygame
 from Camera import Camera
 from Grid import Grid
+from layers import BackgroundLayer
 from loaders import load_level
 from EventHandler import EventHandler
 from Application import create_window
@@ -9,6 +10,7 @@ from Button import Button
 
 
 layer = 0
+layers = []
 SCALE = (0, 0)
 
 
@@ -43,6 +45,15 @@ class TileButton(Button):
     def draw(self, surface, spritesheet):
         spritesheet.draw(self.img, surface, 0, 0)
 
+
+class DeleteButton(Button):
+    def __init__(self, pos, size) -> None:
+        super().__init__(pos, size, (0, 0, 0), (0, 0, 0), "")
+        self.img = "None"
+        self.buffer = pygame.Surface(size)
+
+    def draw(self, surface, spritesheet):
+        surface.blit(self.buffer, (0, 0))
 
 class TextBox(Button):
     def __init__(self, pos, size) -> None:
@@ -123,7 +134,13 @@ def main():
     level = load_level(name, event_handler)
     level.camera = DraggableCamera()
     buttons = []
-    spritesheet = level.compositor.layers[0].spritesheet
+    for l in level.compositor.layers:
+        if type(l) == BackgroundLayer:
+            layers.append(l)
+
+    spritesheet = layers[0].spritesheet
+
+    buttons.append(DeleteButton((0, 0), (spritesheet.tile_size, spritesheet.tile_size)))
     for i, tile in enumerate(spritesheet.tiles.keys()):
         buttons.append(TileButton(
             (0, 0), (spritesheet.tile_size, spritesheet.tile_size), tile))
@@ -187,8 +204,12 @@ def main():
                                         y = level.collider.grid.to_index(
                                             tile.y1)
 
-                                        level.compositor.layers[layer].grid.set(
-                                            x, y, changes[1])
+                                        if changes[1] == "None":
+                                            layers[layer].grid.set(
+                                                x, y, None)
+                                        else:
+                                            layers[layer].grid.set(
+                                                x, y, changes[1])
 
                                     startX = level.collider.grid.to_index(
                                         changes[2][0])
@@ -281,8 +302,12 @@ def main():
 
         for changes in changed:
             for tile in changes[0]:
-                spritesheet.draw(
-                    changes[1], draw_surface, tile.x1 - level.camera.pos.x, tile.y1 - level.camera.pos.y)
+                if changes[1] == "None":
+                    draw_surface.blit(pygame.Surface((spritesheet.tile_size, spritesheet.tile_size)),
+                                      (tile.x1 - level.camera.pos.x, tile.y1 - level.camera.pos.y))
+                else: 
+                    spritesheet.draw(
+                        changes[1], draw_surface, tile.x1 - level.camera.pos.x, tile.y1 - level.camera.pos.y)
 
         selection.update(level.collider.grid, level.camera)
         white_square = pygame.Surface(

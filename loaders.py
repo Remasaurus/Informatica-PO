@@ -12,7 +12,7 @@ from components.wallSlide import WallSlide
 from components.Follower import Follower
 from entities.Player import Player
 from entities.Helper import Helper
-from layers import BackgroundLayer, EntityLayer, LightingLayer
+from layers import BackgroundLayer, EntityLayer, LightingLayer, ParallaxLayer
 
 
 def load_level(name: str, event_handler) -> Level:
@@ -27,6 +27,7 @@ def load_level(name: str, event_handler) -> Level:
         player = load_player()
         helper = load_helper()
         helper.follow(player)
+    
         
         player.pos.x = data["spawnpoint"][0] * tile_spritesheet.tile_size
         player.pos.y = data["spawnpoint"][1] * tile_spritesheet.tile_size
@@ -35,6 +36,11 @@ def load_level(name: str, event_handler) -> Level:
         level.entities.append(helper)
         
         load_keyboard(event_handler, player)
+        
+        for backgroundImg in data["backgroundImages"]:
+            level.compositor.layers.append(ParallaxLayer(backgroundImg[0], backgroundImg[1],
+                                                         pygame.Vector2(backgroundImg[2]) * tile_spritesheet.tile_size))
+        
 
         for layer in data["layers"]:
             level.compositor.layers.append(

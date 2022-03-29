@@ -5,8 +5,6 @@ from EventHandler import EventHandler
 import json
 import pygame
 
-from particles.Fire import FireEmitter
-
 
 class Application():
     """Application entrypoint."""

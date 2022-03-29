@@ -13,8 +13,12 @@
 	],
 	"backgroundImages": [
 		[
-			"./img/E6Coa.png",
-			0
+			"img/backgroundImg.png",
+			3,
+			[
+				0,
+				20
+			]
 		]
 	],
 	"layers": [
@@ -31,34 +35,6 @@
 						[
 							64,
 							64
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "air",
-					"range": [
-						[
-							0,
-							0
-						],
-						[
-							64,
-							62
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "air",
-					"range": [
-						[
-							63,
-							0
-						],
-						[
-							106,
-							62
 						]
 					]
 				},
@@ -101,20 +77,6 @@
 						[
 							9,
 							54
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "air",
-					"range": [
-						[
-							13,
-							61
-						],
-						[
-							17,
-							66
 						]
 					]
 				},
@@ -525,20 +487,6 @@
 					]
 				},
 				{
-					"name": "RockBackground",
-					"type": "air",
-					"range": [
-						[
-							61,
-							62
-						],
-						[
-							63,
-							68
-						]
-					]
-				},
-				{
 					"name": "Brick",
 					"type": "solid",
 					"range": [
@@ -605,62 +553,6 @@
 						[
 							82,
 							61
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "",
-					"range": [
-						[
-							25,
-							62
-						],
-						[
-							34,
-							72
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "air",
-					"range": [
-						[
-							0,
-							64
-						],
-						[
-							66,
-							84
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "air",
-					"range": [
-						[
-							65,
-							63
-						],
-						[
-							107,
-							84
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "air",
-					"range": [
-						[
-							0,
-							84
-						],
-						[
-							107,
-							99
 						]
 					]
 				},
@@ -861,146 +753,6 @@
 					]
 				},
 				{
-					"name": "RockBackground",
-					"type": "air",
-					"range": [
-						[
-							0,
-							90
-						],
-						[
-							12,
-							99
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "air",
-					"range": [
-						[
-							30,
-							93
-						],
-						[
-							31,
-							94
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "air",
-					"range": [
-						[
-							-7,
-							99
-						],
-						[
-							-6,
-							100
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "air",
-					"range": [
-						[
-							28,
-							91
-						],
-						[
-							29,
-							92
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "air",
-					"range": [
-						[
-							29,
-							91
-						],
-						[
-							31,
-							93
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "air",
-					"range": [
-						[
-							28,
-							92
-						],
-						[
-							29,
-							93
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "air",
-					"range": [
-						[
-							27,
-							91
-						],
-						[
-							28,
-							92
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "air",
-					"range": [
-						[
-							26,
-							91
-						],
-						[
-							27,
-							92
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "air",
-					"range": [
-						[
-							25,
-							94
-						],
-						[
-							27,
-							96
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "air",
-					"range": [
-						[
-							59,
-							83
-						],
-						[
-							60,
-							84
-						]
-					]
-				},
-				{
 					"name": "Test",
 					"type": "air",
 					"range": [
@@ -1024,6 +776,34 @@
 						],
 						[
 							106,
+							64
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "",
+					"range": [
+						[
+							25,
+							62
+						],
+						[
+							34,
+							64
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "",
+					"range": [
+						[
+							61,
+							62
+						],
+						[
+							63,
 							64
 						]
 					]
