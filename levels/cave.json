@@ -561,34 +561,6 @@
 					"type": "solid",
 					"range": [
 						[
-							26,
-							69
-						],
-						[
-							33,
-							72
-						]
-					]
-				},
-				{
-					"name": "BrickCrackedMoldy",
-					"type": "solid",
-					"range": [
-						[
-							39,
-							74
-						],
-						[
-							48,
-							77
-						]
-					]
-				},
-				{
-					"name": "BrickCrackedMoldy",
-					"type": "solid",
-					"range": [
-						[
 							53,
 							80
 						],
@@ -603,180 +575,12 @@
 					"type": "solid",
 					"range": [
 						[
-							48,
-							88
-						],
-						[
-							93,
-							91
-						]
-					]
-				},
-				{
-					"name": "BrickOne",
-					"type": "solid",
-					"range": [
-						[
-							96,
-							93
-						],
-						[
-							103,
-							96
-						]
-					]
-				},
-				{
-					"name": "BrickCrackedMoldy",
-					"type": "solid",
-					"range": [
-						[
-							90,
-							96
-						],
-						[
-							91,
-							97
-						]
-					]
-				},
-				{
-					"name": "BrickCrackedMoldy",
-					"type": "solid",
-					"range": [
-						[
-							82,
-							96
-						],
-						[
-							83,
-							97
-						]
-					]
-				},
-				{
-					"name": "BrickCrackedMoldy",
-					"type": "solid",
-					"range": [
-						[
-							75,
-							96
-						],
-						[
-							76,
-							97
-						]
-					]
-				},
-				{
-					"name": "BrickCrackedMoldy",
-					"type": "solid",
-					"range": [
-						[
-							67,
-							96
-						],
-						[
-							68,
-							97
-						]
-					]
-				},
-				{
-					"name": "BrickCrackedMoldy",
-					"type": "solid",
-					"range": [
-						[
-							63,
-							94
-						],
-						[
-							64,
-							95
-						]
-					]
-				},
-				{
-					"name": "BrickCrackedMoldy",
-					"type": "solid",
-					"range": [
-						[
-							59,
-							98
-						],
-						[
-							60,
-							99
-						]
-					]
-				},
-				{
-					"name": "BrickCrackedMoldy",
-					"type": "solid",
-					"range": [
-						[
-							55,
-							95
-						],
-						[
-							56,
-							96
-						]
-					]
-				},
-				{
-					"name": "BrickCrackedMoldy",
-					"type": "solid",
-					"range": [
-						[
-							46,
-							95
-						],
-						[
-							47,
-							96
-						]
-					]
-				},
-				{
-					"name": "BrickOne",
-					"type": "solid",
-					"range": [
-						[
 							25,
 							91
 						],
 						[
 							31,
 							96
-						]
-					]
-				},
-				{
-					"name": "Test",
-					"type": "air",
-					"range": [
-						[
-							100,
-							99
-						],
-						[
-							101,
-							100
-						]
-					]
-				},
-				{
-					"name": "Brick",
-					"type": "solid",
-					"range": [
-						[
-							63,
-							63
-						],
-						[
-							106,
-							64
 						]
 					]
 				},
@@ -897,40 +701,12 @@
 					"type": "coin",
 					"range": [
 						[
-							54,
-							78
-						],
-						[
-							64,
-							79
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "coin",
-					"range": [
-						[
 							39,
 							73
 						],
 						[
 							43,
 							74
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "coin",
-					"range": [
-						[
-							25,
-							90
-						],
-						[
-							35,
-							91
 						]
 					]
 				},
@@ -973,6 +749,1070 @@
 						[
 							53,
 							93
+						]
+					]
+				},
+				{
+					"name": "coin",
+					"type": "coin",
+					"range": [
+						[
+							-3,
+							70
+						],
+						[
+							24,
+							89
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "air",
+					"range": [
+						[
+							107,
+							93
+						],
+						[
+							108,
+							94
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							-10,
+							67
+						],
+						[
+							-3,
+							68
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "",
+					"range": [
+						[
+							25,
+							71
+						],
+						[
+							26,
+							72
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "air",
+					"range": [
+						[
+							18,
+							67
+						],
+						[
+							19,
+							68
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "air",
+					"range": [
+						[
+							-1,
+							68
+						],
+						[
+							0,
+							69
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "",
+					"range": [
+						[
+							0,
+							70
+						],
+						[
+							24,
+							89
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							8,
+							73
+						],
+						[
+							10,
+							75
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							1,
+							80
+						],
+						[
+							4,
+							81
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							10,
+							73
+						],
+						[
+							13,
+							75
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							13,
+							85
+						],
+						[
+							18,
+							88
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "solid",
+					"range": [
+						[
+							0,
+							39
+						],
+						[
+							1,
+							40
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "solid",
+					"range": [
+						[
+							0,
+							64
+						],
+						[
+							1,
+							84
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "solid",
+					"range": [
+						[
+							0,
+							84
+						],
+						[
+							1,
+							98
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "solid",
+					"range": [
+						[
+							0,
+							97
+						],
+						[
+							1,
+							112
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "air",
+					"range": [
+						[
+							1,
+							66
+						],
+						[
+							2,
+							67
+						]
+					]
+				},
+				{
+					"name": "Brick",
+					"type": "solid",
+					"range": [
+						[
+							5,
+							45
+						],
+						[
+							6,
+							46
+						]
+					]
+				},
+				{
+					"name": "BrickOne",
+					"type": "solid",
+					"range": [
+						[
+							9,
+							39
+						],
+						[
+							10,
+							40
+						]
+					]
+				},
+				{
+					"name": "BrickOne",
+					"type": "solid",
+					"range": [
+						[
+							3,
+							34
+						],
+						[
+							4,
+							35
+						]
+					]
+				},
+				{
+					"name": "BrickOneLight",
+					"type": "solid",
+					"range": [
+						[
+							8,
+							28
+						],
+						[
+							9,
+							29
+						]
+					]
+				},
+				{
+					"name": "BrickOneLight",
+					"type": "solid",
+					"range": [
+						[
+							15,
+							25
+						],
+						[
+							16,
+							28
+						]
+					]
+				},
+				{
+					"name": "BrickOneLight",
+					"type": "solid",
+					"range": [
+						[
+							16,
+							27
+						],
+						[
+							25,
+							28
+						]
+					]
+				},
+				{
+					"name": "BrickOneLight",
+					"type": "solid",
+					"range": [
+						[
+							15,
+							19
+						],
+						[
+							16,
+							23
+						]
+					]
+				},
+				{
+					"name": "BrickOneLight",
+					"type": "solid",
+					"range": [
+						[
+							15,
+							24
+						],
+						[
+							16,
+							25
+						]
+					]
+				},
+				{
+					"name": "BrickOneLight",
+					"type": "solid",
+					"range": [
+						[
+							16,
+							19
+						],
+						[
+							25,
+							20
+						]
+					]
+				},
+				{
+					"name": "BrickOneLight",
+					"type": "solid",
+					"range": [
+						[
+							25,
+							19
+						],
+						[
+							26,
+							28
+						]
+					]
+				},
+				{
+					"name": "coin",
+					"type": "coin",
+					"range": [
+						[
+							16,
+							20
+						],
+						[
+							25,
+							27
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "",
+					"range": [
+						[
+							15,
+							22
+						],
+						[
+							16,
+							23
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "",
+					"range": [
+						[
+							100,
+							99
+						],
+						[
+							101,
+							100
+						]
+					]
+				},
+				{
+					"name": "coin",
+					"type": "coin",
+					"range": [
+						[
+							56,
+							77
+						],
+						[
+							57,
+							78
+						]
+					]
+				},
+				{
+					"name": "coin",
+					"type": "coin",
+					"range": [
+						[
+							55,
+							76
+						],
+						[
+							56,
+							77
+						]
+					]
+				},
+				{
+					"name": "coin",
+					"type": "coin",
+					"range": [
+						[
+							55,
+							75
+						],
+						[
+							56,
+							76
+						]
+					]
+				},
+				{
+					"name": "coin",
+					"type": "coin",
+					"range": [
+						[
+							16,
+							94
+						],
+						[
+							17,
+							95
+						]
+					]
+				},
+				{
+					"name": "coin",
+					"type": "coin",
+					"range": [
+						[
+							54,
+							74
+						],
+						[
+							55,
+							75
+						]
+					]
+				},
+				{
+					"name": "coin",
+					"type": "coin",
+					"range": [
+						[
+							53,
+							73
+						],
+						[
+							54,
+							74
+						]
+					]
+				},
+				{
+					"name": "coin",
+					"type": "coin",
+					"range": [
+						[
+							52,
+							73
+						],
+						[
+							53,
+							74
+						]
+					]
+				},
+				{
+					"name": "coin",
+					"type": "coin",
+					"range": [
+						[
+							51,
+							72
+						],
+						[
+							52,
+							73
+						]
+					]
+				},
+				{
+					"name": "coin",
+					"type": "coin",
+					"range": [
+						[
+							50,
+							72
+						],
+						[
+							51,
+							73
+						]
+					]
+				},
+				{
+					"name": "coin",
+					"type": "coin",
+					"range": [
+						[
+							49,
+							72
+						],
+						[
+							50,
+							73
+						]
+					]
+				},
+				{
+					"name": "coin",
+					"type": "coin",
+					"range": [
+						[
+							48,
+							72
+						],
+						[
+							49,
+							73
+						]
+					]
+				},
+				{
+					"name": "coin",
+					"type": "coin",
+					"range": [
+						[
+							47,
+							73
+						],
+						[
+							48,
+							74
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "",
+					"range": [
+						[
+							25,
+							90
+						],
+						[
+							38,
+							91
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "",
+					"range": [
+						[
+							54,
+							78
+						],
+						[
+							65,
+							79
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "",
+					"range": [
+						[
+							64,
+							79
+						],
+						[
+							97,
+							80
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							48,
+							88
+						],
+						[
+							93,
+							91
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "air",
+					"range": [
+						[
+							61,
+							72
+						],
+						[
+							62,
+							73
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							75,
+							96
+						],
+						[
+							76,
+							97
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							82,
+							96
+						],
+						[
+							83,
+							97
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							90,
+							96
+						],
+						[
+							91,
+							97
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							96,
+							93
+						],
+						[
+							103,
+							95
+						]
+					]
+				},
+				{
+					"name": "Test",
+					"type": "air",
+					"range": [
+						[
+							96,
+							95
+						],
+						[
+							103,
+							96
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "air",
+					"range": [
+						[
+							67,
+							96
+						],
+						[
+							68,
+							97
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "air",
+					"range": [
+						[
+							59,
+							98
+						],
+						[
+							60,
+							99
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							45,
+							95
+						],
+						[
+							47,
+							97
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							54,
+							95
+						],
+						[
+							56,
+							97
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							63,
+							94
+						],
+						[
+							65,
+							96
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							10,
+							72
+						],
+						[
+							13,
+							73
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							11,
+							71
+						],
+						[
+							13,
+							72
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							20,
+							68
+						],
+						[
+							21,
+							71
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							20,
+							64
+						],
+						[
+							21,
+							66
+						]
+					]
+				},
+				{
+					"name": "BrickCracked",
+					"type": "solid",
+					"range": [
+						[
+							26,
+							69
+						],
+						[
+							33,
+							72
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							39,
+							74
+						],
+						[
+							48,
+							77
+						]
+					]
+				},
+				{
+					"name": "BrickCracked",
+					"type": "solid",
+					"range": [
+						[
+							53,
+							80
+						],
+						[
+							83,
+							83
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							34,
+							63
+						],
+						[
+							61,
+							64
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							63,
+							63
+						],
+						[
+							86,
+							64
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							86,
+							63
+						],
+						[
+							106,
+							64
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							57,
+							62
+						],
+						[
+							61,
+							63
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							58,
+							61
+						],
+						[
+							61,
+							62
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							59,
+							60
+						],
+						[
+							61,
+							61
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							60,
+							59
+						],
+						[
+							61,
+							60
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							63,
+							59
+						],
+						[
+							64,
+							60
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							63,
+							60
+						],
+						[
+							65,
+							61
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							63,
+							61
+						],
+						[
+							66,
+							62
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							63,
+							62
+						],
+						[
+							67,
+							63
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							63,
+							63
+						],
+						[
+							68,
+							64
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "air",
+					"range": [
+						[
+							17,
+							94
+						],
+						[
+							16,
+							96
 						]
 					]
 				}
