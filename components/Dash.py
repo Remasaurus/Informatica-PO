@@ -76,7 +76,7 @@ class Dash(Component):
     
     def start(self):
         if self.dashes > 0:
-            if self.dir:
+            if self.dir:                
                 self.dashes -= 1
                 self.dash_time = self.dash_duration
                 
@@ -93,7 +93,7 @@ class Dash(Component):
         self.dash_time = 0
     
     def update(self, entity, delta_time, level) -> None:
-        if self.dash_time > 0:
+        if self.dash_time > 0:            
             if self.first_frame:
                 level.camera.shake(0.05, 2)
                 self.first_frame = False

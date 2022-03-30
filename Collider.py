@@ -1,7 +1,5 @@
 from components.Component import Sides
 from Grid import Grid
-from entities.Player import Player
-
 
 class Collider():
     """Contains all tiles in the level and handles interactions."""
@@ -9,14 +7,13 @@ class Collider():
         self.grid = Grid(tile_size)
 
     def checkX(self, entity, level):
-        """Checks if entity had collided when any tiles on the x-axis."""
+        """Checks if entity had collided when any tiles on the x-axis."""    
         if entity.vel.x > 0:
             x = entity.pos.x + entity.size.x
         elif entity.vel.x < 0:
             x = entity.pos.x
         else:
             return
-
         for match in self.grid.get_by_range(x, x, entity.pos.y, entity.pos.y + entity.size.y):
             if match.val == "solid":
                 if entity.vel.x > 0:

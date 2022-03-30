@@ -4,6 +4,7 @@ import sys
 from Level import Level
 from Grid import Grid
 from Spritesheet import Spritesheet, create_anim
+from entities.Boss import Boss
 from entities.Player import Player
 from entities.Helper import Helper
 from layers import BackgroundLayer, EntityLayer, LightingLayer, ParallaxLayer
@@ -20,14 +21,19 @@ def load_level(name: str, event_handler) -> Level:
         collider_grid = Grid(tile_spritesheet.tile_size)
         player = Player()
         helper = Helper()
+        boss = Boss()
         helper.follow(player)
     
         
         player.pos.x = data["spawnpoint"][0] * tile_spritesheet.tile_size
         player.pos.y = data["spawnpoint"][1] * tile_spritesheet.tile_size
+        boss.pos.x = data["boss"][0] * tile_spritesheet.tile_size
+        boss.pos.y = data["boss"][1] * tile_spritesheet.tile_size
+        
 
         level.entities.append(player)
         level.entities.append(helper)
+        level.entities.append(boss)
         
         load_keyboard(event_handler, player)
         
@@ -108,8 +114,11 @@ def load_keyboard(event_handler, player):
     def jump(keystate):
         if keystate:
             player.components["Jump"].start()
+            player.components["WallJump"].start()
         else:
             player.components["Jump"].cancel()
+            player.components["WallJump"].cancel()
+
 
     def dash(keystate):
         if keystate:
@@ -138,6 +147,7 @@ def load_keyboard(event_handler, player):
     
     event_handler.append_key(pygame.K_j, dash)
     event_handler.append_key(pygame.K_SPACE, jump)
+    
 
 
 def load_spritesheet(name: str) -> Spritesheet:
