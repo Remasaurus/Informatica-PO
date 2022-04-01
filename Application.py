@@ -39,6 +39,7 @@ class Application():
 
             pygame.display.flip()
 
+            pygame.display.set_caption(f"Frametime: {time.time() - start} sec")
             # print(f"Frametime: {time.time() - start} sec")
 
         self.event_handler.clear()

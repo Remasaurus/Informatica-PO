@@ -1,5 +1,9 @@
+import pygame
 from components.Component import Sides
 from Grid import Grid
+
+def sort_func(e):
+    return e.val if e.val is not None else "z"
 
 class Collider():
     """Contains all tiles in the level and handles interactions."""
@@ -14,7 +18,10 @@ class Collider():
             x = entity.pos.x
         else:
             return
-        for match in self.grid.get_by_range(x, x, entity.pos.y, entity.pos.y + entity.size.y):
+        for match in sorted(self.grid.get_by_range(x, x, entity.pos.y, entity.pos.y + entity.size.y), key=sort_func):
+            if match.val is None:
+                break
+                
             if match.val == "solid":
                 if entity.vel.x > 0:
                     if entity.pos.x + entity.size.x > match.x1:
@@ -30,11 +37,32 @@ class Collider():
             
             elif match.val == "coin":
                 if "CoinCollector" in entity.components:
-                    x, y = self.grid.to_index(match.x1), self.grid.to_index(match.y1)
-                    self.grid.set(x, y, None)
-                    level.compositor.layers["BackgroundLayer"].grid.set(x, y, None)
+                    indexX, indexY = self.grid.to_index(match.x1), self.grid.to_index(match.y1)
+                    self.grid.set(indexX, indexY, None)
+                    level.compositor.layers["BackgroundLayer"].grid.set(indexX, indexY, None)
                     level.compositor.layers["BackgroundLayer"].redraw = True
                     entity.components["CoinCollector"].coins += 1
+                    
+            elif match.val == "ramp":
+                rampY = match.y2 - ((entity.pos.x + entity.size.x) - match.x1)
+                if entity.pos.y + entity.size.y > rampY:
+                    entity.pos.y = max(rampY, match.y1) - entity.size.y
+                    entity.vel.x *= 0.96
+                    break               
+                
+            elif match.val == "spike-left":
+                pass
+            
+            elif match.val == "spike-right":
+                pass
+            
+            elif match.val == "spike-top":
+                pass
+            
+            elif match.val == "spike-bottom":
+                pass
+            
+        # raise "bullshit"
                     
 
     def checkY(self, entity, level):
@@ -46,7 +74,10 @@ class Collider():
         else:
             return
 
-        for match in self.grid.get_by_range(entity.pos.x, entity.pos.x + entity.size.x, y, y):
+        for match in sorted(self.grid.get_by_range(entity.pos.x, entity.pos.x + entity.size.x, y, y), key=sort_func):
+            if match.val is None:
+                break
+            
             if match.val == "solid":
                 if entity.vel.y > 0:
                     if entity.pos.y + entity.size.y > match.y1:
@@ -61,10 +92,30 @@ class Collider():
                         entity.obstruct(Sides.TOP)
             elif match.val == "coin":
                 if "CoinCollector" in entity.components:
-                    x, y = self.grid.to_index(match.x1), self.grid.to_index(match.y1)
-                    self.grid.set(x, y, None)
-                    level.compositor.layers["BackgroundLayer"].grid.set(x, y, None)
+                    indexX, indexY = self.grid.to_index(match.x1), self.grid.to_index(match.y1)
+                    self.grid.set(indexX, indexY, None)
+                    level.compositor.layers["BackgroundLayer"].grid.set(indexX, indexY, None)
                     level.compositor.layers["BackgroundLayer"].redraw = True
                     
                     entity.components["CoinCollector"].coins += 1
+            
+            elif match.val == "ramp":
+                if entity.vel.y > 0:
+                    rampY = match.y2 - ((entity.pos.x + entity.size.x) - match.x1)
+                    if entity.pos.y + entity.size.y > rampY:
+                        entity.pos.y = max(rampY, match.y1) - entity.size.y
+                        entity.vel.y = 0
+                        break
+                        
+            elif match.val == "spike-left":
+                pass
+            
+            elif match.val == "spike-right":
+                pass
+            
+            elif match.val == "spike-top":
+                pass
+            
+            elif match.val == "spike-bottom":
+                pass
                     

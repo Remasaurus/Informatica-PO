@@ -7,7 +7,7 @@
 		60
 	],
 	"boss": [
-		18,
+		15,
 		55
 	],
 	"ambient": [
@@ -1807,16 +1807,128 @@
 					]
 				},
 				{
-					"name": "None",
-					"type": "air",
+					"name": "ramp",
+					"type": "ramp",
 					"range": [
 						[
-							17,
-							94
+							22,
+							57
 						],
 						[
-							16,
-							96
+							23,
+							58
+						]
+					]
+				},
+				{
+					"name": "ramp",
+					"type": "ramp",
+					"range": [
+						[
+							21,
+							58
+						],
+						[
+							22,
+							59
+						]
+					]
+				},
+				{
+					"name": "ramp",
+					"type": "ramp",
+					"range": [
+						[
+							20,
+							59
+						],
+						[
+							21,
+							60
+						]
+					]
+				},
+				{
+					"name": "ramp",
+					"type": "ramp",
+					"range": [
+						[
+							19,
+							60
+						],
+						[
+							20,
+							61
+						]
+					]
+				},
+				{
+					"name": "ramp",
+					"type": "ramp",
+					"range": [
+						[
+							18,
+							61
+						],
+						[
+							19,
+							62
+						]
+					]
+				},
+				{
+					"name": "BrickCracked",
+					"type": "solid",
+					"range": [
+						[
+							19,
+							61
+						],
+						[
+							23,
+							62
+						]
+					]
+				},
+				{
+					"name": "BrickCracked",
+					"type": "solid",
+					"range": [
+						[
+							20,
+							60
+						],
+						[
+							23,
+							61
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							21,
+							59
+						],
+						[
+							23,
+							60
+						]
+					]
+				},
+				{
+					"name": "BrickCracked",
+					"type": "solid",
+					"range": [
+						[
+							22,
+							58
+						],
+						[
+							23,
+							59
 						]
 					]
 				}
