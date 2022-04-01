@@ -1797,20 +1797,6 @@
 					"type": "coin",
 					"range": [
 						[
-							59,
-							90
-						],
-						[
-							60,
-							91
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "coin",
-					"range": [
-						[
 							60,
 							90
 						],
@@ -2256,20 +2242,6 @@
 				},
 				{
 					"name": "None",
-					"type": "air",
-					"range": [
-						[
-							59,
-							89
-						],
-						[
-							68,
-							89
-						]
-					]
-				},
-				{
-					"name": "None",
 					"type": "",
 					"range": [
 						[
@@ -2309,6 +2281,132 @@
 							91
 						]
 					]
+				},
+				{
+					"name": "ramp",
+					"type": "ramp",
+					"range": [
+						[
+							22,
+							57
+						],
+						[
+							23,
+							58
+						]
+					]
+				},
+				{
+					"name": "ramp",
+					"type": "ramp",
+					"range": [
+						[
+							21,
+							58
+						],
+						[
+							22,
+							59
+						]
+					]
+				},
+				{
+					"name": "ramp",
+					"type": "ramp",
+					"range": [
+						[
+							20,
+							59
+						],
+						[
+							21,
+							60
+						]
+					]
+				},
+				{
+					"name": "ramp",
+					"type": "ramp",
+					"range": [
+						[
+							19,
+							60
+						],
+						[
+							20,
+							61
+						]
+					]
+				},
+				{
+					"name": "ramp",
+					"type": "ramp",
+					"range": [
+						[
+							18,
+							61
+						],
+						[
+							19,
+							62
+						]
+					]
+				},
+				{
+					"name": "BrickOneLight",
+					"type": "solid",
+					"range": [
+						[
+							19,
+							61
+						],
+						[
+							23,
+							62
+						]
+					]
+				},
+				{
+					"name": "BrickOneLight",
+					"type": "solid",
+					"range": [
+						[
+							20,
+							60
+						],
+						[
+							23,
+							61
+						]
+					]
+				},
+				{
+					"name": "BrickOneLight",
+					"type": "solid",
+					"range": [
+						[
+							21,
+							59
+						],
+						[
+							23,
+							60
+						]
+					]
+				},
+				{
+					"name": "BrickOneLight",
+					"type": "solid",
+					"range": [
+						[
+							22,
+							58
+						],
+						[
+							23,
+							59
+						]
+					]
 				}
 			]
 		}
@@ -2337,8 +2435,6 @@
 				53
 			],
 			"size": 1000
-
-			
 		}
 	]
 }
