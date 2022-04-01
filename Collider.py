@@ -44,7 +44,7 @@ class Collider():
                     entity.components["CoinCollector"].coins += 1
                     
             elif match.val == "ramp":
-                rampY = match.y2 - ((entity.pos.x + entity.size.x) - match.x1)
+                rampY = match.y2 - ((entity.pos.x + entity.size.x) - match.x1) - 2
                 if entity.pos.y + entity.size.y > rampY:
                     entity.pos.y = max(rampY, match.y1) - entity.size.y
                     entity.vel.x *= 0.96
@@ -101,7 +101,7 @@ class Collider():
             
             elif match.val == "ramp":
                 if entity.vel.y > 0:
-                    rampY = match.y2 - ((entity.pos.x + entity.size.x) - match.x1)
+                    rampY = match.y2 - ((entity.pos.x + entity.size.x) - match.x1) - 2
                     if entity.pos.y + entity.size.y > rampY:
                         entity.pos.y = max(rampY, match.y1) - entity.size.y
                         entity.vel.y = 0
