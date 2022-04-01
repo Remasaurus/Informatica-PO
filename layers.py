@@ -107,7 +107,7 @@ class BackgroundLayer(Layer):
 
     def redraw_surface(self, camera):
         """Redraws background if necessary."""
-        size = camera.size + (self.spritesheet.tile_size * 30, self.spritesheet.tile_size * 30)
+        size = camera.size + (self.spritesheet.tile_size * 1, self.spritesheet.tile_size * 1)
         self.buffer = pygame.Surface(size, pygame.SRCALPHA)
         # for x in range(startX, endX + 1):
         #     col = self.grid.get_col(x)

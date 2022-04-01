@@ -25,15 +25,21 @@ class Player(Entity):
         return "player"
     
     def draw(self, surface, camera, spritesheet):   
-        buffer = pygame.Surface(self.size, pygame.SRCALPHA)
-        spritesheet.draw(self.frame, buffer, 0, 0)
+        if not self.scale == (1, 1):
+            buffer = pygame.Surface(self.size, pygame.SRCALPHA)
+            spritesheet.draw(self.frame, buffer, 0, 0)
+            
+            inflate = self.scale - (1, 1)
+            inflate.x *= self.size.x
+            inflate.y *= self.size.y
+            rect = pygame.Rect(self.pos - camera.pos, self.size).inflate(inflate.x, inflate.y)
         
-        inflate = self.scale - (1, 1)
-        inflate.x *= self.size.x
-        inflate.y *= self.size.y
-        rect = pygame.Rect(self.pos - camera.pos, self.size).inflate(inflate.x, inflate.y)
         
-        surface.blit(pygame.transform.scale(buffer, rect.size), rect.topleft)
+            surface.blit(pygame.transform.scale(buffer, rect.size), rect.topleft)
+        else:
+            spritesheet.draw(self.frame, surface, self.pos - camera.pos)
+            
+            
 
     def draw(self, surface, camera, spritesheet):
         spritesheet.draw(self.frame, surface, self.pos.x -
