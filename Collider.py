@@ -51,19 +51,18 @@ class Collider():
             elif match.val == "ramp":
                 if entity.vel.x > 0:
                     rampY = match.y2 - \
-                        ((entity.pos.x + entity.size.x) - match.x1) - 2
+                        ((entity.pos.x + entity.size.x) - match.x1)
                     if entity.pos.y + entity.size.y > rampY:
                         entity.pos.y = max(rampY, match.y1) - entity.size.y
-                        entity.vel.y = 0
                         # entity.pos.y = rampY - entity.size.y
 
                         entity.vel.x *= 0.96
                         break
 
-                elif entity.vel.x < 0:
-                    entity.pos.x = match.x2
-                    entity.vel.x = 0
-                    entity.obstruct(Sides.LEFT)
+                # elif entity.vel.x < 0:
+                #     entity.pos.x = match.x2
+                #     entity.vel.x = 0
+                #     entity.obstruct(Sides.LEFT)
 
             elif match.val == "spike-left":
                 pass
@@ -120,10 +119,12 @@ class Collider():
                     rampY = match.y2 - \
                         ((entity.pos.x + entity.size.x) - match.x1)
                     if entity.pos.y + entity.size.y > rampY:
-                        entity.pos.y = max(rampY, match.y1) - entity.size.y
+                        entity.pos.y = max(rampY, match.y1 - 2) - entity.size.y
                         # entity.pos.y = rampY - entity.size.y
 
                         entity.vel.y = 0
+                        entity.obstruct(Sides.BOTTOM)
+                        
                         break
 
             elif match.val == "spike-left":
