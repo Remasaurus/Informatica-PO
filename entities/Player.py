@@ -5,7 +5,7 @@ from components.Dash import Dash
 from components.Jump import Jump
 from components.Move import Move
 from components.Physics import Physics
-from components.wallSlide import WallSlide
+from components.WallSlide import WallSlide
 from components.CoinCollector import CoinCollector
 
 class Player(Entity):
