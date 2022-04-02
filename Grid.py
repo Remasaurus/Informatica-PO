@@ -3,6 +3,7 @@ from math import ceil, floor
 
 class Helper():
     """Wrapper for easier acces."""
+
     def __init__(self, x1, x2, y1, y2, val):
         self.x1 = x1
         self.x2 = x2
@@ -13,6 +14,7 @@ class Helper():
 
 class Grid():
     """Matrix that holds values, and has helper functions for tile based games."""
+
     def __init__(self, tile_size):
         self.grid = []
         self.tile_size = tile_size
@@ -23,14 +25,15 @@ class Grid():
 
     def to_index_range(self, pos1, pos2):
         """Returns all indices in the given range."""
-        end = ceil(pos2/self.tile_size) * self.tile_size
-        ran = []
-        start = int(pos1)
+        # end = ceil(pos2/self.tile_size) * self.tile_size
+        # ran = []
+        # start = int(pos1)
 
-        for pos in range(start, end, self.tile_size):
-            ran.append(self.to_index(pos))
+        # for pos in range(start, end, self.tile_size):
+        #     ran.append(self.to_index(pos))
 
-        return ran
+        # return ran
+        return range(floor(pos1/self.tile_size), ceil(pos2/self.tile_size))
 
     def get_by_index(self, x, y):
         """Gets value from grid at given location."""
