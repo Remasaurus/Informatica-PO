@@ -52,10 +52,9 @@ class Collider():
                 if entity.vel.x > 0:
                     rampY = match.y2 - \
                         ((entity.pos.x + entity.size.x) - match.x1)
-                    if entity.pos.y + entity.size.y > rampY:
+                    if entity.pos.y + entity.size.y >= rampY:
                         entity.pos.y = max(rampY, match.y1) - entity.size.y
                         # entity.pos.y = rampY - entity.size.y
-
                         entity.vel.x *= 0.96
                         break
 
@@ -90,6 +89,7 @@ class Collider():
         for match in sorted(self.grid.get_by_range(entity.pos.x, entity.pos.x + entity.size.x, y, y), key=sort_func):
             if match.val is None:
                 break
+            
 
             if match.val == "solid":
                 if entity.vel.y > 0:
@@ -103,6 +103,7 @@ class Collider():
                         entity.pos.y = match.y2
                         entity.vel.y = 0
                         entity.obstruct(Sides.TOP)
+                        
             elif match.val == "coin":
                 if "CoinCollector" in entity.components:
                     indexX, indexY = self.grid.to_index(
@@ -118,8 +119,8 @@ class Collider():
                 if entity.vel.y > 0:
                     rampY = match.y2 - \
                         ((entity.pos.x + entity.size.x) - match.x1)
-                    if entity.pos.y + entity.size.y > rampY:
-                        entity.pos.y = max(rampY, match.y1 - 2) - entity.size.y
+                    if entity.pos.y + entity.size.y >= rampY:
+                        entity.pos.y = max(rampY, match.y1) - entity.size.y
                         # entity.pos.y = rampY - entity.size.y
 
                         entity.vel.y = 0
