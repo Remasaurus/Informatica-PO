@@ -16,11 +16,11 @@ class Player(Entity):
         super().__init__()
         self.add_component(Dash())
         self.add_component(Jump())
+        self.add_component(WallJump())
         self.add_component(Physics())
         self.add_component(Move())
         self.add_component(WallSlide())
         self.add_component(CoinCollector())
-        self.add_component(WallJump())
 
     @property
     def frame(self):
