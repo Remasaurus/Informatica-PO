@@ -21,17 +21,11 @@ class Collider():
         else:
             return
 
-        a = sorted(self.grid.get_by_range(x, x, entity.pos.y,
-                                          entity.pos.y + entity.size.y), key=sort_func)
-
-        for match in a:
-            if match.val is None:
-                break
-
-            if match.val == "solid":
+        for match in self.grid.get_by_range(x, x, entity.pos.y, entity.pos.y + entity.size.y):
+            if match.val == "solid":                
                 if entity.vel.x > 0:
-                    if entity.pos.x + entity.size.x > match.x1 and not self.grid.get(self.grid.to_index(match.x1) - 1, self.grid.to_index(
-                                match.y1)) == "ramp":
+                    left_tile = self.grid.get(self.grid.to_index(match.x1) - 1, self.grid.to_index(match.y1))
+                    if entity.pos.x + entity.size.x > match.x1 and not left_tile == "solid" and not left_tile == "ramp":
                         entity.pos.x = match.x1 - entity.size.x
                         entity.vel.x = 0
                         entity.obstruct(Sides.RIGHT)
@@ -59,9 +53,10 @@ class Collider():
                     rampY = match.y2 - \
                         ((entity.pos.x + entity.size.x) - match.x1)
                     if entity.pos.y + entity.size.y >= rampY:
-                        newY = max(rampY, match.y1) - entity.size.y
+                        newY = max(rampY, match.y1 - 10) - entity.size.y
                         
                         y = self.grid.to_index(newY)
+                        # Check for collision in new position
                         for x in self.grid.to_index_range(entity.pos.x, entity.pos.x + entity.size.x):
                             tile = self.grid.get_by_index(x, y)
                             if tile.val == "solid":
@@ -101,13 +96,8 @@ class Collider():
         else:
             return
 
-        a = sorted(self.grid.get_by_range(
-            entity.pos.x, entity.pos.x + entity.size.x, y, y), key=sort_func)
 
-        for match in a:
-            if match.val is None:
-                break
-
+        for match in self.grid.get_by_range(entity.pos.x, entity.pos.x + entity.size.x, y, y):
             if match.val == "solid":
                 if entity.vel.y > 0:
                     if entity.pos.y + entity.size.y > match.y1:
@@ -137,6 +127,7 @@ class Collider():
                     rampY = match.y2 - \
                         ((entity.pos.x + entity.size.x) - match.x1)
                     if entity.pos.y + entity.size.y >= rampY:
+                        # So player cant dash through the thin part of the ramp
                         if self.grid.get_by_index(self.grid.to_index(match.x1) + 1, self.grid.to_index(
                                 match.y1) - 1).val == "ramp":
                             entity.pos.y = rampY - entity.size.y

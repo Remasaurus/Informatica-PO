@@ -6,6 +6,12 @@ import json
 import pygame
 
 
+# // Main menu
+# // Play
+# // Settings
+# // Escape menu
+
+
 class Application():
     """Application entrypoint."""
 
@@ -37,12 +43,17 @@ class Application():
             level.update(delta_time)
             level.draw(self.screen)
 
-            pygame.display.flip()
+            pygame.display.update()
 
             pygame.display.set_caption(f"Frametime: {time.time() - start} sec")
             # print(f"Frametime: {time.time() - start} sec")
 
         self.event_handler.clear()
+    
+    
+    def settings(self):
+        pass
+    
 
     def run(self) -> None:
         """Starts the main application loop. After window is closed the program will terminate."""

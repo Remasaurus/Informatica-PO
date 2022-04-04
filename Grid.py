@@ -25,14 +25,6 @@ class Grid():
 
     def to_index_range(self, pos1, pos2):
         """Returns all indices in the given range."""
-        # end = ceil(pos2/self.tile_size) * self.tile_size
-        # ran = []
-        # start = int(pos1)
-
-        # for pos in range(start, end, self.tile_size):
-        #     ran.append(self.to_index(pos))
-
-        # return ran
         return range(floor(pos1/self.tile_size), ceil(pos2/self.tile_size))
 
     def get_by_index(self, x, y):
