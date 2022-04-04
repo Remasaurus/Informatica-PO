@@ -1,6 +1,6 @@
 import pygame
 from entities.Entity import Entity
-from components.Physics import Physics
+from components.physics import Physics
 from components.Follower import Follower
 
 class Helper(Entity):

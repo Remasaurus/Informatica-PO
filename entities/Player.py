@@ -4,7 +4,7 @@ from entities.Entity import Entity
 from components.Dash import Dash
 from components.Jump import Jump
 from components.Move import Move
-from components.Physics import Physics
+from components.physics import Physics
 from components.WallSlide import WallSlide
 from components.CoinCollector import CoinCollector
 
