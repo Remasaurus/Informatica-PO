@@ -77,6 +77,12 @@ def load_menu_keyboard(event_handler, buttons):
                 button.pressed = state
 
     event_handler.append_mouse(callback)
+    
+def load_pause_keyboard(event_handler):
+    pass
+
+def load_play_keyboard(event_handler):
+    pass
 
 
 def load_keyboard(event_handler, player):
