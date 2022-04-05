@@ -85,7 +85,7 @@ class BackgroundLayer(Layer):
 
         self.grid = Grid(self.spritesheet.tile_size)
 
-        for tile in layer["tiles"]:
+        for tile in layer["tiles"]:            
             [start, end] = tile["range"]
             for x in range(start[0], end[0]):
                 for y in range(start[1], end[1]):
