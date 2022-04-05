@@ -29,8 +29,202 @@
 		{
 			"tiles": [
 				{
-					
-			         
+					"name": "Brick",
+					"type": "solid",
+					"range": [
+						[
+							0,
+							61
+						],
+						[
+							11,
+							62
+						]
+					]
+				},
+				{
+					"name": "BrickCracked",
+					"type": "solid",
+					"range": [
+						[
+							17,
+							43
+						],
+						[
+							18,
+							60
+						]
+					]
+				},
+				{
+					"name": "BrickCracked",
+					"type": "solid",
+					"range": [
+						[
+							18,
+							59
+						],
+						[
+							30,
+							60
+						]
+					]
+				},
+				{
+					"name": "BrickCracked",
+					"type": "solid",
+					"range": [
+						[
+							30,
+							59
+						],
+						[
+							46,
+							60
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							10,
+							62
+						],
+						[
+							11,
+							80
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							17,
+							60
+						],
+						[
+							18,
+							80
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							5,
+							80
+						],
+						[
+							6,
+							89
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							6,
+							87
+						],
+						[
+							26,
+							88
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							5,
+							79
+						],
+						[
+							10,
+							80
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							5,
+							88
+						],
+						[
+							6,
+							96
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							6,
+							95
+						],
+						[
+							32,
+							96
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							18,
+							79
+						],
+						[
+							37,
+							80
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							32,
+							95
+						],
+						[
+							36,
+							96
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "none",
+					"range": [
+						[
+							25,
+							87
+						],
+						[
+							7,
+							88
+						]
+					]
+				}
+			]
 		}
 	],
 	"lights": [
