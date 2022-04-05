@@ -8,7 +8,11 @@ from entities.Boss import Boss
 from entities.Player import Player
 from entities.Helper import Helper
 from layers import BackgroundLayer, EntityLayer, LightingLayer, ParallaxLayer
+import ctypes
 
+# Too replace the python icon in taskbar
+myappid = 'Anime waifus' # arbitrary string
+ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 
 def load_level(name: str, event_handler) -> Level:
     """Creates level and intializes it with given the json that matches the name."""
