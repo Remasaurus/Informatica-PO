@@ -1,9 +1,6 @@
+import pygame
 from components.Component import Sides
 from Grid import Grid
-
-
-def sort_func(e):
-    return e.val if e.val is not None else "z"
 
 
 class Collider():
@@ -11,6 +8,9 @@ class Collider():
 
     def __init__(self, tile_size) -> None:
         self.grid = Grid(tile_size)
+        
+    def handle_spike(spike_rect, entity, level):
+        pass
 
     def checkX(self, entity, level):
         """Checks if entity had collided when any tiles on the x-axis."""
@@ -25,13 +25,14 @@ class Collider():
             if match.val == "solid":                
                 if entity.vel.x > 0:
                     left_tile = self.grid.get(self.grid.to_index(match.x1) - 1, self.grid.to_index(match.y1))
-                    if entity.pos.x + entity.size.x > match.x1 and not left_tile == "solid" and not left_tile == "ramp":
+                    if entity.pos.x + entity.size.x > match.x1 and not left_tile == "solid" and not left_tile == "ramp-right":
                         entity.pos.x = match.x1 - entity.size.x
                         entity.vel.x = 0
                         entity.obstruct(Sides.RIGHT)
 
                 elif entity.vel.x < 0:
-                    if entity.pos.x < match.x2:
+                    right_tile = self.grid.get(self.grid.to_index(match.x1) + 1, self.grid.to_index(match.y1)) 
+                    if entity.pos.x < match.x2 and not right_tile == "solid" and not right_tile == "ramp-left":
                         entity.pos.x = match.x2
                         entity.vel.x = 0
                         entity.obstruct(Sides.LEFT)
@@ -46,14 +47,37 @@ class Collider():
                     level.compositor.layers["BackgroundLayer"].redraw = True
                     entity.components["CoinCollector"].coins += 1
 
-            elif match.val == "ramp":
+            elif match.val == "ramp-right":
                 if entity.vel.x > 0:
                     if self.grid.get(self.grid.to_index(entity.pos.x + entity.size.x), self.grid.to_index(entity.pos.y)) == "solid":
                         continue
                     rampY = match.y2 - \
                         ((entity.pos.x + entity.size.x) - match.x1)
                     if entity.pos.y + entity.size.y >= rampY:
-                        newY = max(rampY, match.y1 - 10) - entity.size.y
+                        newY = max(rampY, match.y1) - entity.size.y
+                        
+                        y = self.grid.to_index(newY)
+                        # Check for collision in new position
+                        for x in self.grid.to_index_range(entity.pos.x, entity.pos.x + entity.size.x):
+                            tile = self.grid.get_by_index(x, y)
+                            if tile.val == "solid":
+                                entity.pos.y = tile.y2
+                                entity.pos.x = match.x2 - ((tile.y2 + entity.size.y) - match.y1) - entity.size.x
+                                entity.vel.x = 0
+                                break
+                                
+                        else:
+                            entity.pos.y = newY
+                            entity.vel.x *= 0.96
+                            
+            elif match.val == "ramp-left":
+                if entity.vel.x < 0:
+                    if self.grid.get(self.grid.to_index(entity.pos.x), self.grid.to_index(entity.pos.y)) == "solid":
+                        continue
+                    rampY = match.y2 - \
+                        (match.x2 - (entity.pos.x))
+                    if entity.pos.y + entity.size.y >= rampY:
+                        newY = max(rampY, match.y1) - entity.size.y
                         
                         y = self.grid.to_index(newY)
                         # Check for collision in new position
@@ -69,23 +93,17 @@ class Collider():
                             entity.pos.y = newY
                             entity.vel.x *= 0.96
 
-
-                # elif entity.vel.x < 0:
-                #     entity.pos.x = match.x2
-                #     entity.vel.x = 0
-                #     entity.obstruct(Sides.LEFT)
-
             elif match.val == "spike-left":
-                pass
+                self.handle_spike(pygame.Rect(match.x1, match.y1, match.x2 - self.grid.tile_size/2, match.y2))
 
             elif match.val == "spike-right":
-                pass
+                self.handle_spike(pygame.Rect(match.x1 + self.grid.tile_size/2, match.y1, match.x2, match.y2))
 
             elif match.val == "spike-top":
-                pass
+                self.handle_spike(pygame.Rect(match.x1, match.y1, match.x2, match.y2 - self.grid.tile_size/2))
 
             elif match.val == "spike-bottom":
-                pass
+                self.handle_spike(pygame.Rect(match.x1, match.y1 + self.grid.tile_size/2, match.x2, match.y2))
 
     def checkY(self, entity, level):
         """Checks if entity had collided when any tiles on the y-axis."""
@@ -122,7 +140,7 @@ class Collider():
 
                     entity.components["CoinCollector"].coins += 1
 
-            elif match.val == "ramp":
+            elif match.val == "ramp-right":
                 if entity.vel.y > 0:
                     rampY = match.y2 - \
                         ((entity.pos.x + entity.size.x) - match.x1)
@@ -136,15 +154,31 @@ class Collider():
 
                         entity.vel.y = 0
                         entity.obstruct(Sides.BOTTOM)
+                        
+            elif match.val == "ramp-left":
+                if entity.vel.y > 0:
+                    rampY = match.y2 - \
+                        (match.x2 - (entity.pos.x))
+                    if entity.pos.y + entity.size.y >= rampY:
+                        # So player cant dash through the thin part of the ramp
+                        if self.grid.get_by_index(self.grid.to_index(match.x1) + 1, self.grid.to_index(
+                                match.y1) - 1).val == "ramp":
+                            entity.pos.y = rampY - entity.size.y
+                        else:
+                            entity.pos.y = max(rampY, match.y1) - entity.size.y
+
+                        entity.vel.y = 0
+                        entity.obstruct(Sides.BOTTOM)
+            
 
             elif match.val == "spike-left":
-                pass
+                self.handle_spike()
 
             elif match.val == "spike-right":
-                pass
+                self.handle_spike()
 
             elif match.val == "spike-top":
-                pass
+                self.handle_spike()
 
             elif match.val == "spike-bottom":
-                pass
+                self.handle_spike()

@@ -2284,7 +2284,7 @@
 				},
 				{
 					"name": "ramp",
-					"type": "ramp",
+					"type": "ramp-right",
 					"range": [
 						[
 							22,
@@ -2298,7 +2298,7 @@
 				},
 				{
 					"name": "ramp",
-					"type": "ramp",
+					"type": "ramp-right",
 					"range": [
 						[
 							21,
@@ -2312,7 +2312,7 @@
 				},
 				{
 					"name": "ramp",
-					"type": "ramp",
+					"type": "ramp-right",
 					"range": [
 						[
 							20,
@@ -2326,7 +2326,7 @@
 				},
 				{
 					"name": "ramp",
-					"type": "ramp",
+					"type": "ramp-right",
 					"range": [
 						[
 							19,
@@ -2340,7 +2340,7 @@
 				},
 				{
 					"name": "ramp",
-					"type": "ramp",
+					"type": "ramp-right",
 					"range": [
 						[
 							18,
@@ -2410,7 +2410,7 @@
 				},
 				{
 					"name": "ramp",
-					"type": "ramp",
+					"type": "ramp-right",
 					"range": [
 						[
 							12,
@@ -2424,7 +2424,7 @@
 				},
 				{
 					"name": "ramp",
-					"type": "ramp",
+					"type": "ramp-right",
 					"range": [
 						[
 							13,
@@ -2438,7 +2438,7 @@
 				},
 				{
 					"name": "ramp",
-					"type": "ramp",
+					"type": "ramp-right",
 					"range": [
 						[
 							14,
@@ -2452,7 +2452,7 @@
 				},
 				{
 					"name": "ramp",
-					"type": "ramp",
+					"type": "ramp-right",
 					"range": [
 						[
 							15,
@@ -2531,6 +2531,132 @@
 						[
 							15,
 							59
+						]
+					]
+				},
+				{
+					"name": "ramp",
+					"type": "ramp-left",
+					"range": [
+						[
+							36,
+							57
+						],
+						[
+							37,
+							58
+						]
+					]
+				},
+				{
+					"name": "ramp",
+					"type": "ramp-left",
+					"range": [
+						[
+							37,
+							58
+						],
+						[
+							38,
+							59
+						]
+					]
+				},
+				{
+					"name": "ramp",
+					"type": "ramp-left",
+					"range": [
+						[
+							38,
+							59
+						],
+						[
+							39,
+							60
+						]
+					]
+				},
+				{
+					"name": "ramp",
+					"type": "ramp-left",
+					"range": [
+						[
+							39,
+							60
+						],
+						[
+							40,
+							61
+						]
+					]
+				},
+				{
+					"name": "ramp",
+					"type": "ramp-left",
+					"range": [
+						[
+							40,
+							61
+						],
+						[
+							41,
+							62
+						]
+					]
+				},
+				{
+					"name": "BrickOneLight",
+					"type": "solid",
+					"range": [
+						[
+							36,
+							58
+						],
+						[
+							37,
+							62
+						]
+					]
+				},
+				{
+					"name": "BrickOneLight",
+					"type": "solid",
+					"range": [
+						[
+							37,
+							59
+						],
+						[
+							38,
+							62
+						]
+					]
+				},
+				{
+					"name": "BrickOneLight",
+					"type": "solid",
+					"range": [
+						[
+							38,
+							60
+						],
+						[
+							39,
+							62
+						]
+					]
+				},
+				{
+					"name": "BrickOneLight",
+					"type": "solid",
+					"range": [
+						[
+							39,
+							61
+						],
+						[
+							40,
+							62
 						]
 					]
 				}
