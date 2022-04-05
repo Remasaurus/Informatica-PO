@@ -10,7 +10,8 @@ class Collider():
         self.grid = Grid(tile_size)
         
     def handle_spike(spike_rect, entity, level):
-        pass
+        if pygame.Rect(entity.pos, entity.size).colliderect(spike_rect):
+            print("dood")
 
     def checkX(self, entity, level):
         """Checks if entity had collided when any tiles on the x-axis."""
@@ -172,13 +173,13 @@ class Collider():
             
 
             elif match.val == "spike-left":
-                self.handle_spike()
+                self.handle_spike(pygame.Rect(match.x1, match.y1, match.x2 - self.grid.tile_size/2, match.y2))
 
             elif match.val == "spike-right":
-                self.handle_spike()
+                self.handle_spike(pygame.Rect(match.x1 + self.grid.tile_size/2, match.y1, match.x2, match.y2))
 
             elif match.val == "spike-top":
-                self.handle_spike()
+                self.handle_spike(pygame.Rect(match.x1, match.y1, match.x2, match.y2 - self.grid.tile_size/2))
 
             elif match.val == "spike-bottom":
-                self.handle_spike()
+                self.handle_spike(pygame.Rect(match.x1, match.y1 + self.grid.tile_size/2, match.x2, match.y2))
