@@ -1,6 +1,6 @@
 import pygame
 from entities.Entity import Entity
-from components.physics import Physics
+from components.Physics import Physics
 from components.Boss import BossAI
 
 class Boss(Entity):

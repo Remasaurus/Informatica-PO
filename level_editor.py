@@ -6,9 +6,9 @@ from layers import BackgroundLayer
 from loaders import load_level
 from EventHandler import EventHandler
 from Application import create_window
-from Button import Button
+from Button import Button, TextButton
 
-
+FONT = pygame.font.SysFont(None, 48)
 layer = 0
 SCALE = (0, 0)
 
@@ -38,7 +38,7 @@ class DraggableCamera(Camera):
 
 class TileButton(Button):
     def __init__(self, pos, size, img) -> None:
-        super().__init__(pos, size, (0, 0, 0), (0, 0, 0), "")
+        super().__init__(pos, size, (0, 0, 0))
         self.img = img
 
     def draw(self, surface, spritesheet):
@@ -47,21 +47,32 @@ class TileButton(Button):
 
 class DeleteButton(Button):
     def __init__(self, pos, size) -> None:
-        super().__init__(pos, size, (0, 0, 0), (0, 0, 0), "")
+        super().__init__(pos, size, (0, 0, 0))
         self.img = "None"
         self.buffer = pygame.Surface(size)
 
     def draw(self, surface, spritesheet):
         surface.blit(self.buffer, (0, 0))
 
-class TextBox(Button):
-    def __init__(self, pos, size) -> None:
-        super().__init__(pos, size, (255, 222, 173), (0, 0, 0), "")
-        self.typing = False
-    
+
 class Box(Button):
     def __init__(self, pos, size):
-        super().__init__(pos, size, (255, 222, 173), (0, 0, 0), "")
+        super().__init__(pos, size, (255, 222, 173))
+
+
+class TextBox(Box):
+    def __init__(self, pos, size) -> None:
+        super().__init__(pos, size)
+        self.typing = False
+        self.text = ""
+        
+    def draw(self, surface):
+        super().draw(surface)
+        self.text_surface = FONT.render(self.text, True, (0, 0, 0))
+        rect = self.text_surface.get_rect()
+        center = (self.rect.centerx - rect.width/2,
+                  self.rect.centery - rect.height/2)
+        surface.blit(self.text_surface, center)
 
 
 class Selection():
@@ -149,15 +160,15 @@ def main():
     ]
 
     actionButtons = [
-        Button((0, 0), (30, 50), (255, 222, 173), (0, 0, 0), "Save"),
-        Button((0, 0), (30, 50), (255, 222, 173), (0, 0, 0), "Undo")
+        TextButton((0, 0), (30, 50), (255, 222, 173), (0, 0, 0), "Save"),
+        TextButton((0, 0), (30, 50), (255, 222, 173), (0, 0, 0), "Undo")
 
     ]
 
     scroll = [0]
     
     typeBox = TextBox((0, 0), (100, 40))
-    layerBox = Box((0, 0), (40, 40))
+    layerBox = TextBox((0, 0), (40, 40))
     layerBox.text = f"{layer}"
     
     def hook(event):
@@ -278,9 +289,19 @@ def main():
 
     def clear(keystate):
         selection.selected = []
+        
+    def print_rel_pos(keystate):
+        if keystate:
+            m = list(pygame.mouse.get_pos())
+            m[0] *= SCALE[0]
+            m[1] *= SCALE[1]
+            
+            print(m + level.camera.pos)
 
     event_handler.append_mouse(route)
     event_handler.append_key(pygame.K_ESCAPE, clear)
+    event_handler.append_key(pygame.K_TAB, print_rel_pos)
+    
     event_handler.append_hook(hook)
     
 
