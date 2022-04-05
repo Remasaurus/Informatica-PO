@@ -3,19 +3,18 @@
 
 
 
-Daniel de Haas
-Moos Teunisse
-Floris Walet
+Daniel de Haas,
+Moos Teunisse,
+Floris Walet,
 
 Really, really cool
 
 # TO DO
 - Documentation
+- Ramp
+- Falling tiles
 - Squish
 - Art
-- Dash component
-- Wall jump component
-- Give level parallax
 - Level design
 - Boss battle
 - Coins (Doge coin)

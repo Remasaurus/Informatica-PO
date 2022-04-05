@@ -1,10 +1,14 @@
 from components.Component import Sides
 from Grid import Grid
-from entities.Player import Player
+
+
+def sort_func(e):
+    return e.val if e.val is not None else "z"
 
 
 class Collider():
     """Contains all tiles in the level and handles interactions."""
+
     def __init__(self, tile_size) -> None:
         self.grid = Grid(tile_size)
 
@@ -18,9 +22,10 @@ class Collider():
             return
 
         for match in self.grid.get_by_range(x, x, entity.pos.y, entity.pos.y + entity.size.y):
-            if match.val == "solid":
+            if match.val == "solid":                
                 if entity.vel.x > 0:
-                    if entity.pos.x + entity.size.x > match.x1:
+                    left_tile = self.grid.get(self.grid.to_index(match.x1) - 1, self.grid.to_index(match.y1))
+                    if entity.pos.x + entity.size.x > match.x1 and not left_tile == "solid" and not left_tile == "ramp":
                         entity.pos.x = match.x1 - entity.size.x
                         entity.vel.x = 0
                         entity.obstruct(Sides.RIGHT)
@@ -30,15 +35,57 @@ class Collider():
                         entity.pos.x = match.x2
                         entity.vel.x = 0
                         entity.obstruct(Sides.LEFT)
-            
+
             elif match.val == "coin":
                 if "CoinCollector" in entity.components:
-                    x, y = self.grid.to_index(match.x1), self.grid.to_index(match.y1)
-                    self.grid.set(x, y, None)
-                    level.compositor.layers["BackgroundLayer"].grid.set(x, y, None)
+                    indexX, indexY = self.grid.to_index(
+                        match.x1), self.grid.to_index(match.y1)
+                    self.grid.set(indexX, indexY, None)
+                    level.compositor.layers["BackgroundLayer"].grid.set(
+                        indexX, indexY, None)
                     level.compositor.layers["BackgroundLayer"].redraw = True
                     entity.components["CoinCollector"].coins += 1
-                    
+
+            elif match.val == "ramp":
+                if entity.vel.x > 0:
+                    if self.grid.get(self.grid.to_index(entity.pos.x + entity.size.x), self.grid.to_index(entity.pos.y)) == "solid":
+                        continue
+                    rampY = match.y2 - \
+                        ((entity.pos.x + entity.size.x) - match.x1)
+                    if entity.pos.y + entity.size.y >= rampY:
+                        newY = max(rampY, match.y1 - 10) - entity.size.y
+                        
+                        y = self.grid.to_index(newY)
+                        # Check for collision in new position
+                        for x in self.grid.to_index_range(entity.pos.x, entity.pos.x + entity.size.x):
+                            tile = self.grid.get_by_index(x, y)
+                            if tile.val == "solid":
+                                entity.pos.y = tile.y2
+                                entity.pos.x = match.x2 - ((tile.y2 + entity.size.y) - match.y1) - entity.size.x
+                                entity.vel.x = 0
+                                break
+                                
+                        else:
+                            entity.pos.y = newY
+                            entity.vel.x *= 0.96
+
+
+                # elif entity.vel.x < 0:
+                #     entity.pos.x = match.x2
+                #     entity.vel.x = 0
+                #     entity.obstruct(Sides.LEFT)
+
+            elif match.val == "spike-left":
+                pass
+
+            elif match.val == "spike-right":
+                pass
+
+            elif match.val == "spike-top":
+                pass
+
+            elif match.val == "spike-bottom":
+                pass
 
     def checkY(self, entity, level):
         """Checks if entity had collided when any tiles on the y-axis."""
@@ -48,6 +95,7 @@ class Collider():
             y = entity.pos.y
         else:
             return
+
 
         for match in self.grid.get_by_range(entity.pos.x, entity.pos.x + entity.size.x, y, y):
             if match.val == "solid":
@@ -62,12 +110,41 @@ class Collider():
                         entity.pos.y = match.y2
                         entity.vel.y = 0
                         entity.obstruct(Sides.TOP)
+
             elif match.val == "coin":
                 if "CoinCollector" in entity.components:
-                    x, y = self.grid.to_index(match.x1), self.grid.to_index(match.y1)
-                    self.grid.set(x, y, None)
-                    level.compositor.layers["BackgroundLayer"].grid.set(x, y, None)
+                    indexX, indexY = self.grid.to_index(
+                        match.x1), self.grid.to_index(match.y1)
+                    self.grid.set(indexX, indexY, None)
+                    level.compositor.layers["BackgroundLayer"].grid.set(
+                        indexX, indexY, None)
                     level.compositor.layers["BackgroundLayer"].redraw = True
-                    
+
                     entity.components["CoinCollector"].coins += 1
-                    
+
+            elif match.val == "ramp":
+                if entity.vel.y > 0:
+                    rampY = match.y2 - \
+                        ((entity.pos.x + entity.size.x) - match.x1)
+                    if entity.pos.y + entity.size.y >= rampY:
+                        # So player cant dash through the thin part of the ramp
+                        if self.grid.get_by_index(self.grid.to_index(match.x1) + 1, self.grid.to_index(
+                                match.y1) - 1).val == "ramp":
+                            entity.pos.y = rampY - entity.size.y
+                        else:
+                            entity.pos.y = max(rampY, match.y1) - entity.size.y
+
+                        entity.vel.y = 0
+                        entity.obstruct(Sides.BOTTOM)
+
+            elif match.val == "spike-left":
+                pass
+
+            elif match.val == "spike-right":
+                pass
+
+            elif match.val == "spike-top":
+                pass
+
+            elif match.val == "spike-bottom":
+                pass

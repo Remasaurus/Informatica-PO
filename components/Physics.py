@@ -8,5 +8,5 @@ class Physics(Component):
 
         entity.pos.y += entity.vel.y * delta_time
         level.collider.checkY(entity, level)
-        
+
         entity.vel.y += level.gravity * delta_time

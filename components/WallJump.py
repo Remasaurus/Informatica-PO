@@ -1,4 +1,3 @@
-import math
 import pygame
 from components.Component import Component, Sides
 
@@ -12,7 +11,6 @@ class WallJump(Component):
 
         # How long the player can press the jump key for more height
         self.duration = 0.05
-        
 
         # How much the x velocity affects the jump
         self.boost = 0.02
@@ -29,8 +27,11 @@ class WallJump(Component):
         self.coyote_time = 0
         self.engage_time = 0
 
+        self.is_grounded = False
+
     def start(self):
-        self.request_time = self.grace_period
+        if not self.is_grounded:
+            self.request_time = self.grace_period
 
     def cancel(self):
         self.request_time = 0
@@ -44,7 +45,7 @@ class WallJump(Component):
         elif side == Sides.BOTTOM:
             self.coyote_time = 0
             self.request_time = 0
-            
+            self.is_grounded = True
 
     def update(self, entity, delta_time, level):
         if self.request_time > 0:
@@ -52,18 +53,19 @@ class WallJump(Component):
                 self.request_time = 0
                 self.coyote_time = 0
                 self.engage_time = self.duration
-                
 
             self.request_time -= delta_time
-        
+
         if self.engage_time > 0:
-            vec = pygame.Vector2(0, -(self.force + (abs(entity.vel.x) * self.boost)))
+            vec = pygame.Vector2(
+                0, -(self.force + (abs(entity.vel.x) * self.boost)))
             if self.side == Sides.LEFT:
                 vec.rotate_ip(40)
             else:
                 vec.rotate_ip(-40)
-                
+
             entity.vel = vec
             self.engage_time -= delta_time
-            
+
         self.coyote_time -= delta_time
+        self.is_grounded = False

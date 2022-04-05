@@ -1,0 +1,31 @@
+{
+    "FOV": [
+        16,
+        9
+    ],
+    "controls": [
+        {
+            "dash": "j",
+            "jump": " ",
+            "left": "a",
+            "right": "d",
+            "up": "w",
+            "down": "s",
+            "run": "shift"   
+        },
+        {
+            "dash": "j",
+            "jump": " ",
+            "left": "a",
+            "right": "d",
+            "up": "w",
+            "down": "s",
+            "run": "shift" 
+        }
+    ],
+    "sound": {
+        "master": 0.5,
+        "vfx": 0.5,
+        "background": 0.5
+    }
+}
