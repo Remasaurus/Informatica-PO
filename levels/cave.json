@@ -337,76 +337,6 @@
 					]
 				},
 				{
-					"name": "BrickOne",
-					"type": "solid",
-					"range": [
-						[
-							22,
-							87
-						],
-						[
-							26,
-							88
-						]
-					]
-				},
-				{
-					"name": "BrickOne",
-					"type": "solid",
-					"range": [
-						[
-							30,
-							86
-						],
-						[
-							33,
-							87
-						]
-					]
-				},
-				{
-					"name": "BrickOne",
-					"type": "solid",
-					"range": [
-						[
-							36,
-							83
-						],
-						[
-							39,
-							84
-						]
-					]
-				},
-				{
-					"name": "BrickOne",
-					"type": "solid",
-					"range": [
-						[
-							40,
-							79
-						],
-						[
-							42,
-							80
-						]
-					]
-				},
-				{
-					"name": "BrickOne",
-					"type": "solid",
-					"range": [
-						[
-							48,
-							82
-						],
-						[
-							50,
-							83
-						]
-					]
-				},
-				{
 					"name": "None",
 					"type": "none",
 					"range": [
@@ -430,62 +360,6 @@
 						],
 						[
 							109,
-							67
-						]
-					]
-				},
-				{
-					"name": "None",
-					"type": "none",
-					"range": [
-						[
-							9,
-							43
-						],
-						[
-							10,
-							44
-						]
-					]
-				},
-				{
-					"name": "BrickOne",
-					"type": "solid",
-					"range": [
-						[
-							54,
-							78
-						],
-						[
-							57,
-							80
-						]
-					]
-				},
-				{
-					"name": "BrickOne",
-					"type": "solid",
-					"range": [
-						[
-							51,
-							71
-						],
-						[
-							53,
-							73
-						]
-					]
-				},
-				{
-					"name": "BrickOne",
-					"type": "solid",
-					"range": [
-						[
-							58,
-							66
-						],
-						[
-							60,
 							67
 						]
 					]
