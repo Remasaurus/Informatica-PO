@@ -11,6 +11,7 @@ class Entity():
         self.life_time = 0
         self.components = dict()
         self.scale = pygame.Vector2(1, 1)
+        self.spikeable = False
 
     def add_component(self, component):
         """Adds component to entity with classname as key."""

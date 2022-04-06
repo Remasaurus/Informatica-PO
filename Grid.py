@@ -62,10 +62,15 @@ class Grid():
 
     def get(self, x, y):
         """Return value at given index."""
-        if len(self.grid) <= x or x < 0:
+        try:
+            return self.grid[x][y]
+        except IndexError:
             return None
+        
+        # if len(self.grid) <= x or x < 0:
+        #     return None
 
-        if len(self.grid[x]) <= y or y < 0:
-            return None
+        # if len(self.grid[x]) <= y or y < 0:
+        #     return None
 
-        return self.grid[x][y]
+        # return self.grid[x][y]

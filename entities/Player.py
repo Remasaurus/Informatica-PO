@@ -19,10 +19,15 @@ class Player(Entity):
         self.add_component(WallSlide())
         self.add_component(CoinCollector())
         self.add_component(WallJump())
+        self.spikeable = True
+        
     
     @property
     def frame(self):
         return "player"
+    
+    def hit(self):
+        pass
     
     def draw(self, surface, camera, spritesheet): 
         if self.scale == (1, 1):

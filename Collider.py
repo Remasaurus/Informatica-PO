@@ -9,9 +9,9 @@ class Collider():
     def __init__(self, tile_size) -> None:
         self.grid = Grid(tile_size)
         
-    def handle_spike(spike_rect, entity, level):
+    def handle_spike(self, spike_rect, entity):
         if pygame.Rect(entity.pos, entity.size).colliderect(spike_rect):
-            print("dood")
+            entity.hit()
 
     def checkX(self, entity, level):
         """Checks if entity had collided when any tiles on the x-axis."""
@@ -71,6 +71,18 @@ class Collider():
                             entity.pos.y = newY
                             entity.vel.x *= 0.96
                             
+            elif match.val == "ramp-topright":
+                if entity.vel.x > 0:
+                    rampY = match.y1 + \
+                        ((entity.pos.x + entity.size.x) - match.x1)
+                    
+                    if entity.pos.y < rampY:
+                        entity.pos.y = rampY
+                        entity.vel.x = 0
+                        
+                        
+                        
+                            
             elif match.val == "ramp-left":
                 if entity.vel.x < 0:
                     if self.grid.get(self.grid.to_index(entity.pos.x), self.grid.to_index(entity.pos.y)) == "solid":
@@ -93,18 +105,31 @@ class Collider():
                         else:
                             entity.pos.y = newY
                             entity.vel.x *= 0.96
+                            
+            elif match.val == "ramp-topleft":
+                if entity.vel.x > 0:
+                    rampY = match.y1 + \
+                        (match.x2 - (entity.pos.x))
+                    
+                    if entity.pos.y < rampY:
+                        entity.pos.y = rampY
+                        entity.vel.x = 0
 
             elif match.val == "spike-left":
-                self.handle_spike(pygame.Rect(match.x1, match.y1, match.x2 - self.grid.tile_size/2, match.y2))
+                if entity.spikeable:
+                    self.handle_spike(pygame.Rect(match.x1, match.y1, match.x2 - self.grid.tile_size/2, match.y2), entity)
 
             elif match.val == "spike-right":
-                self.handle_spike(pygame.Rect(match.x1 + self.grid.tile_size/2, match.y1, match.x2, match.y2))
+                if entity.spikeable:
+                    self.handle_spike(pygame.Rect(match.x1 + self.grid.tile_size/2, match.y1, match.x2, match.y2), entity)
 
             elif match.val == "spike-top":
-                self.handle_spike(pygame.Rect(match.x1, match.y1, match.x2, match.y2 - self.grid.tile_size/2))
+                if entity.spikeable:
+                    self.handle_spike(pygame.Rect(match.x1, match.y1, match.x2, match.y2 - self.grid.tile_size/2), entity)
 
             elif match.val == "spike-bottom":
-                self.handle_spike(pygame.Rect(match.x1, match.y1 + self.grid.tile_size/2, match.x2, match.y2))
+                if entity.spikeable:
+                    self.handle_spike(pygame.Rect(match.x1, match.y1 + self.grid.tile_size/2, match.x2, match.y2), entity)
 
     def checkY(self, entity, level):
         """Checks if entity had collided when any tiles on the y-axis."""
@@ -155,6 +180,16 @@ class Collider():
 
                         entity.vel.y = 0
                         entity.obstruct(Sides.BOTTOM)
+            
+            elif match.val == "ramp-topright":
+                if entity.vel.y < 0:
+                    rampY = match.y2 - \
+                        (match.x2 - (entity.pos.x + entity.size.x))
+
+                    if entity.pos.y < rampY:
+                        newX = max(match.x1 + (entity.pos.y - match.y1), match.x1) - entity.size.x
+                        entity.pos.x = newX
+                        entity.vel.y *= 0.96
                         
             elif match.val == "ramp-left":
                 if entity.vel.y > 0:
@@ -171,15 +206,42 @@ class Collider():
                         entity.vel.y = 0
                         entity.obstruct(Sides.BOTTOM)
             
+            elif match.val == "ramp-topleft":
+                if entity.vel.y < 0:
+                    rampY = match.y1 + \
+                        (match.x2 - (entity.pos.x))
+                    
+                    if entity.pos.y < rampY:
+                        newX = min(match.x2 - (entity.pos.y - match.y1), match.x2)
+                        
+                        x = self.grid.to_index(newX)
+                        # Check for collision in new position
+                        for y in self.grid.to_index_range(entity.pos.x, entity.pos.x + entity.size.x):
+                            tile = self.grid.get_by_index(x, y)
+                            if tile.val == "solid":
+                                entity.pos.x = tile.x1 - entity.size.x
+                                entity.pos.y = match.x2 - ((tile.y2 + entity.size.y) - match.y1) - entity.size.x
+                                entity.vel.y = 0
+                                break
+                        else:
+                            entity.pos.x = newX
+                            entity.vel.y *= 0.96
+                            
+                        
+            
 
             elif match.val == "spike-left":
-                self.handle_spike(pygame.Rect(match.x1, match.y1, match.x2 - self.grid.tile_size/2, match.y2))
+                if entity.spikeable:
+                    self.handle_spike(pygame.Rect(match.x1, match.y1, match.x2 - self.grid.tile_size/2, match.y2), entity)
 
             elif match.val == "spike-right":
-                self.handle_spike(pygame.Rect(match.x1 + self.grid.tile_size/2, match.y1, match.x2, match.y2))
+                if entity.spikeable:
+                    self.handle_spike(pygame.Rect(match.x1 + self.grid.tile_size/2, match.y1, match.x2, match.y2), entity)
 
             elif match.val == "spike-top":
-                self.handle_spike(pygame.Rect(match.x1, match.y1, match.x2, match.y2 - self.grid.tile_size/2))
+                if entity.spikeable:
+                    self.handle_spike(pygame.Rect(match.x1, match.y1, match.x2, match.y2 - self.grid.tile_size/2), entity)
 
             elif match.val == "spike-bottom":
-                self.handle_spike(pygame.Rect(match.x1, match.y1 + self.grid.tile_size/2, match.x2, match.y2))
+                if entity.spikeable:
+                    self.handle_spike(pygame.Rect(match.x1, match.y1 + self.grid.tile_size/2, match.x2, match.y2), entity)
