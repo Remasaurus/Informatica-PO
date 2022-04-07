@@ -48,25 +48,11 @@
 					"range": [
 						[
 							0,
-							52
-						],
-						[
-							1,
-							53
-						]
-					]
-				},
-				{
-					"name": "BrickMoldy",
-					"type": "solid",
-					"range": [
-						[
-							1,
-							52
+							55
 						],
 						[
 							18,
-							53
+							56
 						]
 					]
 				},
@@ -74,41 +60,13 @@
 					"name": "BrickMoldy",
 					"type": "solid",
 					"range": [
-						[
-							18,
-							52
-						],
-						[
-							19,
-							62
-						]
-					]
-				},
-				{
-					"name": "BrickMoldy",
-					"type": "solid",
-					"range": [
-						[
-							9,
-							62
-						],
 						[
 							10,
-							75
-						]
-					]
-				},
-				{
-					"name": "BrickMoldy",
-					"type": "solid",
-					"range": [
-						[
-							18,
-							62
+							61
 						],
 						[
-							19,
-							73
+							11,
+							76
 						]
 					]
 				},
@@ -117,12 +75,26 @@
 					"type": "solid",
 					"range": [
 						[
-							9,
+							17,
+							56
+						],
+						[
+							18,
+							70
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							11,
 							75
 						],
 						[
-							10,
-							81
+							39,
+							76
 						]
 					]
 				},
@@ -131,12 +103,12 @@
 					"type": "solid",
 					"range": [
 						[
-							9,
-							81
+							18,
+							69
 						],
 						[
-							19,
-							82
+							23,
+							70
 						]
 					]
 				},
@@ -145,12 +117,194 @@
 					"type": "solid",
 					"range": [
 						[
-							19,
-							81
+							27,
+							74
 						],
 						[
 							33,
-							82
+							75
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							39,
+							75
+						],
+						[
+							56,
+							76
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							27,
+							73
+						],
+						[
+							33,
+							74
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							39,
+							68
+						],
+						[
+							40,
+							70
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							23,
+							55
+						],
+						[
+							54,
+							56
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							45,
+							66
+						],
+						[
+							49,
+							67
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							54,
+							64
+						],
+						[
+							58,
+							65
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							58,
+							64
+						],
+						[
+							59,
+							76
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							56,
+							75
+						],
+						[
+							58,
+							76
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							59,
+							64
+						],
+						[
+							71,
+							65
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							54,
+							55
+						],
+						[
+							60,
+							56
+						]
+					]
+				},
+				{
+					"name": "coin",
+					"type": "spike",
+					"range": [
+						[
+							33,
+							74
+						],
+						[
+							58,
+							75
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							23,
+							56
+						],
+						[
+							24,
+							70
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							70,
+							63
+						],
+						[
+							71,
+							50
 						]
 					]
 				}
