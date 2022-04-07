@@ -130,7 +130,7 @@ def check_overlap(tiles):
                     ranges.discard((x, y))
             
 
-        if not ranges:
+        if not ranges:                        
             tiles.pop(i)
                         
             
@@ -256,7 +256,7 @@ def main():
                     if button.rect.collidepoint(pygame.mouse.get_pos()):
                         changed.append(
                             [selection.selected, button.img,
-                                selection.start, selection.size, typeBox.text]
+                                selection.rect.topleft, selection.rect.size, typeBox.text]
                         )
                         return
 
