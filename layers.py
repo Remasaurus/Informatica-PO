@@ -40,6 +40,7 @@ class LightingLayer(Layer):
 
     def draw(self, surface, camera):
         """Draws all lighting on the given surface."""
+        return
         self.buffer.fill(self.ambient)
 
 
