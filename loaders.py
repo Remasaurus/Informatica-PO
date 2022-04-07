@@ -72,22 +72,17 @@ def load_level(name: str, event_handler) -> Level:
     
 
 
-# FIXME: Disgusting
-def load_menu_keyboard(event_handler, buttons):
+def load_button_events(event_handler, buttons):
     """Loads keyboard that is needed for the menu."""
     def callback(state, button):
-        mouse = pygame.mouse.get_pos()
-        for button in buttons:
-            if button.rect.collidepoint(mouse):
-                button.pressed = state
+        if state:
+            mouse = pygame.mouse.get_pos()
+            for button in buttons:
+                if button.rect.collidepoint(mouse):
+                    button.pressed = state
 
     event_handler.append_mouse(callback)
-    
-def load_pause_keyboard(event_handler):
-    pass
 
-def load_play_keyboard(event_handler):
-    pass
 
 
 def load_keyboard(event_handler, player):

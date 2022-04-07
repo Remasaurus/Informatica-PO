@@ -14,6 +14,15 @@ class Button():
         pygame.draw.rect(surface, self.color, self.rect)
         
 
+class ImgButton(Button):
+    def __init__(self, pos, image) -> None:
+        super().__init__(pos, image.get_size(), (0, 0, 0))
+        self.image = image
+        
+    def draw(self, surface):
+        surface.blit(self.image, self.rect.topleft)
+
+
 class TextButton(Button):
     def __init__(self, pos, size, rect_color, text_color, text) -> None:
         super().__init__(pos, size, rect_color)

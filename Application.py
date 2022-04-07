@@ -1,6 +1,6 @@
 import time
-from Button import Button, TextButton
-from loaders import load_level, load_menu_keyboard, load_pause_keyboard, load_play_keyboard
+from Button import Button, ImgButton, TextButton
+from loaders import load_button_events, load_level, load_button_events
 from EventHandler import EventHandler
 import json
 import pygame
@@ -66,7 +66,7 @@ class Application():
                     (200, 200, 200), (0, 0, 0), "Back")
         ]
         
-        load_menu_keyboard(event_handler, buttons)
+        load_button_events(event_handler, buttons)
         
         
         while True:
@@ -90,20 +90,17 @@ class Application():
     def play(self):
         # width: 600, height: 500
         event_handler = EventHandler()
+        buttons_image = pygame.image.load("img\playButtons.png").convert()
         buttons = [
-            TextButton((75, 150), (200, 50),
-                    (200, 200, 200), (0, 0, 0), "Cave"),
-            TextButton((75, 300), (200, 50),
-                    (200, 200, 200), (0, 0, 0), "Land"),
-            TextButton((325, 150), (200, 50),
-                    (200, 200, 200), (0, 0, 0), "Sky"),
-            TextButton((325, 300), (200, 50),
-                    (200, 200, 200), (0, 0, 0), "Moon"),
+            ImgButton((75, 150), buttons_image.subsurface((0, 0, 48, 16))),
+            ImgButton((75, 300), buttons_image.subsurface((0, 16, 48, 16))),
+            ImgButton((325, 150), buttons_image.subsurface((48, 16, 48, 16))),
+            ImgButton((325, 300), buttons_image.subsurface((48, 0, 48, 16))),
             TextButton((30, 400), (80, 50),
                     (200, 200, 200), (0, 0, 0), "Back")
         ]
         
-        load_menu_keyboard(event_handler, buttons)
+        load_button_events(event_handler, buttons)
         
         
         while True:
@@ -137,7 +134,7 @@ class Application():
         
         event_handler = EventHandler()
         
-        load_menu_keyboard(event_handler, buttons)
+        load_button_events(event_handler, buttons)
         overlay = pygame.Surface(self.screen.get_size())
         overlay.set_alpha(128)
         self.screen.blit(overlay, (0, 0))
@@ -152,7 +149,7 @@ class Application():
                     elif i == 1:
                         
                         self.settings()
-                        load_menu_keyboard(event_handler, buttons)
+                        load_button_events(event_handler, buttons)
                     else:
                         pygame.event.post(pygame.event.Event(pygame.QUIT))
                         
@@ -185,7 +182,7 @@ class Application():
                     (200, 200, 200), (0, 0, 0), "Quit")
         ]
 
-        load_menu_keyboard(event_handler, buttons)
+        load_button_events(event_handler, buttons)
         
         background_images = [
             pygame.transform.scale(pygame.image.load("./img/backgroundImg.png").convert(), pygame.display.get_window_size()),
@@ -226,11 +223,11 @@ class Application():
                     if i == 0:
                         
                         self.play()
-                        load_menu_keyboard(event_handler, buttons)
+                        load_button_events(event_handler, buttons)
                     elif i == 1:
                         
                         self.settings()
-                        load_menu_keyboard(event_handler, buttons)
+                        load_button_events(event_handler, buttons)
                     else:
                         pygame.event.post(pygame.event.Event(pygame.QUIT))
                         
