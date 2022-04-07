@@ -6,7 +6,7 @@ import json
 import pygame
 import ctypes
 
-
+# To change the ugly ass python logo
 myappid = 'mycompany.myproduct.subproduct.version' # arbitrary string
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 
@@ -16,21 +16,23 @@ ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 # // Settings
 # // Escape menu
 
-
 class Application():
     """Application entrypoint."""
 
     def __init__(self) -> None:
         self.screen = create_window()
         self.clock = pygame.time.Clock()
-        self.event_handler = EventHandler()
     
     # TODO: Better name
     def game(self, level):
         """Loads level and enters game loop."""
-        self.event_handler.clear()
-
-        level = load_level(level, self.event_handler)
+        event_handler = EventHandler()
+        level = load_level(level, event_handler)
+        def pause(keystate):
+            if keystate:
+                self.pause()
+                
+        event_handler.append_key(pygame.K_ESCAPE, pause) 
         # level.particle_system.emitters.append(FireEmitter((50, 50), 50))
 
         while True:
@@ -40,7 +42,7 @@ class Application():
 
             start = time.time()
 
-            self.event_handler.poll()
+            event_handler.poll()
 
             level.update(delta_time)
             level.draw(self.screen)
@@ -50,10 +52,11 @@ class Application():
             pygame.display.set_caption(f"Frametime: {time.time() - start} sec")
             # print(f"Frametime: {time.time() - start} sec")
 
-        self.event_handler.clear()
+        
     
     
     def settings(self):
+        event_handler = EventHandler()
         buttons = [
             TextButton((150, 150), (300, 50),
                     (200, 200, 200), (0, 0, 0), "Controls"),
@@ -63,14 +66,14 @@ class Application():
                     (200, 200, 200), (0, 0, 0), "Back")
         ]
         
-        load_menu_keyboard(self.event_handler, buttons)
+        load_menu_keyboard(event_handler, buttons)
         
         
         while True:
             self.screen.fill("black")
             
             
-            self.event_handler.poll()
+            event_handler.poll()
             for i, button in enumerate(buttons):
                 button.draw(self.screen)
                 
@@ -86,6 +89,7 @@ class Application():
     
     def play(self):
         # width: 600, height: 500
+        event_handler = EventHandler()
         buttons = [
             TextButton((75, 150), (200, 50),
                     (200, 200, 200), (0, 0, 0), "Cave"),
@@ -99,14 +103,14 @@ class Application():
                     (200, 200, 200), (0, 0, 0), "Back")
         ]
         
-        load_menu_keyboard(self.event_handler, buttons)
+        load_menu_keyboard(event_handler, buttons)
         
         
         while True:
             self.screen.fill("black")
             
             
-            self.event_handler.poll()
+            event_handler.poll()
             for i, button in enumerate(buttons):
                 button.draw(self.screen)
                 
@@ -121,9 +125,44 @@ class Application():
             pygame.display.flip()
         
     def pause(self):
-        load_pause_keyboard(self.event_handler)
+        # load_pause_keyboard(event_handler)
+        buttons = [
+            TextButton((150, 150), (300, 50),
+                    (200, 200, 200), (0, 0, 0), "Continue"),
+            TextButton((200, 300), (200, 50),
+                    (200, 200, 200), (0, 0, 0), "Settings"),
+            TextButton((30, 400), (80, 50),
+                    (200, 200, 200), (0, 0, 0), "Quit")
+        ]
+        
+        event_handler = EventHandler()
+        
+        load_menu_keyboard(event_handler, buttons)
+        overlay = pygame.Surface(self.screen.get_size())
+        overlay.set_alpha(128)
+        self.screen.blit(overlay, (0, 0))
+        for i, button in enumerate(buttons):
+                button.draw(self.screen)
+        
         while True:
-            pass
+            for i, button in enumerate(buttons):
+                if button.pressed:
+                    if i == 0:
+                        return
+                    elif i == 1:
+                        
+                        self.settings()
+                        load_menu_keyboard(event_handler, buttons)
+                    else:
+                        pygame.event.post(pygame.event.Event(pygame.QUIT))
+                        
+                    button.pressed = False
+
+            event_handler.poll()
+
+            pygame.display.flip()
+            
+            
         
     def controls(self):
         pass
@@ -135,7 +174,7 @@ class Application():
 
     def run(self) -> None:
         """Starts the main application loop. After window is closed the program will terminate."""
-
+        event_handler = EventHandler()
         # width: 600, height: 500
         buttons = [
             TextButton((200, 200), (200, 50),
@@ -146,7 +185,7 @@ class Application():
                     (200, 200, 200), (0, 0, 0), "Quit")
         ]
 
-        load_menu_keyboard(self.event_handler, buttons)
+        load_menu_keyboard(event_handler, buttons)
         
         background_images = [
             pygame.transform.scale(pygame.image.load("./img/backgroundImg.png").convert(), pygame.display.get_window_size()),
@@ -185,19 +224,19 @@ class Application():
 
                 if button.pressed:
                     if i == 0:
-                        self.event_handler.clear()
+                        
                         self.play()
-                        load_menu_keyboard(self.event_handler, buttons)
+                        load_menu_keyboard(event_handler, buttons)
                     elif i == 1:
-                        self.event_handler.clear()
+                        
                         self.settings()
-                        load_menu_keyboard(self.event_handler, buttons)
+                        load_menu_keyboard(event_handler, buttons)
                     else:
                         pygame.event.post(pygame.event.Event(pygame.QUIT))
                         
                     button.pressed = False
 
-            self.event_handler.poll()
+            event_handler.poll()
 
             pygame.display.flip()
 
