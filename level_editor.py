@@ -118,7 +118,7 @@ class Selection():
 
 
 def check_overlap(tiles):
-    for i, tile in list(enumerate(tiles[:-1])):
+    for i, tile in reversed(list(enumerate(tiles[:-1]))):
         ranges = set()
         for x in range(tile["range"][0][0], tile["range"][1][0]):
             for y in range(tile["range"][0][1], tile["range"][1][1]):
@@ -130,7 +130,7 @@ def check_overlap(tiles):
                     ranges.discard((x, y))
             
 
-        if not ranges:
+        if not ranges:                        
             tiles.pop(i)
                         
             
@@ -256,7 +256,7 @@ def main():
                     if button.rect.collidepoint(pygame.mouse.get_pos()):
                         changed.append(
                             [selection.selected, button.img,
-                                selection.start, selection.size, typeBox.text]
+                                selection.rect.topleft, selection.rect.size, typeBox.text]
                         )
                         return
 
