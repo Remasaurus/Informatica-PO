@@ -11,14 +11,10 @@ Really, really cool
 
 # TO DO
 - Documentation
-- Ramp
 - Falling tiles
-- Squish
 - Art
 - Level design
 - Boss battle
-- Coins (Doge coin)
-- NFT
 - Helper that explains the game and follows the player
 - Main menu
 - Settings (escape)
