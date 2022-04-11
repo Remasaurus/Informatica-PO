@@ -295,16 +295,30 @@
 					]
 				},
 				{
-					"name": "BrickMoldy",
+					"name": "RockBackground",
+					"type": "",
+					"range": [
+						[
+							0,
+							0
+						],
+						[
+							1,
+							1
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
 					"type": "solid",
 					"range": [
 						[
-							70,
-							63
+							2,
+							68
 						],
 						[
-							71,
-							50
+							3,
+							69
 						]
 					]
 				}
