@@ -130,7 +130,10 @@ def check_overlap(tiles):
                     ranges.discard((x, y))
             
 
-        if not ranges:                        
+        if not ranges:
+            print("pop")
+            print(tile)
+            print(i)
             tiles.pop(i)
                         
             
