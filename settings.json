@@ -1,31 +1,21 @@
 {
-    "FOV": [
-        16,
-        9
-    ],
-    "controls": [
-        {
-            "dash": "j",
-            "jump": " ",
-            "left": "a",
-            "right": "d",
-            "up": "w",
-            "down": "s",
-            "run": "shift"   
-        },
-        {
-            "dash": "j",
-            "jump": " ",
-            "left": "a",
-            "right": "d",
-            "up": "w",
-            "down": "s",
-            "run": "shift" 
-        }
-    ],
-    "sound": {
-        "master": 0.5,
-        "vfx": 0.5,
-        "background": 0.5
-    }
+	"scale": 1,
+	"native": [
+		640,
+		360
+	],
+	"controls": {
+		"dash": "j",
+		"jump": "space",
+		"left": "a",
+		"right": "d",
+		"up": "w",
+		"down": "s",
+		"run": "left shift"
+	},
+	"sound": {
+		"master": 0.86,
+		"sfx": 0.73,
+		"music": 0.96
+	}
 }

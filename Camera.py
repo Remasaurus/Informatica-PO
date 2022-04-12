@@ -9,9 +9,9 @@ def clamp(minimum, maximum, val):
 
 class Camera():
     """Container for the screensize and pos."""
-    def __init__(self) -> None:
-        self.size = pygame.Vector2(pygame.display.get_surface().get_size())
-        self.pos = pygame.Vector2(0, 0)
+    def __init__(self, size = (0, 0), pos = (0, 0)) -> None:
+        self.size = pygame.Vector2(size) or pygame.Vector2(pygame.display.get_window_size())
+        self.pos = pygame.Vector2(pos)
         self.shake_time = 0
         self.shake_intensity = 0
         self.clock = pygame.time.Clock()
@@ -36,8 +36,8 @@ class Camera():
                       random.randint(-self.shake_intensity, self.shake_intensity)]
             
         # TODO: Make camera move in front of the player
-        self.pos.x = clamp(0, math.inf, entity.pos.x - 200 + offset[0])
-        self.pos.y = clamp(0, math.inf, entity.pos.y - 200 + offset[1])
+        self.pos.x = clamp(0, math.inf, entity.pos.x - 320 + offset[0])
+        self.pos.y = clamp(0, math.inf, entity.pos.y - 180 + offset[1])
         
         
         

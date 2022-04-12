@@ -20,6 +20,7 @@ class Player(Entity):
         self.add_component(CoinCollector())
         self.add_component(WallJump())
         self.spikeable = True
+        self.size.update(16, 26)
         
     
     @property

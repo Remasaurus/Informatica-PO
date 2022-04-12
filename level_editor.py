@@ -130,7 +130,10 @@ def check_overlap(tiles):
                     ranges.discard((x, y))
             
 
-        if not ranges:                        
+        if not ranges:                     
+            print("pop")
+            print(tile)
+            print(i)   
             tiles.pop(i)
                         
             
@@ -160,8 +163,8 @@ def main():
     ]
 
     actionButtons = [
-        TextButton((0, 0), (30, 50), (255, 222, 173), (0, 0, 0), "Save"),
-        TextButton((0, 0), (30, 50), (255, 222, 173), (0, 0, 0), "Undo")
+        TextButton((0, 0), (30, 50), (255, 222, 173), "Save", (0, 0, 0)),
+        TextButton((0, 0), (30, 50), (255, 222, 173), "Undo", (0, 0, 0))
 
     ]
 
