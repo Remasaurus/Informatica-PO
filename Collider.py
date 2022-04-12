@@ -48,6 +48,9 @@ class Collider():
                     level.compositor.layers["BackgroundLayer"].redraw = True
                     entity.components["CoinCollector"].coins += 1
 
+            elif match.val == "sand":
+                entity.vel.x *= 0.9
+
             elif match.val == "ramp-right":
                 if entity.vel.x > 0:
                     if self.grid.get(self.grid.to_index(entity.pos.x + entity.size.x), self.grid.to_index(entity.pos.y)) == "solid":
@@ -137,8 +140,15 @@ class Collider():
             y = entity.pos.y + entity.size.y
         elif entity.vel.y < 0:
             y = entity.pos.y
+            bottom_tiles = self.grid.get_by_range(entity.pos.x, entity.pos.x + entity.size.x,
+                                                  entity.pos.y + entity.size.y, entity.pos.y + entity.size.y)
+            for tile in bottom_tiles:
+                if tile.val == "sand":
+                    entity.vel.y *= 0.97
         else:
             return
+        
+        
 
 
         for match in self.grid.get_by_range(entity.pos.x, entity.pos.x + entity.size.x, y, y):
@@ -166,6 +176,12 @@ class Collider():
 
                     entity.components["CoinCollector"].coins += 1
 
+            elif match.val == "sand":
+                if entity.vel.y > 0:
+                    entity.vel.y *= 0.9
+                
+                entity.obstruct(Sides.BOTTOM)
+            
             elif match.val == "ramp-right":
                 if entity.vel.y > 0:
                     rampY = match.y2 - \
