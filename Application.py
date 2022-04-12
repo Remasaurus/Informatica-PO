@@ -227,6 +227,13 @@ class Application():
                         
                     
             event_handler.append_hook(hook)
+
+            def mouse(button, state):
+                nonlocal selecting
+                if button == pygame.BUTTON_LEFT:
+                    selecting = None
+                
+            event_handler.append_mouse(mouse)
             
             while 1:
                 self.screen.fill((0, 0, 0))
