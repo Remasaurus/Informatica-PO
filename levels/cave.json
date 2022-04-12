@@ -55,6 +55,1210 @@
 							62
 						]
 					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							0,
+							51
+						],
+						[
+							1,
+							61
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							1,
+							51
+						],
+						[
+							27,
+							52
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							13,
+							61
+						],
+						[
+							17,
+							62
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							27,
+							51
+						],
+						[
+							28,
+							71
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							16,
+							62
+						],
+						[
+							17,
+							85
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							16,
+							85
+						],
+						[
+							17,
+							89
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							27,
+							71
+						],
+						[
+							28,
+							79
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							17,
+							88
+						],
+						[
+							43,
+							89
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							28,
+							78
+						],
+						[
+							38,
+							79
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							43,
+							88
+						],
+						[
+							54,
+							89
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							37,
+							51
+						],
+						[
+							38,
+							78
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							54,
+							88
+						],
+						[
+							68,
+							89
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							52,
+							85
+						],
+						[
+							63,
+							88
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							68,
+							88
+						],
+						[
+							82,
+							89
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							82,
+							88
+						],
+						[
+							95,
+							89
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							38,
+							51
+						],
+						[
+							67,
+							52
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							67,
+							51
+						],
+						[
+							94,
+							52
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "none",
+					"range": [
+						[
+							68,
+							77
+						],
+						[
+							82,
+							82
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							70,
+							81
+						],
+						[
+							80,
+							84
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							86,
+							64
+						],
+						[
+							88,
+							79
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							92,
+							77
+						],
+						[
+							99,
+							79
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							95,
+							88
+						],
+						[
+							116,
+							89
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							108,
+							73
+						],
+						[
+							117,
+							75
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							116,
+							75
+						],
+						[
+							117,
+							89
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							94,
+							51
+						],
+						[
+							117,
+							52
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							116,
+							64
+						],
+						[
+							117,
+							73
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							117,
+							51
+						],
+						[
+							125,
+							52
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							124,
+							39
+						],
+						[
+							125,
+							51
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							109,
+							39
+						],
+						[
+							124,
+							51
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "none",
+					"range": [
+						[
+							130,
+							41
+						],
+						[
+							144,
+							67
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "none",
+					"range": [
+						[
+							134,
+							27
+						],
+						[
+							143,
+							44
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "none",
+					"range": [
+						[
+							117,
+							64
+						],
+						[
+							131,
+							66
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "none",
+					"range": [
+						[
+							108,
+							72
+						],
+						[
+							116,
+							76
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							108,
+							68
+						],
+						[
+							116,
+							70
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							116,
+							61
+						],
+						[
+							117,
+							64
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							117,
+							61
+						],
+						[
+							139,
+							62
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							137,
+							39
+						],
+						[
+							138,
+							61
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "none",
+					"range": [
+						[
+							107,
+							39
+						],
+						[
+							128,
+							46
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							137,
+							35
+						],
+						[
+							138,
+							39
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							108,
+							35
+						],
+						[
+							137,
+							36
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							108,
+							47
+						],
+						[
+							109,
+							51
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							107,
+							48
+						],
+						[
+							108,
+							51
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							106,
+							49
+						],
+						[
+							107,
+							51
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							105,
+							50
+						],
+						[
+							106,
+							51
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							107,
+							35
+						],
+						[
+							108,
+							37
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							106,
+							36
+						],
+						[
+							107,
+							38
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							105,
+							37
+						],
+						[
+							106,
+							39
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							104,
+							38
+						],
+						[
+							105,
+							40
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "none",
+					"range": [
+						[
+							103,
+							39
+						],
+						[
+							105,
+							41
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							86,
+							38
+						],
+						[
+							104,
+							39
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							98,
+							47
+						],
+						[
+							100,
+							51
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							98,
+							39
+						],
+						[
+							100,
+							44
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "none",
+					"range": [
+						[
+							86,
+							39
+						],
+						[
+							95,
+							49
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							77,
+							39
+						],
+						[
+							91,
+							49
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							77,
+							38
+						],
+						[
+							86,
+							39
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							61,
+							38
+						],
+						[
+							77,
+							39
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							65,
+							47
+						],
+						[
+							72,
+							51
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							65,
+							39
+						],
+						[
+							72,
+							43
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							43,
+							38
+						],
+						[
+							61,
+							39
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							51,
+							47
+						],
+						[
+							59,
+							51
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							51,
+							39
+						],
+						[
+							59,
+							43
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							37,
+							38
+						],
+						[
+							43,
+							39
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							19,
+							38
+						],
+						[
+							37,
+							39
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							0,
+							33
+						],
+						[
+							1,
+							51
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							11,
+							38
+						],
+						[
+							19,
+							39
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							9,
+							38
+						],
+						[
+							11,
+							39
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							0,
+							28
+						],
+						[
+							1,
+							33
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							0,
+							24
+						],
+						[
+							1,
+							28
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							1,
+							24
+						],
+						[
+							32,
+							25
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							32,
+							24
+						],
+						[
+							62,
+							25
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							62,
+							24
+						],
+						[
+							85,
+							25
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							84,
+							24
+						],
+						[
+							91,
+							25
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							90,
+							25
+						],
+						[
+							91,
+							38
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "none",
+					"range": [
+						[
+							1,
+							46
+						],
+						[
+							3,
+							49
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							8,
+							38
+						],
+						[
+							9,
+							47
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							8,
+							36
+						],
+						[
+							13,
+							38
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							20,
+							34
+						],
+						[
+							29,
+							36
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							36,
+							31
+						],
+						[
+							44,
+							33
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							63,
+							33
+						],
+						[
+							70,
+							36
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							74,
+							36
+						],
+						[
+							77,
+							38
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "none",
+					"range": [
+						[
+							21,
+							44
+						],
+						[
+							25,
+							46
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "none",
+					"range": [
+						[
+							138,
+							61
+						],
+						[
+							139,
+							62
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							86,
+							59
+						],
+						[
+							88,
+							69
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							27,
+							39
+						],
+						[
+							28,
+							48
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							28,
+							47
+						],
+						[
+							38,
+							48
+						]
+					]
+				},
+				{
+					"name": "RockBackground",
+					"type": "solid",
+					"range": [
+						[
+							37,
+							39
+						],
+						[
+							38,
+							47
+						]
+					]
 				}
 			]
 		}
