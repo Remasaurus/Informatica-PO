@@ -3,11 +3,23 @@ from components.Component import Sides
 from Grid import Grid
 
 
+class DespawningTile():
+    def __init__(self, x, y, time):
+        self.x = x
+        self.y = y
+        self.time = time
+
+
 class Collider():
     """Contains all tiles in the level and handles interactions."""
 
     def __init__(self, tile_size) -> None:
         self.grid = Grid(tile_size)
+        self.total_time = 0
+        self.despawning_tiles = []
+        
+    def update(self, dt):
+        self.total_time += dt
         
     def handle_spike(self, spike_rect, entity):
         if pygame.Rect(entity.pos, entity.size).colliderect(spike_rect):
@@ -23,7 +35,7 @@ class Collider():
             return
 
         for match in self.grid.get_by_range(x, x, entity.pos.y, entity.pos.y + entity.size.y):
-            if match.val == "solid":                
+            if match.val == "solid" or match.val == "despawn":                
                 if entity.vel.x > 0:
                     left_tile = self.grid.get(self.grid.to_index(match.x1) - 1, self.grid.to_index(match.y1))
                     if entity.pos.x + entity.size.x > match.x1 and not left_tile == "solid" and not left_tile == "ramp-right":
@@ -48,6 +60,9 @@ class Collider():
                     level.compositor.layers["BackgroundLayer"].redraw = True
                     entity.components["CoinCollector"].coins += 1
 
+            elif match.val == "cloud":
+                pass
+            
             elif match.val == "sand":
                 entity.vel.x *= 0.9
 
@@ -144,7 +159,7 @@ class Collider():
                                                   entity.pos.y + entity.size.y, entity.pos.y + entity.size.y)
             for tile in bottom_tiles:
                 if tile.val == "sand":
-                    entity.vel.y *= 0.97
+                    entity.vel.y *= 0.95
         else:
             return
         
@@ -164,6 +179,25 @@ class Collider():
                         entity.pos.y = match.y2
                         entity.vel.y = 0
                         entity.obstruct(Sides.TOP)
+                        
+            if match.val == "despawn":
+                if entity.vel.y > 0:
+                    if entity.pos.y + entity.size.y > match.y1:
+                        entity.pos.y = match.y1 - entity.size.y
+                        entity.vel.y = 0
+                        entity.obstruct(Sides.BOTTOM)
+
+                elif entity.vel.y < 0:
+                    if entity.pos.y < match.y2:
+                        entity.pos.y = match.y2
+                        entity.vel.y = 0
+                        entity.obstruct(Sides.TOP)
+                
+                self.despawning_tiles.append(
+                    DespawningTile(self.grid.to_index(match.x1), self.grid.to_index(match.y1), self.total_time)
+                )
+                        
+                
 
             elif match.val == "coin":
                 if "CoinCollector" in entity.components:

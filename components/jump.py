@@ -76,13 +76,17 @@ class Jump(Component):
                 self.squish_points = self.jump_squish_points
                 self.request_time = 0
                 self.coyote_time = 0
+                entity.vel.y = -(self.force + (abs(entity.vel.x) * self.boost))
+                
 
             self.request_time -= delta_time
 
         if self.engage_time > 0:
-            entity.vel.y = -(self.force + (abs(entity.vel.x) * self.boost))
+            entity.components["Physics"].gravity_multiplier = 0.3
             self.engage_time -= delta_time
-
+        else:
+            entity.components["Physics"].gravity_multiplier = 1
+            
 
         if self.squish_time > 0:
             t = 1 - self.squish_time/self.squish_duration
