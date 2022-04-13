@@ -965,6 +965,48 @@
 							59
 						]
 					]
+				},
+				{
+					"name": "BrickCracked",
+					"type": "despawn",
+					"range": [
+						[
+							27,
+							77
+						],
+						[
+							37,
+							78
+						]
+					]
+				},
+				{
+					"name": "BrickCracked",
+					"type": "despawn",
+					"range": [
+						[
+							20,
+							71
+						],
+						[
+							25,
+							72
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "despawn",
+					"range": [
+						[
+							28,
+							68
+						],
+						[
+							34,
+							70
+						]
+					]
 				}
 			]
 		}
