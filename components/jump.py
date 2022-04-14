@@ -43,6 +43,11 @@ class Jump(Component):
     def obstruct(self, entity, side):
         if side == Sides.BOTTOM:
             self.coyote_time = self.coyote_duration
+            if entity.vel.y > 100:
+                pass
+                # entity.components["Animator"].add_anim("landing", 1, 0, 10)
+                
+                
             
         elif side == Sides.TOP:
             self.cancel()
@@ -77,6 +82,7 @@ class Jump(Component):
                 self.request_time = 0
                 self.coyote_time = 0
                 entity.vel.y = -(self.force + (abs(entity.vel.x) * self.boost))
+                # entity.components["Animator"].add_anim("jump", 1, 0, 10)
                 
 
             self.request_time -= delta_time

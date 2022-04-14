@@ -207,8 +207,8 @@ class Collider():
                 if entity.vel.y > 0:
                     if entity.pos.y + entity.size.y > match.y1:
                         entity.pos.y = match.y1 - entity.size.y
-                        entity.vel.y = 0
                         entity.obstruct(Sides.BOTTOM)
+                        entity.vel.y = 0
 
                 elif entity.vel.y < 0:
                     if entity.pos.y < match.y2:

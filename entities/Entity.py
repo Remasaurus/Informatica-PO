@@ -12,6 +12,7 @@ class Entity():
         self.components = dict()
         self.scale = pygame.Vector2(1, 1)
         self.spikeable = False
+        self.flip = False
 
     def add_component(self, component):
         """Adds component to entity with classname as key."""

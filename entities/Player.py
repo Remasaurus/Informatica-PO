@@ -34,11 +34,11 @@ class Player(Entity):
     
     def draw(self, surface, camera, spritesheet): 
         if self.scale == (1, 1):
-            spritesheet.draw(self.frame, surface, self.pos.x -
-                         camera.pos.x, self.pos.y - camera.pos.y)
+            spritesheet.draw(self.components["Animator"].get_frame(), surface, self.pos.x -
+                         camera.pos.x, self.pos.y - camera.pos.y, self.flip)
         else:
             buffer = pygame.Surface(self.size, pygame.SRCALPHA)
-            spritesheet.draw(self.frame, buffer, 0, 0)
+            spritesheet.draw(self.components["Animator"].get_frame(), buffer, 0, 0, self.flip)
             
             inflate = self.scale - (1, 1)
             inflate.x *= self.size.x
