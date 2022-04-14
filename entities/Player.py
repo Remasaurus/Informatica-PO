@@ -1,4 +1,5 @@
 import pygame
+from components.Animator import Animator
 from components.WallJump import WallJump
 from entities.Entity import Entity
 from components.Dash import Dash
@@ -19,6 +20,7 @@ class Player(Entity):
         self.add_component(WallSlide())
         self.add_component(CoinCollector())
         self.add_component(WallJump())
+        self.add_component(Animator())
         self.spikeable = True
         self.size.update(16, 26)
         

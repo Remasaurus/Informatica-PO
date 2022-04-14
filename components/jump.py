@@ -84,8 +84,6 @@ class Jump(Component):
         if self.engage_time > 0:
             entity.components["Physics"].gravity_multiplier = 0.3
             self.engage_time -= delta_time
-        else:
-            entity.components["Physics"].gravity_multiplier = 1
             
 
         if self.squish_time > 0:

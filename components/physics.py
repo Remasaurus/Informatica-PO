@@ -13,3 +13,4 @@ class Physics(Component):
         level.collider.checkY(entity, level)
 
         entity.vel.y += level.gravity * delta_time * self.gravity_multiplier
+        self.gravity_multiplier = 1

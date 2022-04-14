@@ -8,6 +8,7 @@ class DespawningTile():
         self.x = x
         self.y = y
         self.time = time
+        self.explored = set()
 
 
 class Collider():
@@ -17,6 +18,7 @@ class Collider():
         self.grid = Grid(tile_size)
         self.total_time = 0
         self.despawning_tiles = []
+        self.explored = set()
         
     def update(self, delta_time, level):
         self.total_time += delta_time
@@ -25,12 +27,12 @@ class Collider():
             if self.total_time - tile.time > 2:
                 self.despawning_tiles.pop(i)
                 self.grid.set(tile.x, tile.y, "air")
+                self.explored.remove((tile.x, tile.y))
                 
                 level.compositor.layers["BackgroundLayer"].grid.set(tile.x, tile.y, None)
                 level.compositor.layers["BackgroundLayer"].redraw = True
                 
     def despawn_tile(self, x, y):
-        explored = set()
         stack = [(x, y)]
         
         while stack:
@@ -38,12 +40,12 @@ class Collider():
             has_to_explore = False
             
             for neighbour in self.get_neighbours(current_tile[0], current_tile[1]):
-                if neighbour not in explored:
+                if neighbour not in self.explored:
                     if self.grid.get(neighbour[0], neighbour[1]) == "despawn":
                         self.despawning_tiles.append(
                             DespawningTile(neighbour[0], neighbour[1], self.total_time)
                         )
-                        explored.add(neighbour)
+                        self.explored.add(neighbour)
                         stack.append(neighbour)
                         has_to_explore = True
             
@@ -222,7 +224,8 @@ class Collider():
                         entity.obstruct(Sides.BOTTOM)
                         x, y = self.grid.to_index(match.x1), self.grid.to_index(match.y1)
                         
-                        self.despawn_tile(x, y)
+                        if (x, y) not in self.explored:
+                            self.despawn_tile(x, y)
                         
 
                 elif entity.vel.y < 0:

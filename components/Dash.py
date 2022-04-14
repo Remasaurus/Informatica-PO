@@ -99,5 +99,5 @@ class Dash(Component):
                 self.first_frame = False
                 
             entity.vel = self.dash_dir.copy() 
-            
+            entity.components["Physics"].gravity_multiplier = 0
             self.dash_time -= delta_time

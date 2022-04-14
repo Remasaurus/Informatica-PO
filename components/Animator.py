@@ -10,9 +10,10 @@ class Anim():
 
 
 class Animator(Component):
-    def __init__(self):
+    def __init__(self, default="idle"):
         self.anims = dict()
         self.current_frame = ""
+        self.default = default
         
     
     def add_anim(self, name, duration, time, prio):
@@ -34,4 +35,7 @@ class Animator(Component):
                 if anim.prio > best_frame[1]:
                     best_frame = [anim.name, anim.prio, anim.time]
         
-        self.current_frame = best_frame
+        if best_frame[1] == -1:
+            self.current_frame = [self.default, 0]
+        else:
+            self.current_frame = best_frame
