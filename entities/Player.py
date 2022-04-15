@@ -1,10 +1,11 @@
 import pygame
+
 from components.WallJump import WallJump
 from entities.Entity import Entity
 from components.Dash import Dash
-from components.Jump import Jump
-from components.Move import Move
-from components.Physics import Physics
+from components.jump import Jump
+from components.move import Move
+from components.physics import Physics
 from components.WallSlide import WallSlide
 from components.CoinCollector import CoinCollector
 
@@ -19,18 +20,33 @@ class Player(Entity):
         self.add_component(WallSlide())
         self.add_component(CoinCollector())
         self.add_component(WallJump())
+        self.spikeable = True
+        self.size.update(16, 26)
+        
     
     @property
     def frame(self):
         return "player"
     
+    def hit(self):
+        pass
+    
     def draw(self, surface, camera, spritesheet): 
         if self.scale == (1, 1):
-            spritesheet.draw(self.frame, surface, self.pos.x -
-                         camera.pos.x, self.pos.y - camera.pos.y)
+            frame = self.components["Animator"].get_frame()
+            if frame.name in spritesheet.anims:
+                spritesheet.draw(frame.name, surface, self.pos.x -
+                         camera.pos.x, self.pos.y - camera.pos.y, frame.time, self.flip)
+            else:
+                spritesheet.draw(frame.name, surface, self.pos.x -
+                         camera.pos.x, self.pos.y - camera.pos.y, self.flip)
         else:
             buffer = pygame.Surface(self.size, pygame.SRCALPHA)
-            spritesheet.draw(self.frame, buffer, 0, 0)
+            frame = self.components["Animator"].get_frame()
+            if frame.name in spritesheet.anims:
+                spritesheet.draw(frame.name, buffer, 0, 0, frame.time, self.flip)
+            else:
+                spritesheet.draw(frame.name, buffer, 0, 0, self.flip)
             
             inflate = self.scale - (1, 1)
             inflate.x *= self.size.x
