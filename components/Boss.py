@@ -1,4 +1,6 @@
+import math
 import pygame
+from components.Animator import Animator
 from components.Component import Component, Sides
 from particles.FireBall import FireBall
 import random
@@ -187,6 +189,7 @@ class BossAI(Component):
                 self.time_between_moves = self.duration_between_moves
                 self.current_move = None
                 self.ready = False
+                entity.vulnerable = False
                 
             elif self.time_between_moves < 0:
                 self.current_move = random.choice(self.moves)
@@ -207,6 +210,14 @@ class BossAI(Component):
             
             if pygame.Rect(level.entities[0].pos).colliderect(pygame.Rect(entity.pos, entity.size)):
                 entity.hit()
+                
+            if entity.vulnerable:
+                entity.components["Animator"].add_anim("reswob-down", math.inf, 0, 1)
+                entity.components["Animator"].delete_anim("reswob-up")
+            else:
+                entity.components["Animator"].add_anim("reswob-up", math.inf, 0, 1)
+                entity.components["Animator"].delete_anim("reswob-down")
+                
                 
             self.first_frame = False
                                       
