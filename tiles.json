@@ -98,6 +98,6 @@
             "name": "ramp",
             "pos": [1, 3],
             "alpha": true
-        },
+        }
     ]
 }
