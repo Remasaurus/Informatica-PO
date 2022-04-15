@@ -62,7 +62,7 @@ class Application():
                 TextBox((250, 160), (140, 40), (255, 255, 255), "You win", (0, 0, 0)).draw(self.screen)
                 def hook(event):
                     nonlocal running
-                    if event == pygame.KEYDOWN or event.type == pygame.MOUSEBUTTONDOWN:
+                    if event.type == pygame.KEYDOWN or event.type == pygame.MOUSEBUTTONDOWN:
                         running = False
                         
                 event_handler.append_hook(hook)
@@ -105,21 +105,34 @@ class Application():
             overlay.set_alpha(128)
             buttons = []
             self.screen.fill("black")
+            back_button = TextButton((30, 400), (80, 50),
+                    (200, 200, 200), "Back", (0, 0, 0))
+            buttons.append(back_button)
             for i, file in enumerate(files):
                 buttons.append(TextButton((32 + i * 48, 32), (32, 32), (255, 248, 220), str(i + 1), (0, 0, 0)))
                 buttons[i].draw(self.screen)
                 if int(file[-1]) < data["lvl"]:
                     self.surface.blit(overlay, (i * 16))
             
-            pygame.display.flip()
                     
             load_button_events(event_handler, buttons)
             while True:
                 event_handler.poll()
-                
+                self.screen.fill((0, 0, 0))
                 for i, button in enumerate(buttons, 1):
                     if button.pressed:
-                        self.game(f"{level}-{i}")
+                        if i == 1:
+                            return
+                        else:
+                            self.game(f"{level}-{i - 1}")
+                            button.pressed = False
+                            pygame.display.set_mode(self.main_size)
+                            
+                        
+                    button.draw(self.screen)
+                        
+                pygame.display.flip()
+                
                     
             
                     
