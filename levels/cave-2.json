@@ -2,6 +2,7 @@
 	"gravity": 1500,
 	"tileSheet": "./tiles.json",
 	"charachterSheet": "./charachters.json",
+	"music": "./sounds/overworld Billies Bounce PO Informatica.mp3",
 	"spawnpoint": [
 		2,
 		60
@@ -1527,32 +1528,6 @@
 					]
 				}
 			]
-		}
-	],
-	"lights": [
-		{
-			"color": [
-				255,
-				255,
-				255
-			],
-			"pos": [
-				30,
-				53
-			],
-			"size": 500
-		},
-		{
-			"color": [
-				0,
-				255,
-				255
-			],
-			"pos": [
-				40,
-				53
-			],
-			"size": 1000
 		}
 	]
 }

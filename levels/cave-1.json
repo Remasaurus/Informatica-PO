@@ -2,6 +2,11 @@
 	"gravity": 1500,
 	"tileSheet": "./tiles.json",
 	"charachterSheet": "./charachters.json",
+	"music": "./sounds/overworld Billies Bounce PO Informatica.mp3",
+	"camera": [
+		[0, 0],
+		[10000, 10000]
+	],
 	"spawnpoint": [
 		2,
 		60
@@ -9,6 +14,10 @@
 	"boss": [
 		18,
 		55
+	],
+	"bossRoom": [
+		[50, 500],
+		[60, 510]
 	],
 	"ambient": [
 		255,
@@ -1597,32 +1606,6 @@
 					]
 				}
 			]
-		}
-	],
-	"lights": [
-		{
-			"color": [
-				255,
-				255,
-				255
-			],
-			"pos": [
-				30,
-				53
-			],
-			"size": 500
-		},
-		{
-			"color": [
-				0,
-				255,
-				255
-			],
-			"pos": [
-				40,
-				53
-			],
-			"size": 1000
 		}
 	]
 }

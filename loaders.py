@@ -25,10 +25,12 @@ def load_level(name: str, event_handler) -> Level:
         helper.follow(player)
         
         level.camera.size.update(settings["native"])
-        # level.camera.minX = data["camera"][0][0]
-        # level.camera.minY = data["camera"][0][1]
-        # level.camera.maxX = data["camera"][1][0]
-        # level.camera.maxY = data["camera"][1][1]
+        pygame.mixer.music.load(data["music"])
+        pygame.mixer.music.play(-1)
+        level.camera.minX = data["camera"][0][0]
+        level.camera.minY = data["camera"][0][1]
+        level.camera.maxX = data["camera"][1][0]
+        level.camera.maxY = data["camera"][1][1]
     
         
         player.pos.x = data["spawnpoint"][0] * tile_spritesheet.tile_size
@@ -62,14 +64,8 @@ def load_level(name: str, event_handler) -> Level:
 
         level.collider.grid = collider_grid
 
-        lighting_layer = LightingLayer(tile_spritesheet, data["ambient"])
-        for light in data["lights"]:
-            lighting_layer.append_light(
-                light["pos"][0], light["pos"][1], light["color"], light["size"])
-
         entity_layer = EntityLayer(charachter_spritesheet, level.entities)
         level.compositor.add_layer(entity_layer)
-        level.compositor.add_layer(lighting_layer)
         
         
         
