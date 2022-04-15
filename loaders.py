@@ -8,11 +8,7 @@ from entities.Boss import Boss
 from entities.Player import Player
 from entities.Helper import Helper
 from layers import BackgroundLayer, EntityLayer, LightingLayer, ParallaxLayer
-import ctypes
 
-# Too replace the python icon in taskbar
-myappid = 'Anime waifus' # arbitrary string
-ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 
 def load_level(name: str, event_handler) -> Level:
     """Creates level and intializes it with given the json that matches the name."""
@@ -29,6 +25,10 @@ def load_level(name: str, event_handler) -> Level:
         helper.follow(player)
         
         level.camera.size.update(settings["native"])
+        # level.camera.minX = data["camera"][0][0]
+        # level.camera.minY = data["camera"][0][1]
+        # level.camera.maxX = data["camera"][1][0]
+        # level.camera.maxY = data["camera"][1][1]
     
         
         player.pos.x = data["spawnpoint"][0] * tile_spritesheet.tile_size

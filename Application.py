@@ -7,6 +7,7 @@ from EventHandler import EventHandler
 import json
 import pygame
 import ctypes
+import os
 
 # To change the ugly ass python logo
 myappid = 'Anime waifus' # arbitrary string
@@ -65,6 +66,20 @@ class Application():
             pygame.display.set_caption(f"Frametime: {time.time() - start} sec")
             # print(f"Frametime: {time.time() - start} sec")
 
+    def level_picker(self, level):
+        with open("save.json", "r") as f:
+            data = json.load(f)
+            files = [file[:-5] for file in os.listdir("./levels") if file.startswith(level)]
+            overlay = pygame.Surface((16, 16))
+            overlay.set_alpha(128)
+            buttons = []
+            for i, file in enumerate(files):
+                buttons.append(TextButton((i * 16), (16, 16), (255, 248, 220), str(i), (0, 0, 0)))
+                
+                if int(file[-1]) < data["lvl"]:
+                    self.surface.blit(overlay, ())
+                    
+                    
         
     def resolution(self):
         with open("./settings.json", "r+") as f:

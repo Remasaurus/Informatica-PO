@@ -22,7 +22,10 @@ class Animator(Component):
         
     
     def add_anim(self, name, duration, time, prio):
-        self.anims["name"] = Anim(name, duration, time, self.total_time, prio)
+        self.anims[name] = Anim(name, duration, time, self.total_time, prio)
+        
+    def delete_anim(self, name):
+        self.anims.pop(name)
     
     
     def get_frame(self):
@@ -38,7 +41,7 @@ class Animator(Component):
         self.total_time += delta_time
         best_frame = Anim(self.default, 0, 0, self.total_time, -1)
         
-        for anim in self.anims.values():
+        for anim in list(self.anims.values()):
             anim.duration -= delta_time
             if anim.duration < 0:
                 self.anims.pop(anim.name)

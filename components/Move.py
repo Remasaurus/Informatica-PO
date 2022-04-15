@@ -19,6 +19,10 @@ class Move(Component):
             entity.flip = True
         elif entity.vel.x > 0:
             entity.flip = False
+            
+        if not entity.vel.x:
+            if "run" in entity.components["Animator"].anims:
+                entity.components["Animator"].delete_anim("run") 
         
         
         if self.dir:

@@ -36,8 +36,11 @@ class Player(Entity):
         if self.scale == (1, 1):
             frame = self.components["Animator"].get_frame()
             if frame.name in spritesheet.anims:
-                spritesheet.draw(frame.name, surface, self.pos.x -
-                         camera.pos.x, self.pos.y - camera.pos.y, frame.time, self.flip)
+                print(frame.name)
+                print(frame.time)
+                
+                spritesheet.draw_anim(frame.name, surface, self.pos.x -
+                        camera.pos.x, self.pos.y - camera.pos.y, frame.time, self.flip)
             else:
                 spritesheet.draw(frame.name, surface, self.pos.x -
                          camera.pos.x, self.pos.y - camera.pos.y, self.flip)
@@ -45,7 +48,7 @@ class Player(Entity):
             buffer = pygame.Surface(self.size, pygame.SRCALPHA)
             frame = self.components["Animator"].get_frame()
             if frame.name in spritesheet.anims:
-                spritesheet.draw(frame.name, buffer, 0, 0, frame.time, self.flip)
+                spritesheet.draw_anim(frame.name, buffer, 0, 0, frame.time, self.flip)
             else:
                 spritesheet.draw(frame.name, buffer, 0, 0, self.flip)
             
