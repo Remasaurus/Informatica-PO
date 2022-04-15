@@ -1,6 +1,6 @@
 import pygame
 from ParticleSystem import ParticleSystem
-from Camera import Camera
+from Camera import Camera, clamp
 from Compositor import Compositor
 from Collider import Collider
 
@@ -15,6 +15,8 @@ class Level():
         self.gravity = 10
         self.particle_system = ParticleSystem()
         self.camera = Camera()
+        self.boss_room = None
+        self.boss_fight = False
 
     def update(self, delta_time):
         """Update all tiles and entities in the level."""
@@ -23,7 +25,21 @@ class Level():
 
         self.particle_system.update(delta_time)
         self.collider.update(delta_time, self)
-        self.camera.focus(self.entities[0])
+        
+        if self.boss_fight:
+            self.camera.pos = self.boss_room.topleft
+            self.camera.size = self.boss_room.size
+            self.entities[0].pos.x = clamp(self.boss_room.left, self.boss_room.right, self.entities[0].pos.x)
+            self.entities[0].pos.y = clamp(self.boss_room.top, self.boss_room.bottom, self.entities[0].pos.y)
+            
+        
+        if self.boss_room:
+            if self.entities[0].pos.x > self.boss_room.left:
+                self.camera.pos = self.boss_room.topleft
+                self.camera.size = self.boss_room.size
+                self.boss_fight = True
+        else: 
+            self.camera.focus(self.entities[0])
 
     def draw(self, surface):
         """Draw all tiles and entities in the level."""

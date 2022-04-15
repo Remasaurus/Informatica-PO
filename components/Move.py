@@ -6,7 +6,7 @@ class Move(Component):
         self.dir = 0
         self.distance = 0
 
-        self.drag = 2
+        self.drag = 2.5
         self.acc = 1000
         self.dec = 600
 
@@ -33,7 +33,7 @@ class Move(Component):
             acc = self.dir * self.acc * delta_time
             entity.vel.x += acc
             if self.run:
-                entity.vel.x += acc
+                entity.vel.x += acc/5
 
         elif not entity.vel.x == 0:
             decel = min(absX, self.dec * delta_time)
@@ -55,6 +55,9 @@ class Move(Component):
 
         drag = self.drag * delta_time * entity.vel.x
 
-        entity.vel.x -= drag
+        if self.run:
+            entity.vel.x -= drag/1.5
+        else:
+            entity.vel.x -= drag
 
         self.distance += absX * delta_time
