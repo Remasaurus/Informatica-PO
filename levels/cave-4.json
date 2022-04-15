@@ -1,6 +1,7 @@
 {
 	"gravity": 1500,
 	"tileSheet": "./tiles.json",
+	"music": "./sounds/overworld Billies Bounce PO Informatica.mp3",
 	"charachterSheet": "./charachters.json",
 	"spawnpoint": [
 		50,
@@ -9,6 +10,16 @@
 	"boss": [
 		18,
 		55
+	],
+	"camera": [
+		[
+			0,
+			0
+		],
+		[
+			10000,
+			10000
+		]
 	],
 	"ambient": [
 		255,
@@ -28,7 +39,175 @@
 	"layers": [
 		{
 			"tiles": [
-            ]
+				{
+					"name": "None",
+					"type": "none",
+					"range": [
+						[
+							16,
+							8
+						],
+						[
+							22,
+							25
+						]
+					]
+				},
+				{
+					"name": "BrickOne",
+					"type": "solid",
+					"range": [
+						[
+							41,
+							102
+						],
+						[
+							61,
+							103
+						]
+					]
+				},
+				{
+					"name": "BrickOne",
+					"type": "solid",
+					"range": [
+						[
+							41,
+							100
+						],
+						[
+							46,
+							102
+						]
+					]
+				},
+				{
+					"name": "BrickOne",
+					"type": "solid",
+					"range": [
+						[
+							56,
+							100
+						],
+						[
+							61,
+							102
+						]
+					]
+				},
+				{
+					"name": "BrickOne",
+					"type": "solid",
+					"range": [
+						[
+							34,
+							102
+						],
+						[
+							41,
+							103
+						]
+					]
+				},
+				{
+					"name": "BrickOne",
+					"type": "solid",
+					"range": [
+						[
+							61,
+							102
+						],
+						[
+							68,
+							103
+						]
+					]
+				},
+				{
+					"name": "BrickOne",
+					"type": "solid",
+					"range": [
+						[
+							34,
+							88
+						],
+						[
+							35,
+							102
+						]
+					]
+				},
+				{
+					"name": "BrickOne",
+					"type": "solid",
+					"range": [
+						[
+							35,
+							96
+						],
+						[
+							40,
+							98
+						]
+					]
+				},
+				{
+					"name": "BrickOne",
+					"type": "solid",
+					"range": [
+						[
+							68,
+							89
+						],
+						[
+							69,
+							103
+						]
+					]
+				},
+				{
+					"name": "BrickOne",
+					"type": "solid",
+					"range": [
+						[
+							62,
+							96
+						],
+						[
+							68,
+							98
+						]
+					]
+				},
+				{
+					"name": "BrickOne",
+					"type": "solid",
+					"range": [
+						[
+							41,
+							89
+						],
+						[
+							46,
+							91
+						]
+					]
+				},
+				{
+					"name": "BrickOne",
+					"type": "solid",
+					"range": [
+						[
+							56,
+							89
+						],
+						[
+							61,
+							91
+						]
+					]
+				}
+			]
 		}
 	],
 	"lights": [
