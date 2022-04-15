@@ -1,3 +1,4 @@
+import math
 import pygame
 from components.Component import Component, Sides
 from particles.DustParticle import DustParticle
@@ -42,9 +43,12 @@ class Jump(Component):
 
     def obstruct(self, entity, side):
         if side == Sides.BOTTOM:
+            if "jump-4" in entity.components["Animator"].anims:
+                entity.components["Animator"].delete_anim("jump-4")
             self.coyote_time = self.coyote_duration
             if entity.vel.y > 100:
-                entity.components["Animator"].add_anim("falling", 1, 0, 10)
+                pass
+                # entity.components["Animator"].add_anim("falling", 0.2, 0, 10)
                 
                 
             
@@ -81,7 +85,9 @@ class Jump(Component):
                 self.request_time = 0
                 self.coyote_time = 0
                 entity.vel.y = -(self.force + (abs(entity.vel.x) * self.boost))
-                entity.components["Animator"].add_anim("jump", 1, 0, 10)
+                entity.components["Animator"].add_anim("jump", 0.2, 0, 10)
+                entity.components["Animator"].add_anim("jump-4", math.inf, 0, 9)
+                
                 
 
             self.request_time -= delta_time

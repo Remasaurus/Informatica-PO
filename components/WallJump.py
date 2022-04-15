@@ -53,6 +53,8 @@ class WallJump(Component):
                 self.request_time = 0
                 self.coyote_time = 0
                 self.engage_time = self.duration
+                entity.components["Animator"].add_anim("jump", 0.2, 0, 10)
+                
 
             self.request_time -= delta_time
 
