@@ -23,6 +23,7 @@ class Player(Entity):
         self.add_component(Animator())
         self.spikeable = True
         self.size.update(16, 26)
+        self.dead = False
         
     
     @property
@@ -30,7 +31,7 @@ class Player(Entity):
         return "player"
     
     def hit(self):
-        pass
+        self.dead = True
     
     def draw(self, surface, camera, spritesheet): 
         if self.scale == (1, 1):

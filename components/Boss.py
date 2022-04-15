@@ -205,7 +205,9 @@ class BossAI(Component):
             else:
                 self.time_between_moves -= delta_time
             
-            
+            if pygame.Rect(level.entities[0].pos).colliderect(pygame.Rect(entity.pos, entity.size)):
+                entity.hit()
+                
             self.first_frame = False
                                       
                 
