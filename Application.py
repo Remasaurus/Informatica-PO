@@ -448,7 +448,6 @@ class Application():
             pygame.transform.scale(pygame.image.load("./img/BrickSpriteSheet.png").convert(), pygame.display.get_window_size()),
             pygame.transform.scale(pygame.image.load("./img/charachters.png").convert(), pygame.display.get_window_size()),
             pygame.transform.scale(pygame.image.load("./img/E6Coa.png").convert(), pygame.display.get_window_size()),
-            pygame.transform.scale(pygame.image.load("./img/tiles.png").convert(), pygame.display.get_window_size())
         ]
         
         duration_per_img = 5
