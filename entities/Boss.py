@@ -19,4 +19,7 @@ class Boss(Entity):
         self.lives -= 1
         if self.lives <= 0:
             level.finished = True
+    
+    def draw(self, surface, camera, spritesheet):
+        surface.blit(self.components["Animator"].get_frame(), surface, self.pos.x - camera.pos.x, self.pos.y - camera.pos.y, self.flip)
         
