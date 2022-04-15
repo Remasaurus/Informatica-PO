@@ -210,14 +210,18 @@ class BossAI(Component):
             
                 
             if entity.vulnerable:
-                entity.components["Animator"].add_anim("reswob-down", math.inf, 0, 1)
-                entity.components["Animator"].delete_anim("reswob-up")
-                if pygame.Rect(level.entities[0].pos).colliderect(pygame.Rect(entity.pos, entity.size)):
+                entity.components["Animator"].add_anim("reswobDown", math.inf, 0, 1)
+                if "reswobUp" in entity.components["Animator"].anims:
+                    entity.components["Animator"].delete_anim("reswobUp")
+                    
+                if pygame.Rect(level.entities[0].pos, level.entities[0].size).colliderect(pygame.Rect(entity.pos, entity.size)):
                     entity.hit()
             else:
-                entity.components["Animator"].add_anim("reswob-up", math.inf, 0, 1)
-                entity.components["Animator"].delete_anim("reswob-down")
-                if pygame.Rect(level.entities[0].pos).colliderect(pygame.Rect(entity.pos, entity.size)):
+                entity.components["Animator"].add_anim("reswobUp", math.inf, 0, 1)
+                if "reswobDown" in entity.components["Animator"].anims:
+                    entity.components["Animator"].delete_anim("reswobDown")
+                    
+                if pygame.Rect(level.entities[0].pos, level.entities[0].size).colliderect(pygame.Rect(entity.pos, entity.size)):
                     level.entities[0].hit()
                 
                 
