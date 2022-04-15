@@ -1,6 +1,7 @@
 import pygame
 from components.Component import Sides
 from Grid import Grid
+from entities.Player import Player
 
 
 class DespawningTile():
@@ -57,6 +58,10 @@ class Collider():
         return [
             (x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)
         ]
+        
+    
+    def win():
+        pass
             
             
         
@@ -184,6 +189,11 @@ class Collider():
             elif match.val == "spike-bottom":
                 if entity.spikeable:
                     self.handle_spike(pygame.Rect(match.x1, match.y1 + self.grid.tile_size/2, match.x2, match.y2), entity)
+
+            elif match.val == "finish":
+                if type(entity) == Player:
+                    self.win()
+
 
     def checkY(self, entity, level):
         """Checks if entity had collided when any tiles on the y-axis."""
@@ -332,3 +342,7 @@ class Collider():
             elif match.val == "spike-bottom":
                 if entity.spikeable:
                     self.handle_spike(pygame.Rect(match.x1, match.y1 + self.grid.tile_size/2, match.x2, match.y2), entity)
+                    
+            elif match.val == "finish":
+                if type(entity) == Player:
+                    self.win()

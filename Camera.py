@@ -15,6 +15,10 @@ class Camera():
         self.shake_time = 0
         self.shake_intensity = 0
         self.clock = pygame.time.Clock()
+        self.minX = 0
+        self.maxX = 100000
+        self.minY = 0
+        self.maxY = 100000
         
     def shake(self, duration: float, intensity: int):
         """Shakes the camera for a given duration."""
@@ -36,8 +40,8 @@ class Camera():
                       random.randint(-self.shake_intensity, self.shake_intensity)]
             
         # TODO: Make camera move in front of the player
-        self.pos.x = clamp(0, math.inf, entity.pos.x - 320 + offset[0])
-        self.pos.y = clamp(0, math.inf, entity.pos.y - 180 + offset[1])
+        self.pos.x = clamp(self.minX, self.maxX, entity.pos.x - 320 + offset[0])
+        self.pos.y = clamp(self.minY, self.maxY, entity.pos.y - 180 + offset[1])
         
         
         
