@@ -36,68 +36,80 @@
             "pos": [1, 2]
         },
         {
-            "name": "Test",
-            "pos": [2, 2]
+            "name": "darkness",
+            "pos": [2, 2],
+            "alpha": true
         },
         {
-            "name": "RockBackground",
-            "pos": [0, 3]
-            
+            "name": "rockbackground",
+            "pos": [0, 3],
+            "alpha": true
         },
         {
-            "name": "coin",
+            "name": "ramp1",
+            "pos": [1, 3],
+            "alpha": true
+        },
+        {
+            "name": "ramp2",
+            "pos": [2, 3],
+            "alpha": true
+        },
+        {
+            "name": "saveButton",
+            "pos": [0, 4],
+            "alpha": true
+        },
+        {
+            "name": "ramp3",
+            "pos": [1, 4],
+            "alpha": true
+        },
+        {
+            "name": "ramp4",
+            "pos": [2, 4],
+            "alpha": true
+        },
+        {
+            "name": "remCursor",
             "pos": [3, 0],
             "alpha": true
         },
- 
         {
-            "name": "sand",
-            "pos": [2, 3]
-        },
-        {
-            "name": "ramp",
-            "pos": [1, 3],
+            "name": "spikesLeft",
+            "pos": [4, 0],
             "alpha": true
         },
         {
-            "name": "ramp",
-            "pos": [1, 3],
+            "name": "spikesRight",
+            "pos": [4, 1],
             "alpha": true
         },
         {
-            "name": "ramp",
-            "pos": [1, 3],
+            "name": "coins",
+            "pos": [4, 2],
             "alpha": true
         },
         {
-            "name": "ramp",
-            "pos": [1, 3],
+            "name": "cogWheel",
+            "pos": [3, 2],
             "alpha": true
         },
         {
-            "name": "ramp",
-            "pos": [1, 3],
+            "name": "noBlock",
+            "pos": [3, 1],
             "alpha": true
         },
         {
-            "name": "ramp",
-            "pos": [1, 3],
+            "name": "spikesTop",
+            "pos": [3, 3],
             "alpha": true
         },
         {
-            "name": "ramp",
-            "pos": [1, 3],
+            "name": "spikesBottom",
+            "pos": [3, 4],
             "alpha": true
-        },
-        {
-            "name": "ramp",
-            "pos": [1, 3],
-            "alpha": true
-        },
-        {
-            "name": "ramp",
-            "pos": [1, 3],
-            "alpha": true
-        },
+        }
+        
     ]
 }
