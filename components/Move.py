@@ -23,6 +23,10 @@ class Move(Component):
         if not entity.vel.x:
             if "run" in entity.components["Animator"].anims:
                 entity.components["Animator"].delete_anim("run") 
+        else:
+            entity.components["Animator"].add_anim("run", 1, self.distance, 0)
+            
+            
         
         
         if self.dir:
@@ -38,16 +42,12 @@ class Move(Component):
                 if self.dir > 0:
                     pass
                     # entity.components["Animator"].add_anim("break", 1, self.distance, 0)
-                else:
-                    entity.components["Animator"].add_anim("run", 1, self.distance, 0)
                     
             else:
                 entity.vel.x -= decel
                 if self.dir > 0:
                     pass
                     # entity.components["Animator"].add_anim("break", 1, self.distance, 0)
-                else:
-                    entity.components["Animator"].add_anim("run", 1, self.distance, 0)
                     
                 
         else:
