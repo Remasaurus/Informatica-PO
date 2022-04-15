@@ -3,8 +3,8 @@ from components.Animator import Animator
 from components.WallJump import WallJump
 from entities.Entity import Entity
 from components.Dash import Dash
-from components.Jump import Jump
-from components.Move import Move
+from components.jump import Jump
+from components.move import Move
 from components.Physics import Physics
 from components.WallSlide import WallSlide
 from components.CoinCollector import CoinCollector
