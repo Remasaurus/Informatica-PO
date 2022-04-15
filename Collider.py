@@ -60,8 +60,10 @@ class Collider():
         ]
         
     
-    def win():
-        pass
+    def win(self, level):
+        level.finished = True
+        
+        
             
             
         

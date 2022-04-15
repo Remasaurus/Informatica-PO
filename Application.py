@@ -58,16 +58,24 @@ class Application():
             if delta_time > 0.5:
                 continue
 
-            start = time.time()
+            if level.finished:
+                TextBox((250, 160), (140, 40), (255, 255, 255), "You win", (0, 0, 0))
+                def hook(event):
+                    nonlocal running
+                    if event == pygame.KEYDOWN or event.type == pygame.MOUSEBUTTONDOWN:
+                        running = False
+                        
+                event_handler.append_hook(hook)
 
             event_handler.poll()
 
             level.update(delta_time)
             level.draw(self.screen)
+            
+            
 
             pygame.display.flip()
 
-            pygame.display.set_caption(f"Frametime: {time.time() - start} sec")
             # print(f"Frametime: {time.time() - start} sec")
 
     def level_picker(self, level):

@@ -17,6 +17,7 @@ class Level():
         self.camera = Camera()
         self.boss_room = None
         self.boss_fight = False
+        self.finished = False
 
     def update(self, delta_time):
         """Update all tiles and entities in the level."""
