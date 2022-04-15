@@ -51,6 +51,48 @@
             "width": 16,
             "height": 32,
             "alpha": true
+        },
+        {
+            "name": "jump-1",
+            "pos": [0, 64],
+            "width": 16,
+            "height": 32,
+            "alpha": true
+        },
+        {
+            "name": "jump-2",
+            "pos": [16, 64],
+            "width": 16,
+            "height": 32,
+            "alpha": true
+        },
+        {
+            "name": "jump-3",
+            "pos": [32, 64],
+            "width": 16,
+            "height": 32,
+            "alpha": true
+        },
+        {
+            "name": "jump-4",
+            "pos": [48, 64],
+            "width": 16,
+            "height": 32,
+            "alpha": true
+        },
+        {
+            "name": "falling-1",
+            "pos": [0, 96],
+            "width": 16,
+            "height": 32,
+            "alpha": true
+        },
+        {
+            "name": "falling-2",
+            "pos": [16, 96],
+            "width": 16,
+            "height": 32,
+            "alpha": true
         }
 
     ],
@@ -59,7 +101,21 @@
         {
             "name": "run",
             "frames": [
-                "run-1", "run-2", "run-3", "run-4", "run-5", "run-6"
+                "run-1","run-2","run-3","run-4","run-5","run-6"
+            ],
+            "frameLen": 6
+        },
+        {
+            "name": "jump",
+            "frames": [
+                "jump-1","jump-2","jump-3","jump-4"
+            ],
+            "frameLen": 6
+        },
+        {
+            "name": "falling",
+            "frames": [
+                "falling-1","falling-2"
             ],
             "frameLen": 6
         }
