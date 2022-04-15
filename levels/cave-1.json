@@ -4,8 +4,14 @@
 	"charachterSheet": "./charachters.json",
 	"music": "./sounds/overworld Billies Bounce PO Informatica.mp3",
 	"camera": [
-		[0, 0],
-		[10000, 10000]
+		[
+			0,
+			0
+		],
+		[
+			10000,
+			10000
+		]
 	],
 	"spawnpoint": [
 		2,
@@ -16,8 +22,14 @@
 		55
 	],
 	"bossRoom": [
-		[50, 500],
-		[60, 510]
+		[
+			50,
+			500
+		],
+		[
+			60,
+			510
+		]
 	],
 	"ambient": [
 		255,
@@ -336,20 +348,6 @@
 					"type": "solid",
 					"range": [
 						[
-							69,
-							82
-						],
-						[
-							74,
-							84
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "solid",
-					"range": [
-						[
 							78,
 							59
 						],
@@ -393,20 +391,6 @@
 					"range": [
 						[
 							82,
-							78
-						],
-						[
-							87,
-							80
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "solid",
-					"range": [
-						[
-							82,
 							88
 						],
 						[
@@ -426,20 +410,6 @@
 						[
 							99,
 							88
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "solid",
-					"range": [
-						[
-							89,
-							71
-						],
-						[
-							93,
-							73
 						]
 					]
 				},
@@ -658,62 +628,6 @@
 					"type": "solid",
 					"range": [
 						[
-							45,
-							45
-						],
-						[
-							52,
-							47
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "solid",
-					"range": [
-						[
-							31,
-							47
-						],
-						[
-							35,
-							49
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "solid",
-					"range": [
-						[
-							19,
-							46
-						],
-						[
-							25,
-							48
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "solid",
-					"range": [
-						[
-							4,
-							47
-						],
-						[
-							8,
-							49
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "solid",
-					"range": [
-						[
 							0,
 							27
 						],
@@ -836,230 +750,6 @@
 					]
 				},
 				{
-					"name": "coin",
-					"type": "spike-left",
-					"range": [
-						[
-							17,
-							63
-						],
-						[
-							18,
-							67
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-left",
-					"range": [
-						[
-							17,
-							77
-						],
-						[
-							18,
-							82
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-right",
-					"range": [
-						[
-							26,
-							68
-						],
-						[
-							27,
-							74
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-right",
-					"range": [
-						[
-							48,
-							61
-						],
-						[
-							49,
-							74
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-left",
-					"range": [
-						[
-							38,
-							69
-						],
-						[
-							39,
-							78
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							63,
-							87
-						],
-						[
-							95,
-							88
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							95,
-							87
-						],
-						[
-							98,
-							88
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							50,
-							50
-						],
-						[
-							67,
-							51
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							38,
-							50
-						],
-						[
-							50,
-							51
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							37,
-							50
-						],
-						[
-							38,
-							51
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							8,
-							50
-						],
-						[
-							28,
-							51
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							1,
-							50
-						],
-						[
-							8,
-							51
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-left",
-					"range": [
-						[
-							28,
-							51
-						],
-						[
-							29,
-							77
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-right",
-					"range": [
-						[
-							36,
-							51
-						],
-						[
-							37,
-							77
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							15,
-							33
-						],
-						[
-							42,
-							34
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							42,
-							33
-						],
-						[
-							61,
-							34
-						]
-					]
-				},
-				{
 					"name": "RockBackground",
 					"type": "solid",
 					"range": [
@@ -1140,20 +830,6 @@
 						[
 							104,
 							59
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "solid",
-					"range": [
-						[
-							4,
-							40
-						],
-						[
-							8,
-							42
 						]
 					]
 				},
@@ -1312,34 +988,6 @@
 					]
 				},
 				{
-					"name": "RockBackground",
-					"type": "solid",
-					"range": [
-						[
-							23,
-							28
-						],
-						[
-							28,
-							30
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "solid",
-					"range": [
-						[
-							38,
-							25
-						],
-						[
-							43,
-							27
-						]
-					]
-				},
-				{
 					"name": "None",
 					"type": "none",
 					"range": [
@@ -1410,62 +1058,6 @@
 					]
 				},
 				{
-					"name": "coin",
-					"type": "spike-right",
-					"range": [
-						[
-							48,
-							66
-						],
-						[
-							49,
-							67
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-right",
-					"range": [
-						[
-							48,
-							74
-						],
-						[
-							49,
-							75
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-left",
-					"range": [
-						[
-							28,
-							58
-						],
-						[
-							29,
-							59
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-left",
-					"range": [
-						[
-							28,
-							68
-						],
-						[
-							29,
-							70
-						]
-					]
-				},
-				{
 					"name": "RockBackground",
 					"type": "solid",
 					"range": [
@@ -1476,20 +1068,6 @@
 						[
 							28,
 							59
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							78,
-							68
-						],
-						[
-							80,
-							69
 						]
 					]
 				},
@@ -1522,20 +1100,6 @@
 					]
 				},
 				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							75,
-							48
-						],
-						[
-							77,
-							49
-						]
-					]
-				},
-				{
 					"name": "None",
 					"type": "none",
 					"range": [
@@ -1545,20 +1109,6 @@
 						],
 						[
 							66,
-							49
-						]
-					]
-				},
-				{
-					"name": "RockBackground",
-					"type": "solid",
-					"range": [
-						[
-							58,
-							47
-						],
-						[
-							65,
 							49
 						]
 					]
@@ -1592,7 +1142,399 @@
 					]
 				},
 				{
-					"name": "coin",
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							1,
+							50
+						],
+						[
+							28,
+							51
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							37,
+							50
+						],
+						[
+							67,
+							51
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							63,
+							87
+						],
+						[
+							92,
+							88
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							92,
+							87
+						],
+						[
+							98,
+							88
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							78,
+							68
+						],
+						[
+							80,
+							69
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							75,
+							48
+						],
+						[
+							77,
+							49
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							39,
+							33
+						],
+						[
+							61,
+							34
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							15,
+							33
+						],
+						[
+							39,
+							34
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "none",
+					"range": [
+						[
+							16,
+							41
+						],
+						[
+							17,
+							42
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							4,
+							40
+						],
+						[
+							8,
+							42
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							4,
+							47
+						],
+						[
+							8,
+							49
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							19,
+							46
+						],
+						[
+							25,
+							48
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							31,
+							47
+						],
+						[
+							35,
+							49
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							45,
+							45
+						],
+						[
+							52,
+							47
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							58,
+							47
+						],
+						[
+							65,
+							49
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							89,
+							71
+						],
+						[
+							93,
+							73
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							82,
+							78
+						],
+						[
+							87,
+							80
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							69,
+							82
+						],
+						[
+							74,
+							84
+						]
+					]
+				},
+				{
+					"name": "spikesLeft",
+					"type": "spike-left",
+					"range": [
+						[
+							48,
+							68
+						],
+						[
+							49,
+							75
+						]
+					]
+				},
+				{
+					"name": "spikesLeft",
+					"type": "spike-left",
+					"range": [
+						[
+							48,
+							61
+						],
+						[
+							49,
+							67
+						]
+					]
+				},
+				{
+					"name": "spikesLeft",
+					"type": "spike-left",
+					"range": [
+						[
+							36,
+							51
+						],
+						[
+							38,
+							75
+						]
+					]
+				},
+				{
+					"name": "spikesLeft",
+					"type": "spike-left",
+					"range": [
+						[
+							36,
+							75
+						],
+						[
+							37,
+							77
+						]
+					]
+				},
+				{
+					"name": "spikesLeft",
+					"type": "spike-left",
+					"range": [
+						[
+							26,
+							68
+						],
+						[
+							27,
+							74
+						]
+					]
+				},
+				{
+					"name": "spikesRight",
+					"type": "spike-right",
+					"range": [
+						[
+							28,
+							51
+						],
+						[
+							29,
+							67
+						]
+					]
+				},
+				{
+					"name": "spikesRight",
+					"type": "spike-right",
+					"range": [
+						[
+							28,
+							67
+						],
+						[
+							29,
+							77
+						]
+					]
+				},
+				{
+					"name": "spikesRight",
+					"type": "spike-right",
+					"range": [
+						[
+							38,
+							72
+						],
+						[
+							39,
+							79
+						]
+					]
+				},
+				{
+					"name": "spikesRight",
+					"type": "spike-right",
+					"range": [
+						[
+							17,
+							63
+						],
+						[
+							18,
+							67
+						]
+					]
+				},
+				{
+					"name": "spikesRight",
+					"type": "spike-right",
+					"range": [
+						[
+							17,
+							77
+						],
+						[
+							18,
+							82
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
 					"type": "spike-bottom",
 					"range": [
 						[
@@ -1602,6 +1544,34 @@
 						[
 							37,
 							78
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							23,
+							28
+						],
+						[
+							28,
+							30
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "solid",
+					"range": [
+						[
+							38,
+							25
+						],
+						[
+							43,
+							27
 						]
 					]
 				}
