@@ -21,5 +21,5 @@ class Boss(Entity):
             level.finished = True
     
     def draw(self, surface, camera, spritesheet):
-        surface.blit(self.components["Animator"].get_frame(), surface, self.pos.x - camera.pos.x, self.pos.y - camera.pos.y, self.flip)
+        spritesheet.draw(self.components["Animator"].get_frame().name, surface, self.pos.x - camera.pos.x, self.pos.y - camera.pos.y, self.flip)
         

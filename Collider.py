@@ -194,7 +194,7 @@ class Collider():
 
             elif match.val == "finish":
                 if type(entity) == Player:
-                    self.win()
+                    self.win(level)
 
 
     def checkY(self, entity, level):
@@ -347,4 +347,4 @@ class Collider():
                     
             elif match.val == "finish":
                 if type(entity) == Player:
-                    self.win()
+                    self.win(level)

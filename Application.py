@@ -59,13 +59,31 @@ class Application():
                 continue
 
             if level.finished:
-                TextBox((250, 160), (140, 40), (255, 255, 255), "You win", (0, 0, 0))
+                TextBox((250, 160), (140, 40), (255, 255, 255), "You win", (0, 0, 0)).draw(self.screen)
                 def hook(event):
                     nonlocal running
                     if event == pygame.KEYDOWN or event.type == pygame.MOUSEBUTTONDOWN:
                         running = False
                         
                 event_handler.append_hook(hook)
+                pygame.display.flip()
+                while running:
+                    event_handler.poll()
+                
+            if level.entities[0].dead:
+                level.draw(self.screen)
+                TextBox((250, 160), (140, 40), (255, 255, 255), "You lose", (0, 0, 0)).draw(self.screen)
+                def hook(event):
+                    nonlocal running
+                    if event.type == pygame.KEYDOWN or event.type == pygame.MOUSEBUTTONDOWN:
+                        running = False
+                event_handler.append_hook(hook)
+                
+                pygame.display.flip()
+                while running:
+                    event_handler.poll()
+                    
+                    
 
             event_handler.poll()
 
