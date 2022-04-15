@@ -31,6 +31,10 @@ class Application():
             data = json.load(f)
             self.native = pygame.Vector2(data["native"])
             self.scale = data["scale"]
+            
+            pygame.mixer.music.load("sounds\overworld Billies Bounce PO Informatica.mp3")
+            pygame.mixer.music.set_volume(data["sound"]["master"] * data["sound"]["music"])
+            pygame.mixer.music.play(-1)
     
     # TODO: Better name
     def game(self, level):
@@ -442,13 +446,16 @@ class Application():
                     
                     master_volume.current_val = round(master_volume.current_val, 2)
                     sfx_volume.current_val = round(sfx_volume.current_val, 2)
-                    music_volume.current_val = round(music_volume.current_val, 2)
+                    music_volume.current_val = round(music_volume.current_val, 2)                    
                     
                     
                     f.seek(0)
                     f.truncate()
                     json.dump(data, f, indent="\t")
                     save_button.pressed = False
+                    
+                    pygame.mixer.music.set_volume(data["sound"]["master"] * data["sound"]["music"])
+                    
                 
                 event_handler.poll()
                 
