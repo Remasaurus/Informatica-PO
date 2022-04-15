@@ -18,7 +18,7 @@ class BossAI(Component):
         # general
         self.current_move = None
         self.moves = list(BossMoves)
-        self.duration_between_moves = 2
+        self.duration_between_moves = 0.5
         self.time_between_moves = 0
         self.ready = True
         self.first_frame = False
@@ -45,8 +45,9 @@ class BossAI(Component):
         self.fall_first_frame = False
         self.side = 0
         self.falling = False
-        self.collide_setback = 50
-        self.collide_jump = 100
+        self.collide_setback = 100
+        self.collide_jump = 200
+        self.run_speed = 500
         self.bounces = 0
         self.total_bounces = 2
         
@@ -92,17 +93,19 @@ class BossAI(Component):
         
         if self.time_attack > 0:
             self.timer += delta_time
+            self.time_attack -= delta_time
             if self.timer > self.time_between_fireball:
                 self.timer -= self.time_between_fireball
                 
-                # if entity.pos.x < 10:
-                #     level.particle_system.append(
-                #         FireBall(entity.pos, 1)
-                #     )
-                # else:
-                    
-                
-                # level.particle_system
+                if entity.pos.x < level.entities[0].pos.x:
+                    level.particle_system.particles.append(
+                        FireBall(entity.pos + (entity.size.x, random.randint(0, entity.size.y)), 1)
+                    )
+                else:
+                    level.particle_system.particles.append(
+                        FireBall(entity.pos + (0, random.randint(0, entity.size.y)), -1)
+                    )
+            
         else:
             self.ready = True
         
@@ -153,9 +156,9 @@ class BossAI(Component):
         if self.first_frame:
             self.bounces = 0
             if level.entities[0].pos.x < entity.pos.x:
-                entity.vel.x = -100
+                entity.vel.x = -self.run_speed
             else:
-                entity.vel.x = 100
+                entity.vel.x = self.run_speed
         
         elif self.falling:
             self.fall(entity, delta_time, level)
@@ -186,8 +189,8 @@ class BossAI(Component):
                 self.ready = False
                 
             elif self.time_between_moves < 0:
-                # self.current_move = random.choice(self.moves)
-                self.current_move = BossMoves.ATTACK
+                self.current_move = random.choice(self.moves)
+                # self.current_move = BossMoves.ATTACK
                 self.time_between_moves = 0
                 self.first_frame = True
                         

@@ -14,6 +14,13 @@ class Move(Component):
 
     def update(self, entity, delta_time, level):
         absX = abs(entity.vel.x)
+        
+        if entity.vel.x < 0:
+            entity.flip = True
+        elif entity.vel.x > 0:
+            entity.flip = False
+        
+        
         if self.dir:
             acc = self.dir * self.acc * delta_time
             entity.vel.x += acc
@@ -23,7 +30,6 @@ class Move(Component):
         elif not entity.vel.x == 0:
             decel = min(absX, self.dec * delta_time)
             if entity.vel.x < 0:
-                entity.flip = True
                 entity.vel.x += decel
                 if self.dir > 0:
                     pass
@@ -33,7 +39,6 @@ class Move(Component):
                     # entity.components["Animator"].add_anim("run", 1, self.distance, 0)
                     
             else:
-                entity.flip = False
                 entity.vel.x -= decel
                 if self.dir > 0:
                     pass
