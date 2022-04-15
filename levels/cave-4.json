@@ -1,15 +1,15 @@
 {
 	"gravity": 1500,
 	"tileSheet": "./tiles.json",
-	"music": "./sounds/overworld Billies Bounce PO Informatica.mp3",
+	"music": "./sounds/Boss theme PO informatica Chega de saudade.mp3",
 	"charachterSheet": "./charachters.json",
 	"spawnpoint": [
 		50,
 		100
 	],
 	"boss": [
-		18,
-		55
+		55,
+		80
 	],
 	"camera": [
 		[
