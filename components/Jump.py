@@ -44,8 +44,7 @@ class Jump(Component):
         if side == Sides.BOTTOM:
             self.coyote_time = self.coyote_duration
             if entity.vel.y > 100:
-                pass
-                # entity.components["Animator"].add_anim("landing", 1, 0, 10)
+                entity.components["Animator"].add_anim("falling", 1, 0, 10)
                 
                 
             
