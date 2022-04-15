@@ -35,8 +35,7 @@ class Move(Component):
                     pass
                     # entity.components["Animator"].add_anim("break", 1, self.distance, 0)
                 else:
-                    pass
-                    # entity.components["Animator"].add_anim("run", 1, self.distance, 0)
+                    entity.components["Animator"].add_anim("run", 1, self.distance, 0)
                     
             else:
                 entity.vel.x -= decel
@@ -44,8 +43,7 @@ class Move(Component):
                     pass
                     # entity.components["Animator"].add_anim("break", 1, self.distance, 0)
                 else:
-                    pass
-                    # entity.components["Animator"].add_anim("run", 1, self.distance, 0)
+                    entity.components["Animator"].add_anim("run", 1, self.distance, 0)
                     
                 
         else:

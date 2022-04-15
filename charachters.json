@@ -7,8 +7,61 @@
             "name": "idle",
             "pos": [0, 0],
             "width": 16,
-            "height": 26,
+            "height": 32,
             "alpha": true
+        },
+        {
+            "name": "run-1",
+            "pos": [0, 32],
+            "width": 16,
+            "height": 32,
+            "alpha": true
+        },
+        {
+            "name": "run-2",
+            "pos": [16, 32],
+            "width": 16,
+            "height": 32,
+            "alpha": true
+        },
+        {
+            "name": "run-3",
+            "pos": [32, 32],
+            "width": 16,
+            "height": 32,
+            "alpha": true
+        },
+        {
+            "name": "run-4",
+            "pos": [48, 32],
+            "width": 16,
+            "height": 32,
+            "alpha": true
+        },
+        {
+            "name": "run-5",
+            "pos": [64, 32],
+            "width": 16,
+            "height": 32,
+            "alpha": true
+        },
+        {
+            "name": "run-6",
+            "pos": [80, 32],
+            "width": 16,
+            "height": 32,
+            "alpha": true
+        }
+
+    ],
+    "anims":
+    [
+        {
+            "name": "run",
+            "frames": [
+                "run-1", "run-2", "run-3", "run-4", "run-5", "run-6"
+            ],
+            "frameLen": 6
         }
     ]
 }
