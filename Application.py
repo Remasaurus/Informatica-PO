@@ -70,14 +70,23 @@ class Application():
         with open("save.json", "r") as f:
             data = json.load(f)
             files = [file[:-5] for file in os.listdir("./levels") if file.startswith(level)]
+            event_handler = EventHandler()
             overlay = pygame.Surface((16, 16))
             overlay.set_alpha(128)
             buttons = []
             for i, file in enumerate(files):
-                buttons.append(TextButton((i * 16), (16, 16), (255, 248, 220), str(i), (0, 0, 0)))
-                
+                buttons.append(TextButton((i * 16, 16), (16, 16), (255, 248, 220), str(i), (0, 0, 0)))
+                buttons[i].draw(self.screen)
                 if int(file[-1]) < data["lvl"]:
-                    self.surface.blit(overlay, ())
+                    self.surface.blit(overlay, (i * 16))
+                    
+            load_button_events(event_handler, buttons)
+            
+            for i, button in enumerate(buttons):
+                if button.pressed:
+                    pass
+                    
+            
                     
                     
         
@@ -307,13 +316,13 @@ class Application():
                              
                 if button.pressed:
                     if i == 0:
-                        self.game("cave")
+                        self.level_picker("cave")
                     elif i == 1:
-                        self.game("cave")
+                        self.level_picker("cave")
                     elif i == 2:
-                        self.game("cave")
+                        self.level_picker("cave")
                     elif i == 3:
-                        self.game("cave")
+                        self.level_picker("cave")
                     if i == 4:
                         return
                     
