@@ -61,7 +61,7 @@ def lerp(a, b, t):
 class Dash(Component):
     def __init__(self) -> None:
         self.dash_duration = 0.1
-        self.dash_vel = 700
+        self.dash_vel = 500
         self.dash_dir = pygame.Vector2(0, 0)
         self.dash_time = 0
         
@@ -99,5 +99,5 @@ class Dash(Component):
                 self.first_frame = False
                 
             entity.vel = self.dash_dir.copy() 
-            
+            entity.components["Physics"].gravity_multiplier = 0
             self.dash_time -= delta_time

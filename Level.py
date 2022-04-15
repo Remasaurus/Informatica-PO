@@ -22,7 +22,7 @@ class Level():
             entity.update(delta_time, self)
 
         self.particle_system.update(delta_time)
-        
+        self.collider.update(delta_time, self)
         self.camera.focus(self.entities[0])
 
     def draw(self, surface):

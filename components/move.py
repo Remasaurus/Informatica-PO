@@ -23,9 +23,26 @@ class Move(Component):
         elif not entity.vel.x == 0:
             decel = min(absX, self.dec * delta_time)
             if entity.vel.x < 0:
+                entity.flip = True
                 entity.vel.x += decel
+                if self.dir > 0:
+                    pass
+                    # entity.components["Animator"].add_anim("break", 1, self.distance, 0)
+                else:
+                    pass
+                    # entity.components["Animator"].add_anim("run", 1, self.distance, 0)
+                    
             else:
+                entity.flip = False
                 entity.vel.x -= decel
+                if self.dir > 0:
+                    pass
+                    # entity.components["Animator"].add_anim("break", 1, self.distance, 0)
+                else:
+                    pass
+                    # entity.components["Animator"].add_anim("run", 1, self.distance, 0)
+                    
+                
         else:
             self.distance = 0
 

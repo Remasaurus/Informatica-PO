@@ -4,10 +4,10 @@
 
     "images": [
         {
-            "name": "player",
+            "name": "idle",
             "pos": [0, 0],
             "width": 16,
-            "height": 16,
+            "height": 26,
             "alpha": true
         }
     ]

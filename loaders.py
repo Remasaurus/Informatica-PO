@@ -16,8 +16,9 @@ ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 
 def load_level(name: str, event_handler) -> Level:
     """Creates level and intializes it with given the json that matches the name."""
-    with open(f"./levels/{name}.json", "r") as f:
+    with open(f"./levels/{name}.json", "r") as f, open("./settings.json", "r") as f2:
         data = json.load(f)
+        settings = json.load(f2)
         level = Level()
         level.gravity = data["gravity"]
         tile_spritesheet = load_spritesheet(data["tileSheet"])
@@ -26,6 +27,8 @@ def load_level(name: str, event_handler) -> Level:
         player = Player()
         helper = Helper()
         helper.follow(player)
+        
+        level.camera.size.update(settings["native"])
     
         
         player.pos.x = data["spawnpoint"][0] * tile_spritesheet.tile_size
@@ -67,15 +70,31 @@ def load_level(name: str, event_handler) -> Level:
         entity_layer = EntityLayer(charachter_spritesheet, level.entities)
         level.compositor.add_layer(entity_layer)
         level.compositor.add_layer(lighting_layer)
+        
+        
+        
 
         return level
     
+def load_slider_events(event_handler, sliders):
+    def callback(state, button):
+        if button == pygame.BUTTON_LEFT:
+            mouse = pygame.mouse.get_pos()
+            if state:
+                for slider in sliders:
+                    if slider.bounding_rect.collidepoint(mouse):
+                        slider.dragging = True
+            else:
+                for slider in sliders:
+                    slider.dragging = False
+            
+    event_handler.append_mouse(callback)
 
 
 def load_button_events(event_handler, buttons):
     """Loads keyboard that is needed for the menu."""
     def callback(state, button):
-        if state:
+        if state and button == pygame.BUTTON_LEFT:
             mouse = pygame.mouse.get_pos()
             for button in buttons:
                 if button.rect.collidepoint(mouse):
@@ -87,70 +106,66 @@ def load_button_events(event_handler, buttons):
 
 def load_keyboard(event_handler, player):
     """Adds all keypress functionaly to given player"""
-    def left(keystate):
-        if keystate:
-            player.components["Move"].dir -= 1
-            player.components["Dash"].dir.x -= 1
-        else:
-            player.components["Move"].dir += 1
-            player.components["Dash"].dir.x += 1
-            
+    with open("./settings.json", "r") as f:
+        controls = json.load(f)["controls"]
+        def left(keystate):
+            if keystate:
+                player.components["Move"].dir -= 1
+                player.components["Dash"].dir.x -= 1
+            else:
+                player.components["Move"].dir += 1
+                player.components["Dash"].dir.x += 1
+                
 
-    def right(keystate):
-        if keystate:
-            player.components["Move"].dir += 1
-            player.components["Dash"].dir.x += 1
-        else:
-            player.components["Move"].dir -= 1
-            player.components["Dash"].dir.x -= 1
-            
-    def up(keystate):
-        if keystate:
-            player.components["Dash"].dir.y -= 1
-        else:
-            player.components["Dash"].dir.y += 1
-            
+        def right(keystate):
+            if keystate:
+                player.components["Move"].dir += 1
+                player.components["Dash"].dir.x += 1
+            else:
+                player.components["Move"].dir -= 1
+                player.components["Dash"].dir.x -= 1
+                
+        def up(keystate):
+            if keystate:
+                player.components["Dash"].dir.y -= 1
+            else:
+                player.components["Dash"].dir.y += 1
+                
 
-    def down(keystate):
-        if keystate:
-            player.components["Dash"].dir.y += 1
-        else:
-            player.components["Dash"].dir.y -= 1
+        def down(keystate):
+            if keystate:
+                player.components["Dash"].dir.y += 1
+            else:
+                player.components["Dash"].dir.y -= 1
 
-    def jump(keystate):
-        if keystate:
-            player.components["Jump"].start()
-            player.components["WallJump"].start()
-        else:
-            player.components["Jump"].cancel()
-            player.components["WallJump"].cancel()
+        def jump(keystate):
+            if keystate:
+                player.components["Jump"].start()
+                player.components["WallJump"].start()
+            else:
+                player.components["Jump"].cancel()
+                player.components["WallJump"].cancel()
 
 
-    def dash(keystate):
-        if keystate:
-            player.components["Dash"].start()
+        def dash(keystate):
+            if keystate:
+                player.components["Dash"].start()
 
-    def run(keystate):
-        player.components["Move"].run = keystate
+        def run(keystate):
+            player.components["Move"].run = keystate
 
-    def quit(keystate):
-        sys.exit()
+        def quit(keystate):
+            sys.exit()
 
-    event_handler.append_key(pygame.K_a, left)
-    event_handler.append_key(pygame.K_d, right)
-    event_handler.append_key(pygame.K_w, up)
-    event_handler.append_key(pygame.K_s, down)
-    
-    event_handler.append_key(pygame.K_LEFT, left)
-    event_handler.append_key(pygame.K_RIGHT, right)
-    event_handler.append_key(pygame.K_UP, up)
-    event_handler.append_key(pygame.K_DOWN, down)
-    
-    event_handler.append_key(pygame.K_LSHIFT, run)
-    event_handler.append_key(pygame.K_RSHIFT, run)
-    
-    event_handler.append_key(pygame.K_j, dash)
-    event_handler.append_key(pygame.K_SPACE, jump)
+        event_handler.append_key(pygame.key.key_code(controls["left"]), left)
+        event_handler.append_key(pygame.key.key_code(controls["right"]), right)
+        event_handler.append_key(pygame.key.key_code(controls["up"]), up)
+        event_handler.append_key(pygame.key.key_code(controls["down"]), down)
+        
+        event_handler.append_key(pygame.key.key_code(controls["run"]), run)
+        
+        event_handler.append_key(pygame.key.key_code(controls["dash"]), dash)
+        event_handler.append_key(pygame.key.key_code(controls["jump"]), jump)
     
 
 

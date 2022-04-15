@@ -1175,6 +1175,90 @@
 							34
 						]
 					]
+				},
+				{
+					"name": "sand",
+					"type": "sand",
+					"range": [
+						[
+							24,
+							58
+						],
+						[
+							35,
+							59
+						]
+					]
+				},
+				{
+					"name": "Brick",
+					"type": "solid",
+					"range": [
+						[
+							23,
+							58
+						],
+						[
+							24,
+							59
+						]
+					]
+				},
+				{
+					"name": "Brick",
+					"type": "solid",
+					"range": [
+						[
+							35,
+							58
+						],
+						[
+							36,
+							59
+						]
+					]
+				},
+				{
+					"name": "BrickCracked",
+					"type": "despawn",
+					"range": [
+						[
+							27,
+							77
+						],
+						[
+							37,
+							78
+						]
+					]
+				},
+				{
+					"name": "BrickCracked",
+					"type": "despawn",
+					"range": [
+						[
+							20,
+							71
+						],
+						[
+							25,
+							72
+						]
+					]
+				},
+				{
+					"name": "BrickCrackedMoldy",
+					"type": "despawn",
+					"range": [
+						[
+							28,
+							68
+						],
+						[
+							34,
+							70
+						]
+					]
 				}
 			]
 		}
