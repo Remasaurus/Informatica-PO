@@ -88,12 +88,20 @@
             "alpha": true
         },
         {
-            "name": "falling-2",
-            "pos": [16, 96],
-            "width": 16,
-            "height": 32,
+            "name": "reswobUp",
+            "pos": [0, 128],
+            "width": 73,
+            "height": 51,
+            "alpha": true
+        },
+        {
+            "name": "reswobDown",
+            "pos": [0, 128],
+            "width": 74,
+            "height": 57,
             "alpha": true
         }
+
 
     ],
     "anims":
