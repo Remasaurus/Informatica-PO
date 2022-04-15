@@ -1,0 +1,62 @@
+{
+	"gravity": 1500,
+	"tileSheet": "./tiles.json",
+	"charachterSheet": "./charachters.json",
+	"spawnpoint": [
+		2,
+		60
+	],
+	"boss": [
+		18,
+		55
+	],
+	"ambient": [
+		255,
+		255,
+		255
+	],
+	"backgroundImages": [
+		[
+			"img/backgroundImg.png",
+			3,
+			[
+				0,
+				20
+			]
+		]
+	],
+	"layers": [
+		{
+			"tiles": [
+                {
+                } 
+        	]
+		}
+	],
+	"lights": [
+		{
+			"color": [
+				255,
+				255,
+				255
+			],
+			"pos": [
+				30,
+				53
+			],
+			"size": 500
+		},
+		{
+			"color": [
+				0,
+				255,
+				255
+			],
+			"pos": [
+				40,
+				53
+			],
+			"size": 1000
+		}
+	]
+}
