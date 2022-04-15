@@ -110,14 +110,14 @@
             "frames": [
                 "jump-1","jump-2","jump-3","jump-4"
             ],
-            "frameLen": 0.00005
+            "frameLen": 0.1
         },
         {
             "name": "falling",
             "frames": [
                 "falling-1","falling-2"
             ],
-            "frameLen": 0.01
+            "frameLen": 1
         }
     ]
 }
