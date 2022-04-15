@@ -103,21 +103,21 @@
             "frames": [
                 "run-1","run-2","run-3","run-4","run-5","run-6"
             ],
-            "frameLen": 6
+            "frameLen": 28
         },
         {
             "name": "jump",
             "frames": [
                 "jump-1","jump-2","jump-3","jump-4"
             ],
-            "frameLen": 6
+            "frameLen": 0.00005
         },
         {
             "name": "falling",
             "frames": [
                 "falling-1","falling-2"
             ],
-            "frameLen": 6
+            "frameLen": 0.01
         }
     ]
 }
