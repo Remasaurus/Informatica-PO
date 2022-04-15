@@ -1,6 +1,5 @@
 import time
 
-from numpy import save
 from Button import Align, Button, ImgButton, Slider, TextBox, TextButton
 from Camera import clamp
 from loaders import load_button_events, load_level, load_button_events, load_slider_events
