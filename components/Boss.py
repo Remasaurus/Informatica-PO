@@ -1,5 +1,6 @@
 import pygame
 from components.Component import Component, Sides
+from particles.FireBall import FireBall
 import random
 from enum import Enum, auto
 
@@ -93,6 +94,10 @@ class BossAI(Component):
             self.timer += delta_time
             if self.timer > self.time_between_fireball:
                 self.timer -= self.time_between_fireball
+                
+                level.particle_system.append(
+                    FireBall(entity.pos)
+                )
                 
                 # level.particle_system
         else:

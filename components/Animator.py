@@ -16,9 +16,9 @@ class Anim():
 class Animator(Component):
     def __init__(self, default="idle"):
         self.anims = dict()
-        self.current_frame = ""
         self.default = default
         self.total_time = 0
+        self.current_frame = Anim(self.default, 0, 0, self.total_time, -1)
         
     
     def add_anim(self, name, duration, time, prio):
