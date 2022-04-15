@@ -208,15 +208,17 @@ class BossAI(Component):
             else:
                 self.time_between_moves -= delta_time
             
-            if pygame.Rect(level.entities[0].pos).colliderect(pygame.Rect(entity.pos, entity.size)):
-                entity.hit()
                 
             if entity.vulnerable:
                 entity.components["Animator"].add_anim("reswob-down", math.inf, 0, 1)
                 entity.components["Animator"].delete_anim("reswob-up")
+                if pygame.Rect(level.entities[0].pos).colliderect(pygame.Rect(entity.pos, entity.size)):
+                    entity.hit()
             else:
                 entity.components["Animator"].add_anim("reswob-up", math.inf, 0, 1)
                 entity.components["Animator"].delete_anim("reswob-down")
+                if pygame.Rect(level.entities[0].pos).colliderect(pygame.Rect(entity.pos, entity.size)):
+                    level.entities[0].hit()
                 
                 
             self.first_frame = False
