@@ -20,7 +20,7 @@ class Move(Component):
         elif entity.vel.x > 0:
             entity.flip = False
             
-        if not entity.vel.x:
+        if absX < 0.01:
             if "run" in entity.components["Animator"].anims:
                 entity.components["Animator"].delete_anim("run") 
         else:

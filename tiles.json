@@ -41,7 +41,7 @@
             "alpha": true
         },
         {
-            "name": "rockbackground",
+            "name": "RockBackground",
             "pos": [0, 3],
             "alpha": true
         },
@@ -86,7 +86,7 @@
             "alpha": true
         },
         {
-            "name": "coins",
+            "name": "coin",
             "pos": [4, 2],
             "alpha": true
         },
