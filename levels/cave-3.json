@@ -8,8 +8,14 @@
 		100
 	],
 	"camera": [
-		[0, 0],
-		[10000, 10000]
+		[
+			0,
+			0
+		],
+		[
+			10000,
+			10000
+		]
 	],
 	"ambient": [
 		255,
@@ -800,216 +806,6 @@
 					]
 				},
 				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							12,
-							57
-						],
-						[
-							19,
-							58
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							26,
-							57
-						],
-						[
-							33,
-							58
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							19,
-							65
-						],
-						[
-							27,
-							66
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							12,
-							73
-						],
-						[
-							19,
-							74
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							26,
-							73
-						],
-						[
-							33,
-							74
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							30,
-							101
-						],
-						[
-							36,
-							102
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							45,
-							101
-						],
-						[
-							53,
-							102
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							29,
-							101
-						],
-						[
-							30,
-							102
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							63,
-							97
-						],
-						[
-							70,
-							98
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							76,
-							90
-						],
-						[
-							83,
-							91
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-left",
-					"range": [
-						[
-							90,
-							74
-						],
-						[
-							91,
-							77
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-left",
-					"range": [
-						[
-							26,
-							66
-						],
-						[
-							27,
-							68
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-right",
-					"range": [
-						[
-							18,
-							66
-						],
-						[
-							19,
-							68
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-right",
-					"range": [
-						[
-							97,
-							79
-						],
-						[
-							98,
-							82
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-right",
-					"range": [
-						[
-							97,
-							70
-						],
-						[
-							98,
-							73
-						]
-					]
-				},
-				{
 					"name": "BrickLightMoldy",
 					"type": "solid",
 					"range": [
@@ -1062,76 +858,6 @@
 						[
 							77,
 							86
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							66,
-							65
-						],
-						[
-							69,
-							66
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-top",
-					"range": [
-						[
-							52,
-							67
-						],
-						[
-							61,
-							68
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-top",
-					"range": [
-						[
-							74,
-							67
-						],
-						[
-							83,
-							68
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-top",
-					"range": [
-						[
-							61,
-							60
-						],
-						[
-							66,
-							61
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-top",
-					"range": [
-						[
-							69,
-							60
-						],
-						[
-							74,
-							61
 						]
 					]
 				},
@@ -1230,6 +956,342 @@
 						[
 							11,
 							83
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							12,
+							57
+						],
+						[
+							19,
+							58
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							26,
+							57
+						],
+						[
+							33,
+							58
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							12,
+							73
+						],
+						[
+							19,
+							74
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							26,
+							73
+						],
+						[
+							33,
+							74
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							66,
+							65
+						],
+						[
+							69,
+							66
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							76,
+							90
+						],
+						[
+							83,
+							91
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							63,
+							97
+						],
+						[
+							70,
+							98
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							45,
+							101
+						],
+						[
+							53,
+							102
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							29,
+							101
+						],
+						[
+							36,
+							102
+						]
+					]
+				},
+				{
+					"name": "spikesLeft",
+					"type": "spike-right",
+					"range": [
+						[
+							18,
+							66
+						],
+						[
+							19,
+							68
+						]
+					]
+				},
+				{
+					"name": "spikesRight",
+					"type": "spike-left",
+					"range": [
+						[
+							26,
+							66
+						],
+						[
+							27,
+							68
+						]
+					]
+				},
+				{
+					"name": "spikesTop",
+					"type": "spike-top",
+					"range": [
+						[
+							74,
+							67
+						],
+						[
+							83,
+							68
+						]
+					]
+				},
+				{
+					"name": "spikesTop",
+					"type": "spike-top",
+					"range": [
+						[
+							69,
+							60
+						],
+						[
+							74,
+							61
+						]
+					]
+				},
+				{
+					"name": "spikesTop",
+					"type": "spike-top",
+					"range": [
+						[
+							62,
+							60
+						],
+						[
+							66,
+							61
+						]
+					]
+				},
+				{
+					"name": "spikesTop",
+					"type": "spike-top",
+					"range": [
+						[
+							52,
+							67
+						],
+						[
+							62,
+							68
+						]
+					]
+				},
+				{
+					"name": "BrickLightMoldy",
+					"type": "solid",
+					"range": [
+						[
+							61,
+							60
+						],
+						[
+							62,
+							61
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "none",
+					"range": [
+						[
+							26,
+							65
+						],
+						[
+							27,
+							66
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "finish",
+					"range": [
+						[
+							12,
+							81
+						],
+						[
+							33,
+							82
+						]
+					]
+				},
+				{
+					"name": "BrickOneLight",
+					"type": "solid",
+					"range": [
+						[
+							12,
+							82
+						],
+						[
+							33,
+							83
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "none",
+					"range": [
+						[
+							19,
+							65
+						],
+						[
+							26,
+							66
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "none",
+					"range": [
+						[
+							90,
+							70
+						],
+						[
+							98,
+							82
+						]
+					]
+				},
+				{
+					"name": "spikesLeft",
+					"type": "spike-right",
+					"range": [
+						[
+							97,
+							75
+						],
+						[
+							98,
+							78
+						]
+					]
+				},
+				{
+					"name": "spikesLeft",
+					"type": "spike-right",
+					"range": [
+						[
+							97,
+							83
+						],
+						[
+							98,
+							86
+						]
+					]
+				},
+				{
+					"name": "spikesRight",
+					"type": "spike-left",
+					"range": [
+						[
+							90,
+							73
+						],
+						[
+							91,
+							76
 						]
 					]
 				}
