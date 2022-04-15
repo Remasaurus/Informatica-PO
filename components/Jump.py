@@ -82,7 +82,7 @@ class Jump(Component):
                 self.request_time = 0
                 self.coyote_time = 0
                 entity.vel.y = -(self.force + (abs(entity.vel.x) * self.boost))
-                # entity.components["Animator"].add_anim("jump", 1, 0, 10)
+                entity.components["Animator"].add_anim("jump", 1, 0, 10)
                 
 
             self.request_time -= delta_time
