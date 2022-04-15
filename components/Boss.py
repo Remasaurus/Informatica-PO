@@ -95,9 +95,12 @@ class BossAI(Component):
             if self.timer > self.time_between_fireball:
                 self.timer -= self.time_between_fireball
                 
-                level.particle_system.append(
-                    FireBall(entity.pos)
-                )
+                # if entity.pos.x < 10:
+                #     level.particle_system.append(
+                #         FireBall(entity.pos, 1)
+                #     )
+                # else:
+                    
                 
                 # level.particle_system
         else:
