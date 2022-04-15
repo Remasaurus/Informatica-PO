@@ -28,8 +28,63 @@
 	"layers": [
 		{
 			"tiles": [
- 
-				]
+				{
+					"name": "BrickLightMoldy",
+					"type": "solid",
+					"range": [
+						[
+							0,
+							102
+						],
+						[
+							16,
+							103
+						]
+					]
+				},
+				{
+					"name": "BrickLightMoldy",
+					"type": "solid",
+					"range": [
+						[
+							0,
+							86
+						],
+						[
+							1,
+							102
+						]
+					]
+				},
+				{
+					"name": "BrickLightMoldy",
+					"type": "solid",
+					"range": [
+						[
+							0,
+							85
+						],
+						[
+							24,
+							86
+						]
+					]
+				},
+				{
+					"name": "BrickLightMoldy",
+					"type": "solid",
+					"range": [
+						[
+							23,
+							86
+						],
+						[
+							24,
+							91
+						]
+					]
+				}
+			]
 		}
 	],
 	"lights": [
