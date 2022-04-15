@@ -74,17 +74,22 @@ class Application():
             overlay = pygame.Surface((16, 16))
             overlay.set_alpha(128)
             buttons = []
+            self.screen.fill("black")
             for i, file in enumerate(files):
-                buttons.append(TextButton((i * 16, 16), (16, 16), (255, 248, 220), str(i), (0, 0, 0)))
+                buttons.append(TextButton((32 + i * 48, 32), (32, 32), (255, 248, 220), str(i + 1), (0, 0, 0)))
                 buttons[i].draw(self.screen)
                 if int(file[-1]) < data["lvl"]:
                     self.surface.blit(overlay, (i * 16))
+            
+            pygame.display.flip()
                     
             load_button_events(event_handler, buttons)
-            
-            for i, button in enumerate(buttons):
-                if button.pressed:
-                    pass
+            while True:
+                event_handler.poll()
+                
+                for i, button in enumerate(buttons, 1):
+                    if button.pressed:
+                        self.game(f"{level}-{i}")
                     
             
                     
