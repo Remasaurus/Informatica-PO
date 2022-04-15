@@ -35,10 +35,7 @@ class Player(Entity):
     def draw(self, surface, camera, spritesheet): 
         if self.scale == (1, 1):
             frame = self.components["Animator"].get_frame()
-            if frame.name in spritesheet.anims:
-                print(frame.name)
-                print(frame.time)
-                
+            if frame.name in spritesheet.anims:                
                 spritesheet.draw_anim(frame.name, surface, self.pos.x -
                         camera.pos.x, self.pos.y - camera.pos.y, frame.time, self.flip)
             else:
