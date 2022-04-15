@@ -8,8 +8,14 @@
 		60
 	],
 	"camera": [
-		[0, 0],
-		[10000, 10000]
+		[
+			0,
+			0
+		],
+		[
+			10000,
+			10000
+		]
 	],
 	"ambient": [
 		255,
@@ -1168,20 +1174,6 @@
 					"type": "solid",
 					"range": [
 						[
-							77,
-							71
-						],
-						[
-							83,
-							75
-						]
-					]
-				},
-				{
-					"name": "BrickMoldy",
-					"type": "solid",
-					"range": [
-						[
 							72,
 							57
 						],
@@ -1304,133 +1296,7 @@
 					]
 				},
 				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							39,
-							74
-						],
-						[
-							53,
-							75
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							41,
-							100
-						],
-						[
-							46,
-							101
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							48,
-							100
-						],
-						[
-							52,
-							101
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							34,
-							100
-						],
-						[
-							39,
-							101
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							35,
-							128
-						],
-						[
-							66,
-							129
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							11,
-							128
-						],
-						[
-							26,
-							129
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							1,
-							122
-						],
-						[
-							10,
-							123
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							17,
-							106
-						],
-						[
-							24,
-							107
-						]
-					]
-				},
-				{
-					"name": "coin",
-					"type": "spike-bottom",
-					"range": [
-						[
-							1,
-							91
-						],
-						[
-							10,
-							92
-						]
-					]
-				},
-				{
-					"name": "coin",
+					"name": "spikesBottom",
 					"type": "spike-bottom",
 					"range": [
 						[
@@ -1444,21 +1310,91 @@
 					]
 				},
 				{
-					"name": "coin",
+					"name": "spikesBottom",
 					"type": "spike-bottom",
 					"range": [
 						[
-							74,
-							74
+							1,
+							91
 						],
 						[
-							77,
-							75
+							10,
+							92
 						]
 					]
 				},
 				{
-					"name": "coin",
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							17,
+							106
+						],
+						[
+							24,
+							107
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							1,
+							122
+						],
+						[
+							10,
+							123
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							11,
+							128
+						],
+						[
+							26,
+							129
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							35,
+							128
+						],
+						[
+							65,
+							129
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							65,
+							128
+						],
+						[
+							66,
+							129
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
 					"type": "spike-bottom",
 					"range": [
 						[
@@ -1472,35 +1408,133 @@
 					]
 				},
 				{
-					"name": "coin",
-					"type": "spike-left",
+					"name": "spikesBottom",
+					"type": "spike-bottom",
 					"range": [
 						[
-							11,
-							113
+							48,
+							100
 						],
 						[
-							12,
-							128
+							52,
+							101
 						]
 					]
 				},
 				{
-					"name": "coin",
-					"type": "spike-left",
+					"name": "spikesBottom",
+					"type": "spike-bottom",
 					"range": [
 						[
-							1,
-							93
+							41,
+							100
 						],
 						[
-							2,
-							122
+							46,
+							101
 						]
 					]
 				},
 				{
-					"name": "coin",
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							34,
+							100
+						],
+						[
+							39,
+							101
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							39,
+							74
+						],
+						[
+							53,
+							76
+						]
+					]
+				},
+				{
+					"name": "spikesBottom",
+					"type": "spike-bottom",
+					"range": [
+						[
+							74,
+							74
+						],
+						[
+							77,
+							75
+						]
+					]
+				},
+				{
+					"name": "spikesTop",
+					"type": "spike-top",
+					"range": [
+						[
+							49,
+							108
+						],
+						[
+							55,
+							109
+						]
+					]
+				},
+				{
+					"name": "spikesTop",
+					"type": "spike-top",
+					"range": [
+						[
+							57,
+							71
+						],
+						[
+							67,
+							72
+						]
+					]
+				},
+				{
+					"name": "spikesTop",
+					"type": "spike-top",
+					"range": [
+						[
+							39,
+							88
+						],
+						[
+							41,
+							89
+						]
+					]
+				},
+				{
+					"name": "spikesTop",
+					"type": "spike-top",
+					"range": [
+						[
+							46,
+							88
+						],
+						[
+							48,
+							89
+						]
+					]
+				},
+				{
+					"name": "spikesLeft",
 					"type": "spike-right",
 					"range": [
 						[
@@ -1514,16 +1548,72 @@
 					]
 				},
 				{
-					"name": "coin",
-					"type": "spike-top",
+					"name": "spikesRight",
+					"type": "spike-left",
 					"range": [
 						[
-							49,
-							108
+							1,
+							93
 						],
 						[
-							55,
-							109
+							2,
+							122
+						]
+					]
+				},
+				{
+					"name": "spikesRight",
+					"type": "spike-left",
+					"range": [
+						[
+							11,
+							113
+						],
+						[
+							12,
+							128
+						]
+					]
+				},
+				{
+					"name": "BrickMoldy",
+					"type": "solid",
+					"range": [
+						[
+							39,
+							75
+						],
+						[
+							53,
+							76
+						]
+					]
+				},
+				{
+					"name": "BrickOneLight",
+					"type": "solid",
+					"range": [
+						[
+							77,
+							71
+						],
+						[
+							83,
+							75
+						]
+					]
+				},
+				{
+					"name": "None",
+					"type": "finish",
+					"range": [
+						[
+							77,
+							70
+						],
+						[
+							83,
+							71
 						]
 					]
 				}
