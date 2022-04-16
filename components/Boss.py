@@ -1,6 +1,5 @@
 import math
 import pygame
-from components.Animator import Animator
 from components.Component import Component, Sides
 from particles.FireBall import FireBall
 import random
@@ -43,6 +42,10 @@ class BossAI(Component):
         self.bounce_movement = 100
         
         
+        self.knockbackY = 600
+        self.knockbackX = 1.2
+        
+        
         # run
         self.fall_first_frame = False
         self.side = 0
@@ -52,12 +55,16 @@ class BossAI(Component):
         self.run_speed = 500
         self.bounces = 0
         self.total_bounces = 2
+        self.duration_no_damage = 1
+        self.time_no_damage = 0
         
         # attack
         self.time_attack = 0
         self.time_between_fireball = 0.5
         self.timer = 0
         self.duration_attack = 5
+        
+        self.fireballs = []
         
 
 
@@ -100,13 +107,17 @@ class BossAI(Component):
                 self.timer -= self.time_between_fireball
                 
                 if entity.pos.x < level.entities[0].pos.x:
+                    fireball = FireBall(entity.pos + (entity.size.x, random.randint(0, entity.size.y)), 1)
                     level.particle_system.particles.append(
-                        FireBall(entity.pos + (entity.size.x, random.randint(0, entity.size.y)), 1)
+                        fireball
                     )
+                    self.fireballs.append(fireball)
                 else:
+                    fireball = FireBall(entity.pos + (0, random.randint(0, entity.size.y)), -1)
                     level.particle_system.particles.append(
-                        FireBall(entity.pos + (0, random.randint(0, entity.size.y)), -1)
+                        fireball
                     )
+                    self.fireballs.append(fireball)
             
         else:
             self.ready = True
@@ -171,6 +182,7 @@ class BossAI(Component):
             if self.bounces >= self.total_bounces:
                 self.ready = True
                 entity.vel.x = 0
+                self.falling = False
                 return
             
             entity.vel.y = -self.collide_jump
@@ -184,50 +196,65 @@ class BossAI(Component):
             
     
     def update(self, entity, delta_time, level):
-        if pygame.Rect(level.camera.pos - (50, 50), level.camera.size + (100, 100)).collidepoint(entity.pos):
-            if self.ready:
-                self.time_between_moves = self.duration_between_moves
-                self.current_move = None
-                self.ready = False
-                entity.vulnerable = False
-                
-            elif self.time_between_moves < 0:
-                self.current_move = random.choice(self.moves)
-                # self.current_move = BossMoves.ATTACK
-                self.time_between_moves = 0
-                self.first_frame = True
-                        
-            if self.current_move == BossMoves.JUMP:
-                self.jump(entity, delta_time, level)
-            elif self.current_move == BossMoves.ATTACK:
-                self.attack(entity, delta_time, level)
-            elif self.current_move == BossMoves.BOUNCE:
-                self.bounce(entity, delta_time, level)
-            elif self.current_move == BossMoves.RUN:
-                self.run(entity, delta_time, level)
-            else:
-                self.time_between_moves -= delta_time
+        # if pygame.Rect(level.camera.pos - (200, 200), level.camera.size + (100, 100)).collidepoint(entity.pos):
+        if self.ready:
+            self.time_between_moves = self.duration_between_moves
+            self.current_move = None
+            self.ready = False
             
-                
-            if entity.vulnerable:
-                entity.components["Animator"].add_anim("reswobDown", math.inf, 0, 1)
-                if "reswobUp" in entity.components["Animator"].anims:
-                    entity.components["Animator"].delete_anim("reswobUp")
+        elif self.time_between_moves < 0:
+            self.current_move = random.choice(self.moves)
+            # self.current_move = BossMoves.RUN
+            self.time_between_moves = 0
+            self.first_frame = True
+            entity.vulnerable = False
+            
+        if entity.vel.x < 0:
+            entity.flip = False
+        elif entity.vel.x > 0:
+            entity.flip = True
+            
                     
-                if pygame.Rect(level.entities[0].pos, level.entities[0].size).colliderect(pygame.Rect(entity.pos, entity.size)):
-                    entity.hit()
-            else:
-                entity.components["Animator"].add_anim("reswobUp", math.inf, 0, 1)
-                if "reswobDown" in entity.components["Animator"].anims:
-                    entity.components["Animator"].delete_anim("reswobDown")
+        if self.current_move == BossMoves.JUMP:
+            self.jump(entity, delta_time, level)
+        elif self.current_move == BossMoves.ATTACK:
+            self.attack(entity, delta_time, level)
+        elif self.current_move == BossMoves.BOUNCE:
+            self.bounce(entity, delta_time, level)
+        elif self.current_move == BossMoves.RUN:
+            self.run(entity, delta_time, level)
+        else:
+            self.time_between_moves -= delta_time
                     
-                if pygame.Rect(level.entities[0].pos, level.entities[0].size).colliderect(pygame.Rect(entity.pos, entity.size)):
-                    level.entities[0].hit()
+        if entity.vulnerable:
+            entity.components["Animator"].add_anim("reswobDown", math.inf, 0, 2)
+            if "reswobUp" in entity.components["Animator"].anims:
+                entity.components["Animator"].delete_anim("reswobUp")
                 
+            if pygame.Rect(level.entities[0].pos, level.entities[0].size).colliderect(pygame.Rect(entity.pos, entity.size)):
+                entity.hit(level)
+                self.time_no_damage = self.duration_no_damage
+                level.entities[0].vel.x *= -self.knockbackX
+                level.entities[0].vel.y = -self.knockbackY
                 
-            self.first_frame = False
-                                      
+        else:
+            entity.components["Animator"].add_anim("reswobUp", math.inf, 0, 1)
+            if "reswobDown" in entity.components["Animator"].anims:
+                entity.components["Animator"].delete_anim("reswobDown")
                 
+            if self.time_no_damage <= 0 and pygame.Rect(level.entities[0].pos,
+                                                        level.entities[0].size).colliderect(pygame.Rect(entity.pos, entity.size)):
+                level.entities[0].hit()
+        
+        if self.time_no_damage > 0:
+            self.time_no_damage -= delta_time    
+        self.first_frame = False
+        
+        for fireball in self.fireballs:
+            if pygame.Rect(fireball.pos, fireball.size).colliderect(pygame.Rect(level.entities[0].pos, level.entities[0].size)):
+                level.entities[0].hit()
+                                    
+            
                 
                 
     

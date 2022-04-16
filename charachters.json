@@ -96,7 +96,7 @@
         },
         {
             "name": "reswobDown",
-            "pos": [0, 128],
+            "pos": [0, 180],
             "width": 74,
             "height": 57,
             "alpha": true

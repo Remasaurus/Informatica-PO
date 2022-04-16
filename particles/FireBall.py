@@ -12,6 +12,7 @@ class FireBall(Particle):
         super().__init__(pos)
         FIREBALL.convert_alpha()
         self.dir = dir
+        self.size = FIREBALL.get_size()
     
     def draw(self, surface, camera):
         surface.blit(FIREBALL, self.pos - camera.pos)

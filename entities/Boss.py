@@ -7,7 +7,7 @@ from components.Boss import BossAI
 class Boss(Entity):
     def __init__(self):
         super().__init__()
-        self.size = pygame.Vector2(64, 64)
+        self.size = pygame.Vector2(74, 50)
         self.add_component(BossAI())
         self.add_component(Physics())
         self.add_component(Animator())
@@ -17,9 +17,11 @@ class Boss(Entity):
         
     def hit(self, level):
         self.lives -= 1
+        self.vulnerable = False
         if self.lives <= 0:
             level.finished = True
     
     def draw(self, surface, camera, spritesheet):
+        super().draw(surface, camera, spritesheet)        
         spritesheet.draw(self.components["Animator"].get_frame().name, surface, self.pos.x - camera.pos.x, self.pos.y - camera.pos.y, self.flip)
         
